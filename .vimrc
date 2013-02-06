@@ -60,6 +60,8 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+inoremap jj <ESC>
+
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
