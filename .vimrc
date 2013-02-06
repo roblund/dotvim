@@ -1,6 +1,14 @@
 set nocompatible
 filetype off
-execute pathogen#infect()
+" execute pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'altercation/vim-colors-solarized'
 
 syntax on
 filetype plugin indent on
