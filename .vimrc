@@ -1,6 +1,5 @@
 set nocompatible
 filetype off
-" execute pathogen#infect()
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -16,8 +15,6 @@ filetype plugin indent on
 set syn=auto
 set background=dark
 set t_Co=256
-" colorscheme koehler
-" colorscheme torte
 colorscheme solarized
 
 set modelines=0
@@ -41,13 +38,30 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-
 set history=1000
-set undofile
-set undolevels=1000
+
+if exists("+undofile")
+    " save undofiles in a less annoying spot
+    if isdirectory($HOME . '/.vim/undo') == 0
+        :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+    endif
+    set undofile
+    set undolevels=1000
+    set undodir=~/.vim/undo//,.
+endif
+
+" save swapfiles in a less annoying spot
+if isdirectory($HOME . '/.vim/swap') == 0
+    :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+set directory=~/.vim/swap//,.
+
+" save backups in a less annoying spot
+if isdirectory($HOME . '/.vim/backup') == 0
+    :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+endif
 set backup
-set backupdir=~/tmp,. " for *nix
-" set backupdir=c:/tmp,c:/temp,. " for win32
+set backupdir=~/.vim/backup//,. 
 
 set ignorecase
 set smartcase
@@ -65,16 +79,11 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-nnoremap j gj
-nnoremap k gk
-
-inoremap jj <ESC>
+"inoremap jj <ESC>
 
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-
-au FocusLost * :wa
 
 nnoremap <leader>v V`]
 nnoremap <leader>w <C-w>v<C-w>l
