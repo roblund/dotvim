@@ -79,7 +79,7 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-"inoremap jj <ESC>
+inoremap jj <ESC>
 
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -109,6 +109,8 @@ let php_htmlInStrings = 1
 
 " press <F2> before and after pasting to prevent cascading indentations when pasting in text
 set pastetoggle=<F2>
+
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*
 
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple session - remember to use F5 to refresh as needed
 let g:ctrlp_working_path_mode=0 " don't manage
