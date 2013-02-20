@@ -8,7 +8,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-scripts/closetag.vim'
+Bundle 'git://github.com/vim-scripts/closetag.vim.git'
 
 syntax on
 filetype plugin indent on
