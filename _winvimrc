@@ -1,0 +1,34 @@
+source $VIMRUNTIME/mswin.vim
+
+set vb t_vb=
+set guifont=Consolas:h11
+set lines=45 columns=120
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+set ff=unix
+
+if exists("+undofile")
+    " save undofiles in a less annoying spot
+    if isdirectory($HOME . '\.vim\undo') == 0
+        silent execute '!mkdir "' . $HOME . '\.vim\undo"'
+    endif
+    set undofile
+    set undolevels=1000
+    set undodir=$HOME\.vim\undo,.
+endif
+
+" save swapfiles in a less annoying spot
+if isdirectory($HOME . '\.vim\swap') == 0
+    silent execute '!mkdir "' . $HOME . '\.vim\swap"'
+endif
+set directory=$HOME\.vim\swap,.
+
+" save backups in a less annoying spot
+if isdirectory($HOME . '\.vim\backup') == 0
+    silent execute '!mkdir "' . $HOME . '\.vim\backup"'
+endif
+set backup
+set backupdir=$HOME\.vim\backup,. 
+
