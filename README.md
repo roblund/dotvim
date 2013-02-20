@@ -23,11 +23,11 @@ To clean up any old plugins not managed by Vundle you can run
 ```
 
 If you are using gvim on Windows you have to add single line files in your home directory that point to the real vimrc files.
-###_vimrc
+####_vimrc
 ```
 source ~/.vim/.vimrc
 ```
-###_gvimrc
+####_gvimrc
 ```
 source ~/.vim/_winvimrc
 ```
