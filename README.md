@@ -22,4 +22,12 @@ To clean up any old plugins not managed by Vundle you can run
 :BundleClean
 ```
 
-If you are using gvim on Windows copy _winvimrc into your home directory and rename it _gvimrc. You can't just use a soft link for this because some settings don't seem to load correctly (error bell comes to mind).
+If you are using gvim on Windows you have to add single line files in your home directory that point to the real vimrc files.
+###_vimrc
+```
+source ~/.vim/.vimrc
+```
+###_gvimrc
+```
+source ~/.vim/_winvimrc
+```

@@ -8,9 +8,13 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-scripts/closetag.vim'
 
 syntax on
 filetype plugin indent on
+
+" make sure myvimrc is pointing at the correct file
+let $MYVIMRC='~/.vim/.vimrc'
 
 set syn=auto
 set background=dark
@@ -68,6 +72,7 @@ set smartcase
 set gdefault
 set incsearch
 set showmatch
+set matchtime=0
 set hlsearch
 nnoremap <leader><space> :noh<cr>
 
@@ -94,8 +99,8 @@ imap <F5> <ESC>:bp!<CR>
 map <C-F5> :bw<CR>
 imap <C-F5> <ESC>:bw<CR>
 
-map <F7> :setlocal spell! spell?<CR>
-imap <F7> <ESC>:setlocal spell! spell?<CR>
+nmap <leader>s :setlocal spell! spell?<CR>
+set spelllang=en_us
 
 nnoremap <leader>v V`]
 nnoremap <leader>w <C-w>v<C-w>l
