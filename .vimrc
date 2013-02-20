@@ -94,6 +94,9 @@ imap <F5> <ESC>:bp!<CR>
 map <C-F5> :bw<CR>
 imap <C-F5> <ESC>:bw<CR>
 
+map <F7> :setlocal spell! spell?<CR>
+imap <F7> <ESC>:setlocal spell! spell?<CR>
+
 nnoremap <leader>v V`]
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>t <Esc>:tabnew<CR>
