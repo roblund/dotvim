@@ -73,25 +73,30 @@ nnoremap <leader><space> :noh<cr>
 
 set wrap
 set formatoptions=qrn1
+" because we're wrapping makes you can traverse each line on the screen
+nnoremap j gj
+nnoremap k gk
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-inoremap jj <ESC>
+"inoremap jj <ESC>
 
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+" basically turn off F1(help)
+map <F1> <ESC>
+
+set pastetoggle=<F2>
+
+map <F5> :bp!<CR>
+imap <F5> <ESC>:bp!<CR>
+map <C-F5> :bw<CR>
+imap <C-F5> <ESC>:bw<CR>
 
 nnoremap <leader>v V`]
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>t <Esc>:tabnew<CR>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 
 nmap , :NERDTreeToggle<cr>
 
@@ -107,10 +112,9 @@ autocmd BufRead *.html set syntax=html ts=2 sw=2 ft=html
 let php_baselib = 1
 let php_htmlInStrings = 1
 
-" press <F2> before and after pasting to prevent cascading indentations when pasting in text
-set pastetoggle=<F2>
-
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*
 
+" ctrlp configs
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple session - remember to use F5 to refresh as needed
 let g:ctrlp_working_path_mode=0 " don't manage
+
