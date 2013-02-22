@@ -8,6 +8,9 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'surround.vim'
+Bundle 'AutoComplPop'
+Bundle 'SuperTab-continued.'
 
 syntax on
 filetype plugin indent on
