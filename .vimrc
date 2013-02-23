@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+let g:vundle_default_git_proto='http'
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -114,7 +115,9 @@ autocmd BufRead *.php set syntax=php ts=4 sw=4 ft=php
 autocmd BufRead *.rb set syntax=ruby ts=2 sw=2 ft=ruby
 autocmd BufRead *.json set syntax=javascript ts=4 sw=4 ft=javascript
 autocmd BufRead *.tmpl set syntax=html ts=2 sw=2 ft=html
+autocmd BufRead *.ejs set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.html set syntax=html ts=2 sw=2 ft=html
+autocmd BufRead *.yml set syntax=yaml ts=2 sw=2 ft=yaml
 
 let php_baselib = 1
 let php_htmlInStrings = 1
