@@ -11,6 +11,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'surround.vim'
 Bundle 'AutoComplPop'
 Bundle 'AutoClose'
+Bundle 'UltiSnips'
 
 syntax on
 filetype plugin indent on
@@ -128,3 +129,6 @@ set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple session - remember to use F5 to refresh as needed
 let g:ctrlp_working_path_mode=0 " don't manage
 
+" ultisnips configs
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsDontReverseSearchPath="1"
