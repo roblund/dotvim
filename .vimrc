@@ -11,7 +11,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'surround.vim'
 Bundle 'AutoComplPop'
-Bundle 'AutoClose'
 Bundle 'UltiSnips'
 
 syntax on
