@@ -34,6 +34,7 @@ set smarttab
 set encoding=utf-8
 set scrolloff=3
 set autoindent
+set smartindent
 set mouse=a
 set ttymouse=xterm2
 set showmode
@@ -115,6 +116,7 @@ autocmd BufEnter * syntax sync fromstart
 autocmd BufRead *.md set syntax=markdown ft=markdown
 autocmd BufRead *.phph set syntax=php ts=4 sw=4 ft=php
 autocmd BufRead *.php set syntax=php ts=4 sw=4 ft=php
+autocmd BufRead *.css set syntax=css ts=4 sw=4 ft=css
 autocmd BufRead *.rb set syntax=ruby ts=2 sw=2 ft=ruby
 autocmd BufRead *.json set syntax=javascript ts=4 sw=4 ft=javascript
 autocmd BufRead *.tmpl set syntax=html ts=2 sw=2 ft=html
