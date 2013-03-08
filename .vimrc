@@ -12,6 +12,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'surround.vim'
 Bundle 'AutoComplPop'
 Bundle 'UltiSnips'
+Bundle 'ashwin/vim-powerline'
 
 syntax on
 filetype plugin indent on
@@ -23,6 +24,8 @@ set syn=auto
 set background=dark
 set t_Co=256
 colorscheme solarized
+let g:Powerline_symbols = 'fancy'
+"let g:Powerline_colorscheme = 'solarized256'
 
 set modelines=0
 
