@@ -10,9 +10,9 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'surround.vim'
-Bundle 'AutoComplPop'
 Bundle 'UltiSnips'
 Bundle 'ashwin/vim-powerline'
+Bundle "pangloss/vim-javascript"
 
 syntax on
 filetype plugin indent on
@@ -28,7 +28,6 @@ let g:Powerline_symbols = 'fancy'
 "let g:Powerline_colorscheme = 'solarized256'
 
 set modelines=0
-
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -72,7 +71,7 @@ if isdirectory($HOME . '/.vim/backup') == 0
     :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
 endif
 set backup
-set backupdir=~/.vim/backup//,. 
+set backupdir=~/.vim/backup//,.
 
 set ignorecase
 set smartcase
@@ -94,17 +93,12 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-"inoremap jj <ESC>
+inoremap jj <ESC>
 
 " basically turn off F1(help)
 map <F1> <ESC>
 
-set pastetoggle=<F2>
-
-map <F5> :bp!<CR>
-imap <F5> <ESC>:bp!<CR>
-map <C-F5> :bw<CR>
-imap <C-F5> <ESC>:bw<CR>
+set pastetoggle=<F3>
 
 nmap <leader>s :setlocal spell! spell?<CR>
 set spelllang=en_us
@@ -126,6 +120,9 @@ autocmd BufRead *.tmpl set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.ejs set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.html set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.yml set syntax=yaml ts=2 sw=2 ft=yaml
+
+" remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 let php_baselib = 1
 let php_htmlInStrings = 1
