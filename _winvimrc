@@ -1,8 +1,8 @@
 source $VIMRUNTIME/mswin.vim
 
 set vb t_vb=
-set guifont=Consolas:h11
-set guifont=Consolas\ for\ Powerline\ FixedD:h11
+"set guifont=Consolas:h11
+set guifont=Powerline\ Consolas:h11
 set lines=45 columns=120
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
