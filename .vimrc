@@ -10,7 +10,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ashwin/vim-powerline'
-Bundle "pangloss/vim-javascript"
+Bundle 'pangloss/vim-javascript'
+Bundle 'mhinz/vim-startify'
 
 syntax on
 filetype plugin indent on
@@ -91,7 +92,7 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-inoremap jj <ESC>
+"inoremap jj <ESC>
 
 " basically turn off F1(help)
 map <F1> <ESC>
@@ -101,8 +102,7 @@ set pastetoggle=<F3>
 nmap <leader>s :setlocal spell! spell?<CR>
 set spelllang=en_us
 
-nnoremap <leader>v V`]
-nnoremap <leader>w <C-w>v<C-w>l
+"nnoremap <leader>v V`]
 nnoremap <leader>t <Esc>:tabnew<CR>
 
 nmap , :NERDTreeToggle<cr>
@@ -113,6 +113,7 @@ autocmd BufRead *.phph set syntax=php ts=4 sw=4 ft=php
 autocmd BufRead *.php set syntax=php ts=4 sw=4 ft=php
 autocmd BufRead *.css set syntax=css ts=4 sw=4 ft=css
 autocmd BufRead *.rb set syntax=ruby ts=2 sw=2 ft=ruby
+autocmd BufRead *.js set syntax=javascript ts=4 sw=4 ft=javascript
 autocmd BufRead *.json set syntax=javascript ts=4 sw=4 ft=javascript
 autocmd BufRead *.tmpl set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.ejs set syntax=html ts=2 sw=2 ft=html
