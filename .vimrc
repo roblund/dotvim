@@ -11,6 +11,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ashwin/vim-powerline'
 Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-surround'
+Bundle 'godlygeek/tabular'
 Bundle 'mhinz/vim-startify'
 
 syntax on
@@ -41,8 +43,6 @@ set ttymouse=xterm2
 set showmode
 set showcmd
 set hidden
-set wildmenu
-set wildmode=list:longest
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -127,6 +127,8 @@ let php_baselib = 1
 let php_htmlInStrings = 1
 
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*
+set wildmenu
+set wildmode=longest,list
 
 " ctrlp configs
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple session - remember to use F5 to refresh as needed
