@@ -14,6 +14,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-surround'
 Bundle 'godlygeek/tabular'
 Bundle 'mhinz/vim-startify'
+Bundle 'ack.vim'
 
 syntax on
 filetype plugin indent on
