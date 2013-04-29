@@ -25,7 +25,6 @@ set background=dark
 set t_Co=256
 colorscheme solarized
 let g:Powerline_symbols = 'fancy'
-"let g:Powerline_colorscheme = 'solarized256'
 
 set modelines=0
 set expandtab
@@ -78,7 +77,7 @@ set incsearch
 set showmatch
 set matchtime=0
 set hlsearch
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader><space> :noh<CR>
 
 set wrap
 set formatoptions=qrn1
@@ -91,17 +90,13 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-"inoremap jj <ESC>
-
-" basically turn off F1(help)
-map <F1> <ESC>
-
 set pastetoggle=<F3>
+
+nmap <leader>d :w !diff % -<CR>
 
 nmap <leader>s :setlocal spell! spell?<CR>
 set spelllang=en_us
 
-"nnoremap <leader>v V`]
 nnoremap <leader>t <Esc>:tabnew<CR>
 
 nmap , :NERDTreeToggle<cr>
