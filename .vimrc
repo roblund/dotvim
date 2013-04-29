@@ -13,6 +13,7 @@ Bundle 'ashwin/vim-powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-surround'
 Bundle 'godlygeek/tabular'
+Bundle 'bufexplorer.zip'
 
 syntax on
 filetype plugin indent on
