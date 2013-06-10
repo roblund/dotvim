@@ -40,7 +40,7 @@ set mouse=a
 set ttymouse=xterm2
 set showmode
 set showcmd
-set hidden
+"set hidden
 set ttyfast
 set ruler
 set backspace=indent,eol,start
