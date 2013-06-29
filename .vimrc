@@ -13,6 +13,9 @@ Bundle 'ashwin/vim-powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-surround'
 Bundle 'godlygeek/tabular'
+Bundle 'bufexplorer.zip'
+Bundle 'Yggdroot/indentLine'
+Bundle 'AutoComplPop'
 
 syntax on
 filetype plugin indent on
@@ -91,6 +94,7 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 
 set pastetoggle=<F3>
+map <F9> :IndentLinesToggle<CR>
 
 nmap <leader>d :w !diff % -<CR>
 
