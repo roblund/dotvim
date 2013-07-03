@@ -8,14 +8,11 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'ashwin/vim-powerline'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-surround'
-Bundle 'godlygeek/tabular'
-Bundle 'bufexplorer.zip'
 Bundle 'Yggdroot/indentLine'
-Bundle 'AutoComplPop'
 
 syntax on
 filetype plugin indent on
@@ -28,6 +25,14 @@ set background=dark
 set t_Co=256
 colorscheme solarized
 let g:Powerline_symbols = 'fancy'
+
+" ctrlp configs
+let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple session - remember to use F5 to refresh as needed
+let g:ctrlp_working_path_mode=0 " don't manage
+let g:ctrlp_extensions = ['funky']
+
+" indentLine configs
+let g:indentLine_enabled=0 " off when vim starts
 
 set modelines=0
 set expandtab
@@ -43,7 +48,6 @@ set mouse=a
 set ttymouse=xterm2
 set showmode
 set showcmd
-"set hidden
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -96,6 +100,10 @@ nnoremap <right> <nop>
 set pastetoggle=<F3>
 map <F9> :IndentLinesToggle<CR>
 
+nnoremap <leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <leader>fU :execute 'CtrlPFunky '.expand('<cword>')<Cr>
+
 nmap <leader>d :w !diff % -<CR>
 
 nmap <leader>s :setlocal spell! spell?<CR>
@@ -103,7 +111,7 @@ set spelllang=en_us
 
 nnoremap <leader>t <Esc>:tabnew<CR>
 
-nmap , :NERDTreeToggle<cr>
+nmap , :NERDTreeToggle<CR>
 
 autocmd BufEnter * syntax sync fromstart
 autocmd BufRead *.md set syntax=markdown ft=markdown
@@ -127,8 +135,4 @@ let php_htmlInStrings = 1
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*
 set wildmenu
 set wildmode=longest,list
-
-" ctrlp configs
-let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple session - remember to use F5 to refresh as needed
-let g:ctrlp_working_path_mode=0 " don't manage
 
