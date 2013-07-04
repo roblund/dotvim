@@ -12,7 +12,7 @@ Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
-Bundle 'Yggdroot/indentLine'
+"Bundle 'Yggdroot/indentLine'
 
 syntax on
 filetype plugin indent on
@@ -98,7 +98,7 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 
 set pastetoggle=<F3>
-map <F9> :IndentLinesToggle<CR>
+"map <F9> :IndentLinesToggle<CR>
 
 nnoremap <leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
