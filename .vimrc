@@ -117,6 +117,7 @@ autocmd BufRead *.tmpl set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.ejs set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.html set syntax=html ts=2 sw=2 ft=html
 autocmd BufRead *.yml set syntax=yaml ts=2 sw=2 ft=yaml
+autocmd BufRead *.ino,*.pde set syntax=cpp ts=2 sw=2 ft=cpp
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
