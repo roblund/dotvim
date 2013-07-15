@@ -10,9 +10,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'pangloss/vim-javascript'
-"Bundle 'Yggdroot/indentLine'
+Bundle 'Yggdroot/indentLine'
 
 syntax on
 filetype plugin indent on
@@ -24,12 +25,17 @@ set syn=auto
 set background=dark
 set t_Co=256
 colorscheme solarized
-let g:Powerline_symbols = 'fancy'
+set ttimeoutlen=50
+
+let g:airline_powerline_fonts=1
+let g:airline_theme='badwolf'
+
+"let g:Powerline_symbols = 'fancy'
 
 " ctrlp configs
-let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple session - remember to use F5 to refresh as needed
+let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - remember to use F5 to refresh as needed
 let g:ctrlp_working_path_mode=0 " don't manage
-let g:ctrlp_extensions = ['funky']
+let g:ctrlp_extensions=['funky']
 
 " indentLine configs
 let g:indentLine_enabled=0 " off when vim starts
@@ -46,8 +52,8 @@ set autoindent
 set smartindent
 set mouse=a
 set ttymouse=xterm2
-set showmode
-set showcmd
+set noshowmode
+set noshowcmd
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -98,11 +104,12 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 
 set pastetoggle=<F3>
-"map <F9> :IndentLinesToggle<CR>
 
 nnoremap <leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <leader>fU :execute 'CtrlPFunky '.expand('<cword>')<Cr>
+
+nmap <leader>id :IndentLinesToggle<CR>
 
 nmap <leader>d :w !diff % -<CR>
 
