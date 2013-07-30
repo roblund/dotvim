@@ -1,8 +1,7 @@
 source $VIMRUNTIME/mswin.vim
 
 set vb t_vb=
-"set guifont=Consolas:h11
-set guifont=Powerline\ Consolas:h11
+set guifont=Liberation\ Mono\ for\ Powerline:h11
 set lines=45 columns=120
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
@@ -31,5 +30,5 @@ if isdirectory($HOME . '\.vim\backup') == 0
     silent execute '!mkdir "' . $HOME . '\.vim\backup"'
 endif
 set backup
-set backupdir=$HOME\.vim\backup,. 
+set backupdir=$HOME\.vim\backup,.
 
