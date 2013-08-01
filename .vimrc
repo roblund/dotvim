@@ -8,9 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'altercation/vim-colors-solarized'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Yggdroot/indentLine'
@@ -30,12 +28,11 @@ set ttimeoutlen=50
 let g:airline_powerline_fonts=1
 let g:airline_theme='badwolf'
 
-"let g:Powerline_symbols = 'fancy'
+let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows. hard to find a font that supports both the powerline > < characters and the nerdtree arrows
 
 " ctrlp configs
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - remember to use F5 to refresh as needed
 let g:ctrlp_working_path_mode=0 " don't manage
-let g:ctrlp_extensions=['funky']
 
 " indentLine configs
 let g:indentLine_enabled=0 " off when vim starts
