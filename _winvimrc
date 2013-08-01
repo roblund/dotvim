@@ -1,7 +1,7 @@
 source $VIMRUNTIME/mswin.vim
 
 set vb t_vb=
-set guifont=Liberation\ Mono\ for\ Powerline:h11
+set guifont=Liberation\ Mono:h10
 set lines=45 columns=120
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
