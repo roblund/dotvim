@@ -25,10 +25,10 @@ set t_Co=256
 colorscheme solarized
 set ttimeoutlen=50
 
-let g:airline_powerline_fonts=1
 let g:airline_theme='badwolf'
+let g:airline_enable_branch=0
 
-let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows. hard to find a font that supports both the powerline > < characters and the nerdtree arrows
+let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
 
 " ctrlp configs
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - remember to use F5 to refresh as needed
