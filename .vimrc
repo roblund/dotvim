@@ -26,6 +26,8 @@ colorscheme solarized
 set ttimeoutlen=50
 
 let g:airline_theme='badwolf'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_enable_branch=0
 
 let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
