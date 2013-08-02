@@ -60,8 +60,8 @@ set statusline +=%*\ col:%v\ %*         "column
 set statusline +=%*%r%*                 "read only flag '[RO]'
 set statusline +=%*%y%*                 "file type
 
-hi statusline guibg=#121212 guifg=#00ff5f ctermbg=233 ctermfg=47 cterm=none
-hi statuslineNC guibg=#1c1c1c guifg=#585858 ctermbg=234 ctermfg=240 cterm=none
+hi statusline guibg=#121212 guifg=#00ff5f ctermbg=233 ctermfg=47 cterm=none gui=none
+hi statuslineNC guibg=#1c1c1c guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
