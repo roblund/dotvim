@@ -10,7 +10,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
-Bundle 'vimwiki/vimwiki'
 
 syntax on
 filetype plugin indent on
@@ -29,11 +28,6 @@ let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
 " ctrlp configs
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - remember to use F5 to refresh as needed
 let g:ctrlp_working_path_mode=0 " don't manage
-
-" vimwiki configs
-let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki',
-\ 'path_html': '~/Google Drive/vimwiki/html',
-\ 'html_header': '~/Google Drive/vimwiki/template/header.tpl',}]
 
 set modelines=0
 set expandtab
