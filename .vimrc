@@ -121,6 +121,8 @@ set spelllang=en_us
 
 nnoremap <leader>t <Esc>:tabnew<CR>
 
+map <leader>nt <Esc>:tabedit %<CR>
+
 nmap , :NERDTreeToggle<CR>
 
 autocmd BufEnter * syntax sync fromstart
