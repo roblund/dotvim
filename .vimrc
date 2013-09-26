@@ -51,14 +51,15 @@ set history=1000
 
 " statusline
 set statusline=
-set statusline +=%*[%n]\ %*             "buffer number
 set statusline +=%*%<%f%*               "full path
 set statusline +=%*%m%*                 "modified flag
 set statusline +=%*%=%5l%*              "current line
 set statusline +=%*/%L%*                "total lines
-set statusline +=%*\ col:%v\ %*         "column
-set statusline +=%*%r%*                 "read only flag '[RO]'
-set statusline +=%*%y%*                 "file type
+set statusline +=%*\ C:%v\ %*           "column
+" old options
+"set statusline +=%*[%n]\ %*             "buffer number
+"set statusline +=%*%r%*                 "read only flag '[RO]'
+"set statusline +=%*%y%*                 "file type
 
 hi statusline guibg=#121212 guifg=#00ff5f ctermbg=233 ctermfg=47 cterm=none gui=none
 hi statuslineNC guibg=#1c1c1c guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
