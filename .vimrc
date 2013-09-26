@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-let g:vundle_default_git_proto='http'
+let g:vundle_default_git_proto='git'
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'flazz/vim-colorschemes'
 Bundle 'pangloss/vim-javascript'
 
 syntax on
@@ -20,7 +20,7 @@ let $MYVIMRC='~/.vim/.vimrc'
 set syn=auto
 set background=dark
 set t_Co=256
-colorscheme solarized
+colorscheme torte
 set ttimeoutlen=50
 
 let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
@@ -55,7 +55,7 @@ set statusline +=%*%<%f%*               "full path
 set statusline +=%*%m%*                 "modified flag
 set statusline +=%*%=%5l%*              "current line
 set statusline +=%*/%L%*                "total lines
-set statusline +=%*\ C:%v\ %*           "column
+set statusline +=%*\ c%v\ %*           "column
 " old options
 "set statusline +=%*[%n]\ %*             "buffer number
 "set statusline +=%*%r%*                 "read only flag '[RO]'
