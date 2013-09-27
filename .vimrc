@@ -55,8 +55,8 @@ set statusline +=%*%<%f%*               "full path
 set statusline +=%*%m%*                 "modified flag
 set statusline +=%*%=%5l%*              "current line
 set statusline +=%*/%L%*                "total lines
-set statusline +=%*\ c%v\ %*           "column
 " old options
+"set statusline +=%*\ c%v\ %*           "column
 "set statusline +=%*[%n]\ %*             "buffer number
 "set statusline +=%*%r%*                 "read only flag '[RO]'
 "set statusline +=%*%y%*                 "file type
