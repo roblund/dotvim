@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
-Bundle 'flazz/vim-colorschemes'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
 
 syntax on
@@ -20,7 +20,7 @@ let $MYVIMRC='~/.vim/.vimrc'
 set syn=auto
 set background=dark
 set t_Co=256
-colorscheme torte
+colorscheme solarized
 set ttimeoutlen=50
 
 let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
@@ -108,12 +108,6 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 
 set pastetoggle=<F3>
-
-nnoremap <leader>fu :CtrlPFunky<Cr>
-" narrow the list down with a word under cursor
-nnoremap <leader>fU :execute 'CtrlPFunky '.expand('<cword>')<Cr>
-
-nmap <leader>id :IndentLinesToggle<CR>
 
 nmap <leader>d :w !diff % -<CR>
 
