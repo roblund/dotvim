@@ -10,8 +10,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'CSApprox'
 
 syntax on
 filetype plugin indent on
@@ -22,7 +20,7 @@ let $MYVIMRC='~/.vim/.vimrc'
 set syn=auto
 set background=dark
 set t_Co=256
-colorscheme torte-rlund
+colorscheme solarized
 set ttimeoutlen=50
 
 let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
