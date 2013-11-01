@@ -11,6 +11,7 @@ Bundle 'bufexplorer.zip'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-surround'
 
 syntax on
 filetype plugin indent on
