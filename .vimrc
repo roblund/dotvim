@@ -25,6 +25,8 @@ set t_Co=256
 colorscheme solarized
 set ttimeoutlen=50
 
+let g:bufExplorerShowRelativePath=1
+
 let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
 
 " ctrlp configs
