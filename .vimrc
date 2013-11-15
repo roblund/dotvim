@@ -6,8 +6,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'bufexplorer.zip'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'bufexplorer.zip'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
@@ -25,13 +25,14 @@ set t_Co=256
 colorscheme solarized
 set ttimeoutlen=50
 
-let g:bufExplorerShowRelativePath=1
-
-let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
+"let g:bufExplorerShowRelativePath=1
+"let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
 
 " ctrlp configs
-let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - remember to use F5 to refresh as needed
-let g:ctrlp_working_path_mode=0 " don't manage
+let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
+let g:ctrlp_working_path_mode=0 " don't manage working path
+let g:ctrlp_extensions = ['buffertag']
+let g:ctrlp_match_window = 'max:15'
 
 set modelines=0
 set expandtab
@@ -55,15 +56,15 @@ set history=1000
 
 " statusline
 set statusline=
-set statusline +=%*%<%f%*               "full path
-set statusline +=%*%m%*                 "modified flag
-set statusline +=%*%=%5l%*              "current line
-set statusline +=%*/%L%*                "total lines
+set statusline +=%*%<%f%* "full path
+set statusline +=%*%m%* "modified flag
+set statusline +=%*%=%5l%* "current line
+set statusline +=%*/%L%* "total lines
+set statusline +=%*\ %y%* "file type
 " old options
-"set statusline +=%*\ c%v\ %*           "column
-"set statusline +=%*[%n]\ %*             "buffer number
-"set statusline +=%*%r%*                 "read only flag '[RO]'
-"set statusline +=%*%y%*                 "file type
+"set statusline +=%*\ c%v\ %* "column
+"set statusline +=%*[%n]\ %* "buffer number
+"set statusline +=%*%r%* "read only flag '[RO]'
 
 hi statusline guibg=#121212 guifg=#00ff5f ctermbg=233 ctermfg=47 cterm=none gui=none
 hi statuslineNC guibg=#1c1c1c guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
@@ -90,6 +91,8 @@ if isdirectory($HOME . '/.vim/backup') == 0
 endif
 set backup
 set backupdir=~/.vim/backup//,.
+
+set tags=./tags
 
 set ignorecase
 set smartcase
