@@ -125,6 +125,9 @@ nnoremap <leader>t <Esc>:tabnew<CR>
 
 map <leader>nt <Esc>:tabedit %<CR>
 
+nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
+nnoremap <leader>g <Esc>:CtrlPBufTag<CR>
+
 nmap , :NERDTreeToggle<CR>
 
 autocmd BufEnter * syntax sync fromstart
