@@ -124,6 +124,8 @@ nnoremap <leader>g <Esc>:CtrlPBufTag<CR>
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+au BufRead,BufNewFile *.md set filetype=markdown
+
 let php_baselib = 1
 let php_htmlInStrings = 1
 

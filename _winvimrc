@@ -1,6 +1,6 @@
 set vb t_vb=
 set guifont=Liberation\ Mono:h10
-set lines=45 columns=120
+set lines=70 columns=150
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
