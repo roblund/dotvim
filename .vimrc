@@ -6,8 +6,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'scrooloose/nerdtree'
-"Bundle 'bufexplorer.zip'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
@@ -16,7 +14,6 @@ Bundle 'tpope/vim-surround'
 syntax on
 filetype plugin indent on
 
-" make sure myvimrc is pointing at the correct file
 let $MYVIMRC='~/.vim/.vimrc'
 
 set syn=auto
@@ -25,8 +22,8 @@ set t_Co=256
 colorscheme solarized
 set ttimeoutlen=50
 
-"let g:bufExplorerShowRelativePath=1
-"let g:NERDTreeDirArrows=0 " turn off fancy unicode arrows
+"let g:NERDTreeDirArrows=0
+"nmap , :NERDTreeToggle<CR>
 
 " ctrlp configs
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
@@ -55,17 +52,12 @@ set laststatus=2
 set history=1000
 set clipboard=unnamed
 
-" statusline
 set statusline=
 set statusline +=%*%<%f%* "full path
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
-" old options
-"set statusline +=%*\ c%v\ %* "column
-"set statusline +=%*[%n]\ %* "buffer number
-"set statusline +=%*%r%* "read only flag '[RO]'
 
 hi statusline guibg=#121212 guifg=#00ff5f ctermbg=233 ctermfg=47 cterm=none gui=none
 hi statuslineNC guibg=#1c1c1c guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
@@ -93,7 +85,7 @@ endif
 set backup
 set backupdir=~/.vim/backup//,.
 
-set tags=./tags
+set tags=tags
 
 set ignorecase
 set smartcase
@@ -117,33 +109,17 @@ nnoremap <right> <nop>
 
 set pastetoggle=<F3>
 
+" show unsaved changes
 nmap <leader>d :w !diff % -<CR>
 
+" spellcheck
 nmap <leader>s :setlocal spell! spell?<CR>
 set spelllang=en_us
 
 nnoremap <leader>t <Esc>:tabnew<CR>
 
-map <leader>nt <Esc>:tabedit %<CR>
-
 nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>g <Esc>:CtrlPBufTag<CR>
-
-nmap , :NERDTreeToggle<CR>
-
-autocmd BufEnter * syntax sync fromstart
-autocmd BufRead *.md set syntax=markdown ft=markdown
-autocmd BufRead *.phph set syntax=php ts=4 sw=4 ft=php
-autocmd BufRead *.php set syntax=php ts=4 sw=4 ft=php
-autocmd BufRead *.css set syntax=css ts=4 sw=4 ft=css
-autocmd BufRead *.rb set syntax=ruby ts=2 sw=2 ft=ruby
-autocmd BufRead *.js set syntax=javascript ts=4 sw=4 ft=javascript
-autocmd BufRead *.json set syntax=javascript ts=4 sw=4 ft=javascript
-autocmd BufRead *.tmpl set syntax=html ts=2 sw=2 ft=html
-autocmd BufRead *.ejs set syntax=html ts=2 sw=2 ft=html
-autocmd BufRead *.html set syntax=html ts=2 sw=2 ft=html
-autocmd BufRead *.yml set syntax=yaml ts=2 sw=2 ft=yaml
-autocmd BufRead *.ino,*.pde set syntax=cpp ts=2 sw=2 ft=cpp
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -154,4 +130,3 @@ let php_htmlInStrings = 1
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*
 set wildmenu
 set wildmode=longest,list
-
