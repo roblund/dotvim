@@ -26,6 +26,7 @@ set ttimeoutlen=50
 " ctrlp configs
 let g:ctrlp_clear_cache_on_exit = 0 " keep cache files across multiple sessions - f5 to refresh
 let g:ctrlp_working_path_mode = 0 " don't manage working path
+let g:ctrlp_max_files = 100000
 let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_match_window = 'max:15'
 
