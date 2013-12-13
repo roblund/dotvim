@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kien/ctrlp.vim'
-Bundle 'w0ng/vim-hybrid'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-surround'
 
@@ -19,11 +19,10 @@ let $MYVIMRC='~/.vim/.vimrc'
 set syn=auto
 set background=dark
 set t_Co=256
-"set t_ut=
 if &term =~ '256color'
     set t_ut=
 endif
-colorscheme hybrid
+colorscheme solarized
 set ttimeoutlen=50
 
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
