@@ -57,8 +57,8 @@ set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
 
-hi statusline guibg=#121212 guifg=#00ff5f ctermbg=233 ctermfg=47 cterm=none gui=none
-hi statuslineNC guibg=#1c1c1c guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
+hi statusline guibg=#585858 guifg=#ffffff ctermbg=240 ctermfg=15 cterm=none gui=none
+hi statuslineNC guibg=#1C1C1C guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
