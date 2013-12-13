@@ -7,7 +7,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
+Bundle 'w0ng/vim-hybrid'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-surround'
 
@@ -19,15 +20,12 @@ let $MYVIMRC='~/.vim/.vimrc'
 set syn=auto
 set background=dark
 set t_Co=256
-colorscheme solarized
+colorscheme hybrid
 set ttimeoutlen=50
 
-"let g:NERDTreeDirArrows=0
-"nmap , :NERDTreeToggle<CR>
-
 " ctrlp configs
-let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
-let g:ctrlp_working_path_mode=0 " don't manage working path
+let g:ctrlp_clear_cache_on_exit = 0 " keep cache files across multiple sessions - f5 to refresh
+let g:ctrlp_working_path_mode = 0 " don't manage working path
 let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_match_window = 'max:15'
 
