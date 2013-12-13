@@ -7,7 +7,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'altercation/vim-colors-solarized'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-surround'
@@ -20,15 +19,18 @@ let $MYVIMRC='~/.vim/.vimrc'
 set syn=auto
 set background=dark
 set t_Co=256
+"set t_ut=
+if &term =~ '256color'
+    set t_ut=
+endif
 colorscheme hybrid
 set ttimeoutlen=50
 
-" ctrlp configs
-let g:ctrlp_clear_cache_on_exit = 0 " keep cache files across multiple sessions - f5 to refresh
-let g:ctrlp_working_path_mode = 0 " don't manage working path
-let g:ctrlp_max_files = 100000
-let g:ctrlp_extensions = ['buffertag']
-let g:ctrlp_match_window = 'max:15'
+let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
+let g:ctrlp_working_path_mode=0 " don't manage working path
+let g:ctrlp_max_files=100000
+let g:ctrlp_extensions=['buffertag']
+let g:ctrlp_match_window='max:15'
 
 set modelines=0
 set expandtab
@@ -57,8 +59,8 @@ set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
 
-hi statusline guibg=#585858 guifg=#ffffff ctermbg=240 ctermfg=15 cterm=none gui=none
-hi statuslineNC guibg=#1C1C1C guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
+hi statusline guibg=#444444 guifg=#ffffff ctermbg=238 ctermfg=15 cterm=none gui=none
+hi statuslineNC guibg=#121212 guifg=#585858 ctermbg=233 ctermfg=240 cterm=none gui=none
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
