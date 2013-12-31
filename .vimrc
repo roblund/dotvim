@@ -20,18 +20,17 @@ let $MYVIMRC='~/.vim/.vimrc'
 set syn=auto
 set background=dark
 set t_Co=256
+if &term =~ '256color'
+    set t_ut=
+endif
 colorscheme solarized
 set ttimeoutlen=50
 
-"let g:NERDTreeDirArrows=0
-"nmap , :NERDTreeToggle<CR>
-
-" ctrlp configs
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
 let g:ctrlp_working_path_mode=0 " don't manage working path
-let g:ctrlp_max_files = 100000
-let g:ctrlp_extensions = ['buffertag']
-let g:ctrlp_match_window = 'max:15'
+let g:ctrlp_max_files=100000
+let g:ctrlp_extensions=['buffertag']
+let g:ctrlp_match_window='max:15'
 
 set modelines=0
 set expandtab
@@ -60,8 +59,8 @@ set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
 
-hi statusline guibg=#121212 guifg=#00ff5f ctermbg=233 ctermfg=47 cterm=none gui=none
-hi statuslineNC guibg=#1c1c1c guifg=#585858 ctermbg=234 ctermfg=240 cterm=none gui=none
+hi statusline guibg=#444444 guifg=#ffffff ctermbg=238 ctermfg=15 cterm=none gui=none
+hi statuslineNC guibg=#121212 guifg=#585858 ctermbg=233 ctermfg=240 cterm=none gui=none
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
@@ -131,6 +130,6 @@ au BufRead,BufNewFile *.ino,*.pde set filetype=cpp
 let php_baselib = 1
 let php_htmlInStrings = 1
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*
 set wildmenu
 set wildmode=longest,list
