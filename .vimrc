@@ -8,6 +8,14 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'terryma/vim-expand-region'
+Bundle 'tpope/vim-endwise'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'tpope/vim-commentary'
+Bundle 'mileszs/ack.vim'
 
 syntax on
 filetype plugin indent on
@@ -28,6 +36,7 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:15'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 set modelines=0
 set expandtab
@@ -91,13 +100,16 @@ set incsearch
 set showmatch
 set matchtime=0
 set hlsearch
-nnoremap <leader><space> :noh<CR>
 
 set wrap
 set formatoptions=qrn1
 " because we're wrapping makes you can traverse each line on the screen
 nnoremap j gj
 nnoremap k gk
+
+
+" highlight what you just pasted
+noremap gV `[v`]
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -106,7 +118,26 @@ nnoremap <right> <nop>
 
 set pastetoggle=<F3>
 
-" show unsaved changes
+let mapleader="\<Space>"
+
+" search project
+nmap <leader>a :Ack
+
+" remove search highlight
+nnoremap <leader>h :noh<CR>
+
+" save file
+nnoremap <Leader>w :w<CR>
+
+" comment/uncomment
+nmap <leader>c gcc
+vmap <leader>c gc
+
+" select region expand/contract
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" show unsaved changes (slightly nicer than :changes)
 nmap <leader>d :w !diff % -<CR>
 
 " spellcheck
@@ -115,8 +146,19 @@ set spelllang=en_us
 
 nnoremap <leader>t <Esc>:tabnew<CR>
 
+nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>g <Esc>:CtrlPBufTag<CR>
+
+" copy/paste from system buffer
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+
+map q: :q
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
