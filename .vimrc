@@ -5,17 +5,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
+
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'pangloss/vim-javascript'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'terryma/vim-expand-region'
-Bundle 'tpope/vim-endwise'
-Bundle 'jiangmiao/auto-pairs'
+Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
-Bundle 'mileszs/ack.vim'
+Bundle 'pangloss/vim-javascript'
 
 syntax on
 filetype plugin indent on
@@ -107,9 +101,18 @@ set formatoptions=qrn1
 nnoremap j gj
 nnoremap k gk
 
-
 " highlight what you just pasted
 noremap gV `[v`]
+
+" remove search highlight
+nnoremap coh :noh<CR>
+
+" show unsaved changes (slightly nicer than :changes)
+nnoremap cod :w !diff % -<CR>
+
+" spellcheck
+nnoremap cos :setlocal spell! spell?<CR>
+set spelllang=en_us
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -120,45 +123,15 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
-" search project
-nmap <leader>a :Ack
-
-" remove search highlight
-nnoremap <leader>h :noh<CR>
-
-" save file
-nnoremap <Leader>w :w<CR>
-
-" comment/uncomment
-nmap <leader>c gcc
-vmap <leader>c gc
-
-" select region expand/contract
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
-" show unsaved changes (slightly nicer than :changes)
-nmap <leader>d :w !diff % -<CR>
-
-" spellcheck
-nmap <leader>s :setlocal spell! spell?<CR>
-set spelllang=en_us
-
 nnoremap <leader>t <Esc>:tabnew<CR>
-
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>g <Esc>:CtrlPBufTag<CR>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
-vmap <leader>d "+d
 nmap <leader>p "+p
-nmap <leader>P "+P
 vmap <leader>p "+p
-vmap <leader>P "+P
-
-map q: :q
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
