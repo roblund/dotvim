@@ -12,17 +12,14 @@ Install [Vundle](https://github.com/gmarik/vundle)
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ```
 
-Open up vim and run the following command to install all plugins via Vundle
+Run Vundle
 ```
-:BundleInstall
-```
-
-To clean up any old plugins not managed by Vundle you can run
-```
-:BundleClean
+vi +BundleInstall +BundleClean! +qa
 ```
 
-If you are using gvim on Windows you have to add single line files in your home directory that point to the real vimrc files.
+## Windows
+
+Add single line files in your home directory that point to the real vimrc files.
 ####_vimrc
 ```
 source ~/.vim/.vimrc
@@ -31,3 +28,5 @@ source ~/.vim/.vimrc
 ```
 source ~/.vim/_winvimrc
 ```
+
+You will also need to manually copy any ftplugin files into {user}/vimfiles/ftplugin
