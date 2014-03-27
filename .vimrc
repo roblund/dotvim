@@ -10,6 +10,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-vinegar'
+Bundle 'jlanzarotta/bufexplorer'
 
 syntax on
 filetype plugin indent on
