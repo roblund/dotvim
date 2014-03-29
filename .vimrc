@@ -53,6 +53,8 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set history=1000
+set splitright
+set nrformats=
 
 set statusline=
 set statusline +=%*%<%f%* "full path
@@ -126,8 +128,8 @@ set pastetoggle=<F3>
 let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
+" nnoremap <Leader>o :CtrlP<CR>
+" nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>g <Esc>:CtrlPBufTag<CR>
 
 " copy/paste from system buffer
