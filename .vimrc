@@ -12,6 +12,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-vinegar'
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'vimwiki'
 
 syntax on
 filetype plugin indent on
@@ -33,6 +34,9 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:15'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+
+let g:vimwiki_list = [{'path': '~/Dropbox/VimWiki', 'ext': '.md', 'syntax': 'markdown'},
+    \ {'path': '~/VimWiki', 'ext': '.md', 'syntax': 'markdown'}]
 
 set modelines=0
 set expandtab
@@ -103,9 +107,6 @@ set formatoptions=qrn1
 nnoremap j gj
 nnoremap k gk
 
-" highlight what you just pasted
-noremap gV `[v`]
-
 " remove search highlight
 nnoremap coh :noh<CR>
 
@@ -126,9 +127,11 @@ set pastetoggle=<F3>
 let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
-nnoremap <Leader>o :CtrlP<CR>
-nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
-nnoremap <leader>g <Esc>:CtrlPBufTag<CR>
+nnoremap <leader>o <Esc>:CtrlP<CR>
+" nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
+nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
+nnoremap <leader>q <Esc>:e #<CR> " technically switches back to previous buffer
+nnoremap <leader>v `[v`] " highlight what you just pasted
 
 " copy/paste from system buffer
 vmap <leader>y "+y
