@@ -57,6 +57,8 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set history=1000
+set splitright
+set nrformats=
 
 set statusline=
 set statusline +=%*%<%f%* "full path
