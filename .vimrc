@@ -35,8 +35,7 @@ let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:15'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
-let g:vimwiki_list = [{'path': '~/Dropbox/VimWiki', 'ext': '.md', 'syntax': 'markdown'},
-    \ {'path': '~/VimWiki', 'ext': '.md', 'syntax': 'markdown'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/VimWiki', 'ext': '.md', 'syntax': 'markdown'}]
 
 set modelines=0
 set expandtab
@@ -109,6 +108,9 @@ set formatoptions=qrn1
 nnoremap j gj
 nnoremap k gk
 
+" highlight what you just pasted
+nnoremap gV `[v`]
+
 " remove search highlight
 nnoremap coh :noh<CR>
 
@@ -130,10 +132,8 @@ let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
 nnoremap <leader>o <Esc>:CtrlP<CR>
-" nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
 nnoremap <leader>q <Esc>:e #<CR> " technically switches back to previous buffer
-nnoremap <leader>v `[v`] " highlight what you just pasted
 
 " copy/paste from system buffer
 vmap <leader>y "+y
