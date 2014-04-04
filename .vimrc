@@ -7,6 +7,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-vinegar'
@@ -61,14 +63,19 @@ set splitright
 set nrformats=
 
 set statusline=
-set statusline +=%*%<%f%* "full path
+set statusline +=%*%<%f\ %* "full path
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
 
+set fillchars=stl:-,stlnc:-,vert:│,fold:-,diff:-
+
 hi statusline guibg=#444444 guifg=#ffffff ctermbg=238 ctermfg=15 cterm=none gui=none
-hi statuslineNC guibg=#121212 guifg=#585858 ctermbg=233 ctermfg=240 cterm=none gui=none
+hi statuslineNC guifg=#585858 ctermfg=240 cterm=none gui=none
+
+hi VertSplit cterm=none ctermfg=238
+hi VertSplit gui=none guifg=#444444
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
