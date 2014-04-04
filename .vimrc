@@ -6,7 +6,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'pangloss/vim-javascript'
@@ -25,7 +24,7 @@ set t_Co=256
 if &term =~ '256color'
     set t_ut=
 endif
-colorscheme solarized
+colorscheme torte
 set ttimeoutlen=50
 
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
@@ -35,7 +34,9 @@ let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:15'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
-let g:vimwiki_list = [{'path': '~/Dropbox/VimWiki', 'ext': '.md', 'syntax': 'markdown'}]
+let g:vimwiki_list=[{'path': '~/Dropbox/VimWiki', 'ext': '.md', 'syntax': 'markdown'}]
+
+let g:bufExplorerShowRelativePath=1
 
 set modelines=0
 set expandtab
