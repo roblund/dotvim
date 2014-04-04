@@ -69,7 +69,7 @@ set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
 
-set fillchars=stl:-,stlnc:-,vert:│,fold:-,diff:-
+set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 
 hi statusline guibg=#444444 guifg=#ffffff ctermbg=238 ctermfg=15 cterm=none gui=none
 hi statuslineNC guifg=#585858 ctermfg=240 cterm=none gui=none
