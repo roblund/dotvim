@@ -11,6 +11,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'pangloss/vim-javascript'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-vinegar'
 Bundle 'jlanzarotta/bufexplorer'
 Bundle 'vimwiki'
@@ -61,6 +62,7 @@ set laststatus=2
 set history=1000
 set splitright
 set nrformats=
+set number
 
 set statusline=
 set statusline +=%*%<%f\ %* "full path
