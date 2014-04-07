@@ -37,11 +37,13 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:15'
+let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 let g:vimwiki_list=[{'path': '~/Wiki'}]
 
 let g:bufExplorerShowRelativePath=1
+
 
 set modelines=0
 set expandtab
