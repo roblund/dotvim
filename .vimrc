@@ -39,7 +39,7 @@ let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:15'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
-let g:vimwiki_list=[{'path': '~/Dropbox/VimWiki', 'ext': '.md', 'syntax': 'markdown'}]
+let g:vimwiki_list=[{'path': '~/Wiki'}]
 
 let g:bufExplorerShowRelativePath=1
 
