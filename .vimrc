@@ -14,6 +14,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-vinegar'
 Bundle 'jlanzarotta/bufexplorer'
+Bundle 'mhinz/vim-startify'
 Bundle 'vimwiki'
 
 syntax on
