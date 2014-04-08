@@ -124,7 +124,7 @@ let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
 nnoremap <leader>o <Esc>:CtrlP<CR>
-nnoremap <leader>o <Esc>:CtrlPBuffer<CR>
+nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
 nnoremap <leader>h <Esc>:noh<CR>
 nnoremap <leader>d <Esc>:w !diff % -<CR> " slightly nicer than :changes
