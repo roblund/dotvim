@@ -42,7 +42,6 @@ let g:vimwiki_list=[{'path': '~/Wiki'}]
 
 let g:bufExplorerShowRelativePath=1
 
-
 set modelines=0
 set expandtab
 set tabstop=4
@@ -64,6 +63,7 @@ set laststatus=2
 set history=1000
 set splitright
 set nrformats=
+set nohidden
 set number
 
 set statusline=
