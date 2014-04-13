@@ -7,15 +7,11 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-commentary'
+
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-vinegar'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'vimwiki'
 
 syntax on
 filetype plugin indent on
@@ -35,12 +31,7 @@ let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
-let g:ctrlp_match_window='max:15'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-
-let g:vimwiki_list=[{'path': '~/Wiki'}]
-
-let g:bufExplorerShowRelativePath=1
+let g:ctrlp_match_window='max:18'
 
 set modelines=0
 set expandtab
@@ -123,16 +114,6 @@ nnoremap k gk
 " highlight what you just pasted
 nnoremap gV `[v`]
 
-" remove search highlight
-nnoremap coh :noh<CR>
-
-" show unsaved changes (slightly nicer than :changes)
-nnoremap cod :w !diff % -<CR>
-
-" spellcheck
-nnoremap cos :setlocal spell! spell?<CR>
-set spelllang=en_us
-
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -144,8 +125,11 @@ let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
 nnoremap <leader>o <Esc>:CtrlP<CR>
+nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
-nnoremap <leader>q <Esc>:e #<CR> " technically switches back to previous buffer
+nnoremap <leader>h <Esc>:noh<CR>
+nnoremap <leader>d <Esc>:w !diff % -<CR> " slightly nicer than :changes
+nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
