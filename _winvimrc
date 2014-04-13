@@ -1,5 +1,7 @@
 set vb t_vb=
-set guifont=Liberation\ Mono:h10
+" set guifont=Liberation\ Mono:h10
+" set guifont=M+\ 1mn\ regular:h10
+set guifont=Terminus:h11
 set lines=70 columns=150
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
