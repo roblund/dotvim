@@ -33,8 +33,6 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
 
-let NERDTreeHijackNetrw=1
-
 set modelines=0
 set expandtab
 set tabstop=4
@@ -139,7 +137,7 @@ nmap <leader>p "+p
 vmap <leader>p "+p
 
 " NERDTree/Netrw
-nnoremap - <Esc>:e.<CR>
+nnoremap - <Esc>:NERDTreeToggle<CR>
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
