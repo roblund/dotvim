@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-commentary'
 
 Bundle 'pangloss/vim-javascript'
@@ -135,9 +135,6 @@ nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
-
-" NERDTree/Netrw
-nnoremap - <Esc>:NERDTreeToggle<CR>
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
