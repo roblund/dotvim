@@ -54,7 +54,6 @@ set laststatus=2
 set history=1000
 set splitright
 set nrformats=
-set nohidden
 set number
 
 set statusline=
