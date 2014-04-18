@@ -24,7 +24,7 @@ set t_Co=256
 if &term =~ '256color'
     set t_ut=
 endif
-colorscheme grb256
+colorscheme ir_black
 set ttimeoutlen=50
 
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
