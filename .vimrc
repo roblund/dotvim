@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-commentary'
 
 Bundle 'pangloss/vim-javascript'
@@ -33,8 +33,6 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
 
-let NERDTreeHijackNetrw=1
-
 set modelines=0
 set expandtab
 set tabstop=4
@@ -56,7 +54,6 @@ set laststatus=2
 set history=1000
 set splitright
 set nrformats=
-set nohidden
 set number
 
 set statusline=
@@ -137,9 +134,6 @@ nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
-
-" NERDTree/Netrw
-nnoremap - <Esc>:e.<CR>
 
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
