@@ -66,10 +66,9 @@ set statusline +=%*\ %y%* "file type
 set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
 
 hi statusline guibg=#444444 guifg=#ffffff ctermbg=238 ctermfg=15 cterm=none gui=none
-hi statuslineNC guifg=#585858 ctermfg=240 cterm=none gui=none
+hi statuslineNC guibg=#000000 guifg=#585858 ctermbg=0 ctermfg=240 cterm=none gui=none
 
-hi VertSplit cterm=none ctermfg=238
-hi VertSplit gui=none guifg=#444444
+hi VertSplit guibg=#000000 guifg=#444444 ctermbg=0 ctermfg=238 cterm=none gui=none
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
