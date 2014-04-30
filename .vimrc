@@ -9,7 +9,6 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-unimpaired'
 
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
@@ -106,27 +105,23 @@ set hlsearch
 
 set wrap
 set formatoptions=qrn1
-" because we're wrapping makes you can traverse each line on the screen
+" I prefer to move by display line
 nnoremap j gj
 nnoremap k gk
 
 " highlight what you just pasted
 nnoremap gV `[v`]
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-
 set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
-nnoremap <leader>o <Esc>:CtrlP<CR>
 nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
+nnoremap <leader>h <Esc>:noh<CR>
 nnoremap <leader>d <Esc>:w !diff % -<CR> " slightly nicer than :changes
+nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
