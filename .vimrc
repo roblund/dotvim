@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 Bundle 'matchit.zip'
 
@@ -26,7 +27,7 @@ set t_Co=256
 if &term =~ '256color'
     set t_ut=
 endif
-colorscheme grb256
+colorscheme ir_rob
 set ttimeoutlen=50
 
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
