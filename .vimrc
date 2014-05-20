@@ -11,7 +11,7 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
-Bundle 'matchit.zip'
+Bundle 'matchit.zip' " extends % to work with HTML and other filetypes
 
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
@@ -144,3 +144,14 @@ let php_htmlInStrings = 1
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*
 set wildmenu
 set wildmode=longest,list
+
+" setup visual */# search
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = temp
+endfunction
