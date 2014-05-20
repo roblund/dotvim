@@ -18,7 +18,7 @@ hi Error guifg=NONE guibg=NONE gui=undercurl ctermfg=16 ctermbg=red cterm=NONE g
 hi ErrorMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NONE
 hi WarningMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NONE
 hi SpellBad guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=160 cterm=NONE
-hi Search guifg=NONE guibg=#2F2F00 gui=underline ctermfg=NONE ctermbg=236 cterm=underline
+hi Search guifg=#000000 guibg=#87ff5f gui=BOLD ctermfg=16 ctermbg=119 cterm=NONE
 hi Operator guifg=#6699CC guibg=#1D1E2C gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=lightgreen ctermfg=16
