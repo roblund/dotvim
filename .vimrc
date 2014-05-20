@@ -11,10 +11,10 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
-Bundle 'matchit.zip' " extends % to work with HTML and other filetypes
 
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'matchit.zip'
 
 syntax on
 filetype plugin indent on
