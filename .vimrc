@@ -11,6 +11,8 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-repeat'
 
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
