@@ -101,6 +101,7 @@ set backupdir=~/.vim/backup//,.
 set tags=tags
 
 set ignorecase
+set infercase
 set smartcase
 set gdefault
 set incsearch
