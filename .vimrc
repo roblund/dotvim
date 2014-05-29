@@ -12,7 +12,6 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 
@@ -42,7 +41,6 @@ let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
 
 let g:ackhighlight = 1
-let g:ack_use_dispatch = 1
 let g:ack_default_options =
       \ " -s -H --nocolor --nogroup --smart-case --follow"
 
