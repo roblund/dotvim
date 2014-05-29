@@ -13,6 +13,8 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-repeat'
 
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
@@ -107,6 +109,7 @@ set backupdir=~/.vim/backup//,.
 set tags=tags
 
 set ignorecase
+set infercase
 set smartcase
 set gdefault
 set incsearch
