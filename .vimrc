@@ -7,14 +7,17 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
+
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-dispatch'
 
 Bundle 'pangloss/vim-javascript'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'matchit.zip'
+Bundle 'mileszs/ack.vim'
 
 syntax on
 filetype plugin indent on
@@ -35,6 +38,11 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
+
+let g:ackhighlight = 1
+let g:ack_use_dispatch = 1
+let g:ack_default_options =
+      \ " -s -H --nocolor --nogroup --smart-case --follow"
 
 set modelines=0
 set expandtab
