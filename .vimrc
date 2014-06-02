@@ -7,16 +7,21 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-endwise'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
+
 Plugin 'matchit.zip'
+Plugin 'raimondi/delimitMate'
 
 syntax on
 filetype plugin indent on
@@ -38,6 +43,10 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
 
+let g:ackhighlight = 1
+let g:ack_default_options =
+      \ " -s -H --nocolor --nogroup --smart-case --follow"
+
 set modelines=0
 set expandtab
 set tabstop=4
@@ -58,6 +67,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set history=1000
 set splitright
+set hidden
 set nrformats=
 set number
 
