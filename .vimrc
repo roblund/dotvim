@@ -1,10 +1,10 @@
 set nocompatible
 filetype off
 let g:vundle_default_git_proto='git'
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -23,8 +23,10 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'matchit.zip'
 Plugin 'raimondi/delimitMate'
 
-syntax on
+call vundle#end()
+
 filetype plugin indent on
+syntax on
 
 let $MYVIMRC='~/.vim/.vimrc'
 
