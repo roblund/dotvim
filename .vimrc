@@ -15,13 +15,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-endwise'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
-
 Plugin 'matchit.zip'
-Plugin 'raimondi/delimitMate'
 
 call vundle#end()
 
