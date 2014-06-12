@@ -1,25 +1,29 @@
 set nocompatible
 filetype off
 let g:vundle_default_git_proto='git'
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-vinegar'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-repeat'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 
-Bundle 'pangloss/vim-javascript'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'matchit.zip'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
 
-syntax on
+Plugin 'pangloss/vim-javascript'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'matchit.zip'
+
+call vundle#end()
+
 filetype plugin indent on
+syntax on
 
 let $MYVIMRC='~/.vim/.vimrc'
 
@@ -37,6 +41,10 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
+
+let g:ackhighlight = 1
+let g:ack_default_options =
+      \ " -s -H --nocolor --nogroup --smart-case --follow"
 
 set modelines=0
 set expandtab
@@ -58,6 +66,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set history=1000
 set splitright
+set hidden
 set nrformats=
 set number
 
@@ -101,6 +110,7 @@ set backupdir=~/.vim/backup//,.
 set tags=tags
 
 set ignorecase
+set infercase
 set smartcase
 set gdefault
 set incsearch
