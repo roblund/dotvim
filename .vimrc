@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
-Plugin 'jlanzarotta/bufexplorer'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'tpope/vim-vinegar'
@@ -69,6 +68,7 @@ set history=1000
 set splitright
 set hidden
 set nrformats=
+set number
 
 set statusline=
 set statusline +=%*%<%f\ %* "full path
