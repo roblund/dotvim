@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'tpope/vim-vinegar'
@@ -68,7 +69,6 @@ set history=1000
 set splitright
 set hidden
 set nrformats=
-set number
 
 set statusline=
 set statusline +=%*%<%f\ %* "full path
@@ -76,13 +76,6 @@ set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
-
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
-
-hi statusline guibg=#444444 guifg=#ffffff ctermbg=238 ctermfg=15 cterm=none gui=none
-hi statuslineNC guibg=#000000 guifg=#585858 ctermbg=0 ctermfg=240 cterm=none gui=none
-
-hi VertSplit guibg=#000000 guifg=#444444 ctermbg=0 ctermfg=238 cterm=none gui=none
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
