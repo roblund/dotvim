@@ -6,7 +6,7 @@ hi pythonSpaceError ctermbg=red guibg=red
 
 hi Comment ctermfg=242 guifg=#7b7d7b
 
-hi StatusLine ctermbg=236 ctermfg=47 guibg=#3f3f3f guifg=#00ff77
+hi StatusLine ctermbg=236 ctermfg=120 guibg=#3f3f3f guifg=#00ff77
 hi StatusLineNC ctermbg=233 ctermfg=242 guibg=#171717 guifg=#7b7d7b
 
 hi VertSplit ctermbg=0 ctermfg=242 guibg=#000000 guifg=#7b7d7b
@@ -31,5 +31,5 @@ hi DiffDelete term=reverse cterm=bold ctermbg=lightred ctermfg=16
 hi PmenuSel ctermfg=16 ctermbg=156
 
 hi TabLineFill guibg=darkgray guifg=#171717 ctermbg=darkgray ctermfg=233
-hi TabLineSel guibg=darkgray guifg=lightgreen ctermbg=236 ctermfg=47
+hi TabLineSel guibg=darkgray guifg=lightgreen ctermbg=236 ctermfg=120
 hi TabLine guibg=black guifg=darkgray gui=NONE ctermbg=black ctermfg=darkgray cterm=NONE
