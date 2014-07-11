@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'tpope/vim-vinegar'
@@ -16,6 +17,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 
+Plugin 'csexton/trailertrash.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'matchit.zip'
@@ -135,9 +137,6 @@ nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
-
-" remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
 
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ino,*.pde set filetype=cpp
