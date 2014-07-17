@@ -71,7 +71,6 @@ set splitright
 set hidden
 set nrformats=
 set number
-set showtabline=2
 
 set statusline=
 set statusline +=%*%<%f\ %* "full path
