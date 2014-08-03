@@ -1,25 +1,31 @@
 set nocompatible
 filetype off
 let g:vundle_default_git_proto='git'
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-vinegar'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-repeat'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'mileszs/ack.vim'
 
-Bundle 'pangloss/vim-javascript'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'matchit.zip'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
 
-syntax on
+Plugin 'csexton/trailertrash.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'matchit.zip'
+
+call vundle#end()
+
 filetype plugin indent on
+syntax on
 
 let $MYVIMRC='~/.vim/.vimrc'
 
@@ -37,6 +43,10 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
+
+let g:ackhighlight = 1
+let g:ack_default_options =
+      \ " -s -H --nocolor --nogroup --smart-case --follow"
 
 set modelines=0
 set expandtab
@@ -58,6 +68,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set history=1000
 set splitright
+set hidden
 set nrformats=
 set number
 
@@ -67,13 +78,6 @@ set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L%* "total lines
 set statusline +=%*\ %y%* "file type
-
-set fillchars=stl:-,stlnc:-,vert:\|,fold:-,diff:-
-
-hi statusline guibg=#444444 guifg=#ffffff ctermbg=238 ctermfg=15 cterm=none gui=none
-hi statuslineNC guibg=#000000 guifg=#585858 ctermbg=0 ctermfg=240 cterm=none gui=none
-
-hi VertSplit guibg=#000000 guifg=#444444 ctermbg=0 ctermfg=238 cterm=none gui=none
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
@@ -134,16 +138,13 @@ vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
 
-" remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ino,*.pde set filetype=cpp
 
 let php_baselib = 1
 let php_htmlInStrings = 1
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*/.DS_Store
 set wildmenu
 set wildmode=longest,list
 
