@@ -9,6 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
+Plugin 'CursorLineCurrentWindow'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -71,6 +72,7 @@ set splitright
 set hidden
 set nrformats=
 set number
+set cursorline
 
 set statusline=
 set statusline +=%*%<%f\ %* "full path
