@@ -143,10 +143,10 @@ vmap <leader>p "+p
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ino,*.pde set filetype=cpp
 
-let php_baselib = 1
-let php_htmlInStrings = 1
+let php_baselib=1
+let php_htmlInStrings=1
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*/.DS_Store
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*
 set wildmenu
 set wildmode=longest,list
 
