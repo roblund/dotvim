@@ -20,4 +20,4 @@ function return_status() {
     echo " %(?:%{$fg_bold[green]%}$ :%{$fg_bold[red]%}$ %s)%{$reset_color%}"
 }
 
-PROMPT='$(ssh_connection)%3~$(my_current_branch)$(return_status)'
+PROMPT='$(ssh_connection)%5~$(my_current_branch)$(return_status)'
