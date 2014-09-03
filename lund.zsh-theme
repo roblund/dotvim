@@ -6,7 +6,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 function my_current_branch() {
     local branch=$(current_branch)
     if [[ -n $branch ]]; then
-        echo " %{$fg_bold[black]%}($branch)%{$reset_color%}"
+        echo " %{$fg_bold[blue]%}($branch)%{$reset_color%}"
     fi
 }
 
