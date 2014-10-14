@@ -45,9 +45,8 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
 
-let g:ackhighlight = 1
-let g:ack_default_options =
-      \ " -s -H --nocolor --nogroup --smart-case --follow"
+let g:ackhighlight=1
+let g:ack_default_options=" -s -H --nocolor --nogroup --smart-case --follow"
 
 set modelines=0
 set expandtab
@@ -113,7 +112,6 @@ set gdefault
 set incsearch
 set showmatch
 set matchtime=0
-set hlsearch
 
 set wrap
 set formatoptions=qrn1
@@ -129,7 +127,7 @@ set pastetoggle=<F3>
 let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
-nnoremap <leader>b <Esc>:ls<CR>
+nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
 nnoremap <leader>h <Esc>:noh<CR>
 nnoremap <leader>d <Esc>:w !diff % -<CR> " slightly nicer than :changes
@@ -160,3 +158,10 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = temp
 endfunction
+
+" allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>``
