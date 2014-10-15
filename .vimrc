@@ -21,7 +21,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'csexton/trailertrash.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'matchit.zip'
 
 call vundle#end()
 
@@ -109,9 +108,9 @@ set ignorecase
 set infercase
 set smartcase
 set gdefault
-set incsearch
 set showmatch
 set matchtime=0
+set incsearch
 
 set wrap
 set formatoptions=qrn1
@@ -129,7 +128,6 @@ let mapleader="\<Space>"
 nnoremap <leader>t <Esc>:tabnew<CR>
 nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
-nnoremap <leader>h <Esc>:noh<CR>
 nnoremap <leader>d <Esc>:w !diff % -<CR> " slightly nicer than :changes
 nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
 
@@ -140,7 +138,7 @@ vmap <leader>p "+p
 
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ino,*.pde set filetype=cpp
-au BufRead,BufNewFile *.ejs set filetype=jst
+au BufRead,BufNewFile *.ejs set filetype=eruby
 
 let php_baselib=1
 let php_htmlInStrings=1
