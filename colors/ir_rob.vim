@@ -6,7 +6,7 @@ hi pythonSpaceError ctermbg=red guibg=red
 
 hi Comment ctermfg=242 guifg=#7b7d7b
 
-hi StatusLine ctermbg=236 ctermfg=120 guibg=#3f3f3f guifg=#00ff77
+hi StatusLine cterm=NONE ctermbg=236 ctermfg=120 gui=NONE guibg=#3f3f3f guifg=#00ff77
 hi StatusLineNC ctermbg=233 ctermfg=242 guibg=#171717 guifg=#7b7d7b
 
 hi VertSplit ctermbg=0 ctermfg=242 guibg=#000000 guifg=#7b7d7b
