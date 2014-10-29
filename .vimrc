@@ -48,6 +48,8 @@ let g:ctrlp_match_window='max:18'
 let g:ackhighlight=1
 let g:ack_default_options=" -s -H --nocolor --nogroup --smart-case --follow"
 
+let g:bufExplorerShowRelativePath=1
+
 set modelines=0
 set expandtab
 set tabstop=4
