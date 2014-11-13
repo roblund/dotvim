@@ -10,7 +10,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'mileszs/ack.vim'
 Plugin 'CursorLineCurrentWindow'
-" Plugin 'jlanzarotta/bufexplorer'
+Plugin 'BufOnly.vim'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -129,9 +129,10 @@ set pastetoggle=<F3>
 let mapleader="\<Space>"
 
 nnoremap <leader>t <Esc>:tabnew<CR>
-nnoremap <leader>b :buffers<CR>:b
-" nnoremap <leader>bf <Esc>:CtrlPBuffer<CR>
+nnoremap <leader>l :buffers<CR>:b
+nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
 nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
+nnoremap <leader>kab <Esc>:BufOnly<CR>
 nnoremap <leader>d <Esc>:w !diff % -<CR> " slightly nicer than :changes
 nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
 
