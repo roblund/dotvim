@@ -128,6 +128,7 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
+nnoremap <leader><leader> <C-^>
 nnoremap <leader>t <Esc>:tabnew<CR>
 nnoremap <leader>l :buffers<CR>:b
 nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
