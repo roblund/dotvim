@@ -18,6 +18,7 @@ hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=236 cterm=NONE
 
 hi Error guifg=NONE guibg=NONE gui=undercurl ctermfg=16 ctermbg=red cterm=NONE guisp=#FF6C60
 hi ErrorMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NONE
+hi htmlError guifg=red gui=BOLD ctermfg=9 cterm=NONE
 hi WarningMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NONE
 hi SpellBad guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=160 cterm=NONE
 hi Search guifg=#000000 guibg=#87ff5f gui=BOLD ctermfg=16 ctermbg=119 cterm=NONE

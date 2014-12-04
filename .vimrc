@@ -164,6 +164,11 @@ function! s:VSetSearch()
     let @s = temp
 endfunction
 
+" identify the syntax highlighting group
+nnoremap <leader>hh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " allows incsearch highlighting for range commands
 cnoremap $t <CR>:t''<CR>
 cnoremap $T <CR>:T''<CR>
