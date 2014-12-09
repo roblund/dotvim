@@ -30,4 +30,4 @@ source ~/.vim/.vimrc
 source ~/.vim/_winvimrc
 ```
 
-You will also need to manually copy `ftplugin, colors, after` files into `{user}/vimfiles/`
+You will also need to manually copy `ftplugin, colors, after` files into `{Program Files}/vim/vimfiles/`
