@@ -7,10 +7,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'mileszs/ack.vim'
 Plugin 'CursorLineCurrentWindow'
-Plugin 'BufOnly.vim'
+Plugin 'haya14busa/vim-asterisk'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'csexton/trailertrash.vim'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -19,7 +19,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 
-Plugin 'csexton/trailertrash.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 
@@ -47,8 +46,6 @@ let g:ctrlp_match_window='max:18'
 
 let g:ackhighlight=1
 let g:ack_default_options=" -s -H --nocolor --nogroup --smart-case --follow"
-
-let g:bufExplorerShowRelativePath=1
 
 set modelines=0
 set expandtab
@@ -114,10 +111,11 @@ set gdefault
 set showmatch
 set matchtime=0
 set incsearch
+set hlsearch
 
 set wrap
 set formatoptions=qrn1
-" I prefer to move by display line
+" move by display line
 nnoremap j gj
 nnoremap k gk
 
@@ -128,19 +126,35 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
-nnoremap <leader><leader> <C-^>
-nnoremap <leader>t <Esc>:tabnew<CR>
-nnoremap <leader>l :buffers<CR>:b
-nnoremap <leader>b <Esc>:CtrlPBuffer<CR>
-nnoremap <leader>f <Esc>:CtrlPBufTag<CR>
-nnoremap <leader>kab <Esc>:BufOnly<CR>
-nnoremap <leader>d <Esc>:w !diff % -<CR> " slightly nicer than :changes
-nnoremap <leader>s <Esc>:setlocal spell! spell?<CR>
+nnoremap <leader><leader> :b#<cr>
+nnoremap <leader>l :buffers<cr>:b
+nnoremap <leader>t :tabnew<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>f :CtrlPBufTag<cr>
+nnoremap <leader>d :w !diff % -<cr> " slightly nicer than :changes
+nnoremap <leader>s :setlocal spell! spell?<cr>
+nnoremap <leader>h :noh<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
+
+" haya incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" haya asterisk search
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+
+" identify the syntax highlighting group
+:command SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ino,*.pde set filetype=cpp
@@ -152,26 +166,3 @@ let php_htmlInStrings=1
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*
 set wildmenu
 set wildmode=longest,list
-
-" setup visual */# search
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
-
-function! s:VSetSearch()
-    let temp = @s
-    norm! gv"sy
-    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-    let @s = temp
-endfunction
-
-" identify the syntax highlighting group
-nnoremap <leader>hh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-" allows incsearch highlighting for range commands
-cnoremap $t <CR>:t''<CR>
-cnoremap $T <CR>:T''<CR>
-cnoremap $m <CR>:m''<CR>
-cnoremap $M <CR>:M''<CR>
-cnoremap $d <CR>:d<CR>``
