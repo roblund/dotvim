@@ -20,6 +20,7 @@ vi +BundleInstall +BundleClean! +qa
 ## Windows
 
 Add single line files in your home directory that point to the real vimrc files.
+
 ####_vimrc
 ```
 source ~/.vim/.vimrc
@@ -29,4 +30,4 @@ source ~/.vim/.vimrc
 source ~/.vim/_winvimrc
 ```
 
-You will also need to manually copy any ftplugin files into {user}/vimfiles/ftplugin
+You will also need to manually copy `ftplugin, colors, after` files into `{user}/vimfiles/`
