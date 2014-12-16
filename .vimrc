@@ -12,6 +12,7 @@ Plugin 'haya14busa/vim-asterisk'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'csexton/trailertrash.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'takac/vim-hardtime'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -49,6 +50,9 @@ let g:ackhighlight=1
 let g:ack_default_options=" -s -H --nocolor --nogroup --smart-case --follow"
 
 let g:EasyMotion_smartcase = 1
+
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
 
 set modelines=0
 set expandtab
