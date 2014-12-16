@@ -53,7 +53,7 @@ let g:EasyMotion_smartcase = 1
 
 let g:hardtime_default_on = 1
 let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 3
+let g:hardtime_maxcount = 2
 
 set modelines=0
 set expandtab
@@ -154,7 +154,6 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
-
 
 " haya incsearch
 map /  <Plug>(incsearch-forward)
