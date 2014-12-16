@@ -11,6 +11,7 @@ Plugin 'CursorLineCurrentWindow'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'csexton/trailertrash.vim'
+Bundle 'justinmk/vim-sneak'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
