@@ -53,6 +53,7 @@ let g:EasyMotion_smartcase = 1
 
 let g:hardtime_default_on = 1
 let g:hardtime_showmsg = 1
+let g:hardtime_maxcount = 3
 
 set modelines=0
 set expandtab
