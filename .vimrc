@@ -8,10 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'CursorLineCurrentWindow'
-Plugin 'haya14busa/vim-asterisk'
-Plugin 'haya14busa/incsearch.vim'
 Plugin 'csexton/trailertrash.vim'
-Bundle 'justinmk/vim-sneak'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -112,7 +109,7 @@ set gdefault
 set showmatch
 set matchtime=0
 set incsearch
-set hlsearch
+set nohlsearch
 
 set wrap
 set formatoptions=qrn1
@@ -134,23 +131,22 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>f :CtrlPBufTag<cr>
 nnoremap <leader>d :w !diff % -<cr> " slightly nicer than :changes
 nnoremap <leader>s :setlocal spell! spell?<cr>
-nnoremap <leader>h :noh<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
 
-" haya incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" setup visual */# search
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
-" haya asterisk search
-map *  <Plug>(asterisk-z*)
-map #  <Plug>(asterisk-z#)
-map g* <Plug>(asterisk-gz*)
-map g# <Plug>(asterisk-gz#)
+function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = temp
+endfunction
 
 " identify the syntax highlighting group
 :command SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
