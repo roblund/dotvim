@@ -11,8 +11,6 @@ Plugin 'CursorLineCurrentWindow'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'csexton/trailertrash.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'takac/vim-hardtime'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -48,12 +46,6 @@ let g:ctrlp_match_window='max:18'
 
 let g:ackhighlight=1
 let g:ack_default_options=" -s -H --nocolor --nogroup --smart-case --follow"
-
-let g:EasyMotion_smartcase = 1
-
-let g:hardtime_default_on = 1
-let g:hardtime_showmsg = 1
-let g:hardtime_maxcount = 2
 
 set modelines=0
 set expandtab
@@ -141,19 +133,12 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>f :CtrlPBufTag<cr>
 nnoremap <leader>d :w !diff % -<cr> " slightly nicer than :changes
 nnoremap <leader>s :setlocal spell! spell?<cr>
-nnoremap <leader>o :noh<cr>
+nnoremap <leader>h :noh<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
-
-" easy-motion
-nmap s <Plug>(easymotion-s)
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
 
 " haya incsearch
 map /  <Plug>(incsearch-forward)
