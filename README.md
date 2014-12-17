@@ -9,7 +9,7 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 
 Install [Vundle](https://github.com/gmarik/vundle)
 ```
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
 ```
 
 Run Vundle
