@@ -1,0 +1,17 @@
+Font=ProggyClean
+FontHeight=8
+FontSmoothing=none
+Columns=118
+Rows=75
+ForegroundColour=208,208,208
+BackgroundColour=0,0,0
+CursorColour=253,157,79
+Black=46,52,54
+Red=204,0,0
+Green=78,154,6
+Yellow=255,255,187
+Blue=52,101,164
+Magenta=117,80,123
+Cyan=85,255,255
+White=211,215,207
+CursorType=block
