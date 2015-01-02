@@ -43,9 +43,6 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
 
-let g:ackhighlight=1
-let g:ack_default_options=" -s -H --nocolor --nogroup --smart-case --follow"
-
 set modelines=0
 set expandtab
 set tabstop=4
