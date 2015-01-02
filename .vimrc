@@ -9,7 +9,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'CursorLineCurrentWindow'
 Plugin 'csexton/trailertrash.vim'
-Plugin 'haya14busa/incsearch.vim'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -131,18 +130,12 @@ nnoremap <leader>f :CtrlPBufTag<cr>
 nnoremap <leader>l :buffers<cr>:b
 " slightly nicer than :changes
 nnoremap <leader>d :w !diff % -<cr>
-nnoremap <leader>s :setlocal spell! spell?<cr>
 nnoremap <leader>h :nohl<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
-
-" haya incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
