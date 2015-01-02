@@ -72,6 +72,7 @@ set number
 set cursorline
 
 set statusline=
+set statusline +=%*(%n)\ %* " buffer number
 set statusline +=%*%<%f\ %* "full path
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
@@ -127,7 +128,7 @@ let mapleader="\<Space>"
 
 nnoremap <leader>t :tabnew<cr>
 " works like ctrl-^ but ignores hidden buffers
-nnoremap <leader><leader> :CtrlPBuffer<cr><cr>
+nmap <leader><leader> :CtrlPBuffer<cr><cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>f :CtrlPBufTag<cr>
 nnoremap <leader>l :buffers<cr>:b
