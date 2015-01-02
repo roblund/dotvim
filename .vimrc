@@ -9,6 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'CursorLineCurrentWindow'
 Plugin 'csexton/trailertrash.vim'
+Plugin 'haya14busa/incsearch.vim'
 
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
@@ -109,7 +110,7 @@ set gdefault
 set showmatch
 set matchtime=0
 set incsearch
-set nohlsearch
+set hlsearch
 
 set wrap
 set formatoptions=qrn1
@@ -124,18 +125,26 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
-nnoremap <leader><leader> :b#<cr>
-nnoremap <leader>l :buffers<cr>:b
 nnoremap <leader>t :tabnew<cr>
+" works like ctrl-^ but ignores hidden buffers
+nnoremap <leader><leader> :CtrlPBuffer<cr><cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>f :CtrlPBufTag<cr>
-nnoremap <leader>d :w !diff % -<cr> " slightly nicer than :changes
+nnoremap <leader>l :buffers<cr>:b
+" slightly nicer than :changes
+nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>s :setlocal spell! spell?<cr>
+nnoremap <leader>h :nohl<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
+
+" haya incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
