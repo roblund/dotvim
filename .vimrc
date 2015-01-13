@@ -9,8 +9,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'CursorLineCurrentWindow'
 Plugin 'csexton/trailertrash.vim'
-Plugin 'scrooloose/nerdtree'
 
+Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -41,8 +41,6 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
-
-let g:NERDTreeQuitOnOpen=1
 
 set modelines=0
 set expandtab
@@ -120,15 +118,13 @@ nnoremap k gk
 " highlight what you just pasted
 nnoremap gV `[v`]
 
-nnoremap - :NERDTreeToggle<cr>
-
 set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
 nnoremap <leader>t :tabnew<cr>
-nnoremap <leader><leader> :b#<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>j :CtrlPMRU<cr>
 nnoremap <leader>f :CtrlPBufTag<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
