@@ -9,25 +9,28 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 
 Install [Vundle](https://github.com/gmarik/vundle)
 ```
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 Run Vundle
 ```
-vi +BundleInstall +BundleClean! +qa
+vi +PluginInstall +PluginClean! +qa
 ```
 
 ## Windows
 
 Add single line files in your home directory that point to the real vimrc files.
 
-####_vimrc
 ```
-source ~/.vim/.vimrc
-```
-####_gvimrc
-```
-source ~/.vim/_winvimrc
+echo "source ~/.vim/.vimrc" >> ~/_vimrc && echo "source ~/.vim/_winvimrc" >> ~/_gvimrc
 ```
 
-You will also need to manually copy `ftplugin, colors, after` files into `{Program Files}/vim/vimfiles/`
+Copy `ftplugin, colors, after` files into `{Program Files}/vim/vimfiles/`
+
+#### from Babun
+```
+
+```
+
+
+#### from Git Bash

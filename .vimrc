@@ -9,8 +9,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'CursorLineCurrentWindow'
 Plugin 'csexton/trailertrash.vim'
+Plugin 'bufexplorer.zip'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ervandew/supertab'
 
-Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -41,6 +43,10 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
+
+let g:NERDTreeQuitOnOpen=1
+
+let g:bufExplorerShowRelativePath=1
 
 set modelines=0
 set expandtab
@@ -118,12 +124,19 @@ nnoremap k gk
 " highlight what you just pasted
 nnoremap gV `[v`]
 
+nnoremap - :NERDTreeFind<cr>
+
 set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
+nnoremap <silent> <F11> :BufExplorer<CR>
+nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
+nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
+
+nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
 nnoremap <leader>f :CtrlPBufTag<cr>
 nnoremap <leader>d :w !diff % -<cr>
