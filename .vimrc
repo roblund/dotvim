@@ -12,6 +12,7 @@ Plugin 'csexton/trailertrash.vim'
 Plugin 'bufexplorer.zip'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
+Plugin 'haya14busa/incsearch.vim'
 
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
@@ -146,6 +147,11 @@ nnoremap <leader>h :nohl<cr>
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
+
+" haya incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
