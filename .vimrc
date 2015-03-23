@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'CursorLineCurrentWindow'
 Plugin 'csexton/trailertrash.vim'
 Plugin 'bufexplorer.zip'
@@ -42,7 +43,6 @@ set ttimeoutlen=50
 let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
-let g:ctrlp_extensions=['buffertag']
 let g:ctrlp_match_window='max:18'
 
 let g:NERDTreeQuitOnOpen=1
@@ -139,7 +139,8 @@ nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
-nnoremap <leader>f :CtrlPBufTag<cr>
+nnoremap <leader>f :CtrlPFunky<cr>
+nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 
