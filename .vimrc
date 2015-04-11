@@ -11,7 +11,6 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'CursorLineCurrentWindow'
 Plugin 'csexton/trailertrash.vim'
 Plugin 'bufexplorer.zip'
-Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'haya14busa/incsearch.vim'
 
@@ -20,6 +19,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-vinegar'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
@@ -44,8 +44,6 @@ let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
-
-let g:NERDTreeQuitOnOpen=1
 
 let g:bufExplorerShowRelativePath=1
 
@@ -125,8 +123,6 @@ nnoremap k gk
 " highlight what you just pasted
 nnoremap gV `[v`]
 
-nnoremap - :NERDTreeFind<cr>
-
 set pastetoggle=<F3>
 
 let mapleader="\<Space>"
@@ -157,6 +153,8 @@ map g/ <Plug>(incsearch-stay)
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 function! s:VSetSearch()
     let temp = @s
