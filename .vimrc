@@ -6,6 +6,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+" general
 Plugin 'kien/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'CursorLineCurrentWindow'
@@ -14,6 +15,7 @@ Plugin 'bufexplorer.zip'
 Plugin 'ervandew/supertab'
 Plugin 'haya14busa/incsearch.vim'
 
+" tim pope section
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -21,6 +23,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-vinegar'
 
+" language specific
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 
@@ -144,6 +147,9 @@ nnoremap <leader>h :nohl<cr>
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
+
+" pbcopy
+vmap <leader>c :w !pbcopy<CR><CR>
 
 " haya incsearch
 map /  <Plug>(incsearch-forward)
