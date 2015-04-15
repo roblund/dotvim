@@ -14,6 +14,7 @@ Plugin 'csexton/trailertrash.vim'
 Plugin 'bufexplorer.zip'
 Plugin 'ervandew/supertab'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'mileszs/ack.vim'
 
 " tim pope section
 Plugin 'tpope/vim-unimpaired'
@@ -142,6 +143,7 @@ nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
+nnoremap <leader>a :Ack 
 
 " copy/paste from system buffer
 vmap <leader>y "+y
