@@ -15,6 +15,7 @@ Plugin 'bufexplorer.zip'
 Plugin 'ervandew/supertab'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'Mouse-Toggle'
 
 " tim pope section
 Plugin 'tpope/vim-unimpaired'
@@ -61,7 +62,7 @@ set encoding=utf-8
 set scrolloff=3
 set autoindent
 set smartindent
-set mouse=a
+set mouse=
 set ttymouse=xterm2
 set showmode
 set showcmd
