@@ -26,7 +26,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-vinegar'
 
 " language specific
-Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
 Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()
