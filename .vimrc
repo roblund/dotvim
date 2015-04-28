@@ -120,7 +120,7 @@ set incsearch
 set hlsearch
 
 set wrap
-set formatoptions=qrn1
+set formatoptions=qn1
 " move by display line
 nnoremap j gj
 nnoremap k gk
