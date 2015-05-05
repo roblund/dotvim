@@ -1,8 +1,8 @@
 Font=ProggyClean
 FontHeight=8
 FontSmoothing=none
-Columns=118
-Rows=75
+Columns=299
+Rows=100
 ForegroundColour=208,208,208
 BackgroundColour=0,0,0
 CursorColour=253,157,79
@@ -15,3 +15,4 @@ Magenta=117,80,123
 Cyan=85,255,255
 White=211,215,207
 CursorType=block
+CursorBlinks=no
