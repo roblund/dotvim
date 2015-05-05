@@ -16,6 +16,8 @@ Plugin 'ervandew/supertab'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Mouse-Toggle'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 " tim pope section
 Plugin 'tpope/vim-unimpaired'
@@ -51,6 +53,12 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
 
 let g:bufExplorerShowRelativePath=1
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+autocmd User GoyoEnter Limelight
+autocmd User GoyoLeave Limelight!
 
 set modelines=0
 set expandtab
@@ -145,6 +153,7 @@ nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>a :Ack 
+nnoremap <leader>w :Goyo<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
