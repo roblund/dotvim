@@ -14,7 +14,7 @@ Plugin 'csexton/trailertrash.vim'
 Plugin 'bufexplorer.zip'
 Plugin 'ervandew/supertab'
 Plugin 'haya14busa/incsearch.vim'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'Mouse-Toggle'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
@@ -59,6 +59,8 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 autocmd User GoyoEnter Limelight
 autocmd User GoyoLeave Limelight!
+
+let g:agprg="pt --column"
 
 set modelines=0
 set expandtab
