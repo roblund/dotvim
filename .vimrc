@@ -60,8 +60,6 @@ let g:bufExplorerShowRelativePath=1
 let g:lexical#spell_key = '<leader>s'
 let g:lexical#thesaurus_key = '<leader>S'
 
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 240
 augroup writing
     autocmd!
     autocmd User GoyoEnter call lexical#init()
