@@ -11,8 +11,7 @@ hi StatusLineNC ctermbg=233 ctermfg=242 guibg=#171717 guifg=#7b7d7b
 
 hi VertSplit ctermbg=0 ctermfg=242 guibg=#000000 guifg=#7b7d7b
 hi LineNr ctermfg=242 guifg=#7b7d7b
-hi CursorLine guifg=NONE guibg=#121212 gui=NONE ctermfg=NONE ctermbg=234
-hi CursorColumn guifg=NONE guibg=#121212 gui=NONE ctermfg=NONE ctermbg=234
+hi clear CursorLine
 hi Function guifg=#FFD2A7 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=236 cterm=NONE
 
@@ -21,7 +20,7 @@ hi ErrorMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NONE
 hi htmlError guifg=red gui=BOLD ctermfg=9 cterm=NONE
 hi htmlItalic guibg=black ctermbg=0 gui=NONE cterm=NONE
 hi WarningMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NONE
-hi SpellBad guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=160 cterm=NONE
+hi SpellBad guifg=#FF6C60 guibg=black gui=underline ctermfg=160 ctermbg=0 cterm=underline
 hi Search guifg=#000000 guibg=#87ff5f gui=BOLD ctermfg=16 ctermbg=119 cterm=NONE
 hi Operator guifg=#6699CC guibg=#1D1E2C gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
 

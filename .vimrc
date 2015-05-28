@@ -16,8 +16,12 @@ Plugin 'ervandew/supertab'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'rking/ag.vim'
 Plugin 'Mouse-Toggle'
+
+" writing
 Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
+Plugin 'reedes/vim-pencil'
+Plugin 'reedes/vim-lexical'
+Plugin 'reedes/vim-wordy'
 
 " tim pope section
 Plugin 'tpope/vim-unimpaired'
@@ -38,7 +42,6 @@ syntax on
 
 let $MYVIMRC='~/.vim/.vimrc'
 
-set syn=auto
 set background=dark
 set t_Co=256
 if &term =~ '256color'
@@ -54,11 +57,17 @@ let g:ctrlp_match_window='max:18'
 
 let g:bufExplorerShowRelativePath=1
 
+let g:lexical#spell_key = '<leader>s'
+let g:lexical#thesaurus_key = '<leader>S'
+
 " Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
-autocmd User GoyoEnter Limelight
-autocmd User GoyoLeave Limelight!
+augroup writing
+    autocmd!
+    autocmd User GoyoEnter call lexical#init()
+        \ | :Pencil
+    autocmd User GoyoLeave :NoPencil
+augroup END
 
 let g:agprg="pt --column"
 
@@ -85,7 +94,7 @@ set splitright
 set hidden
 set nrformats=
 set number
-set cursorline
+set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
 
 set statusline=
 set statusline +=%*(%n)\ %* " buffer number
@@ -184,13 +193,16 @@ function! s:VSetSearch()
 endfunction
 
 " identify the syntax highlighting group
-:command SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
+:command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.ino,*.pde set filetype=cpp
-au BufRead,BufNewFile *.ejs set filetype=eruby
+augroup files
+    autocmd!
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
+    autocmd BufRead,BufNewFile *.ejs set filetype=eruby
+augroup END
 
 let php_baselib=1
 let php_htmlInStrings=1
