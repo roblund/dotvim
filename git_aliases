@@ -4,6 +4,7 @@
     ci = commit --verbose
 
     l = !git --no-pager log -n 10 --format='%C(cyan)%h%C(reset) %ar %C(blue)%an%C(reset) %C(yellow)%s%C(reset)' ; last 10 log items
+    lt = !git --no-pager log -n 10 --date=local --format='%C(cyan)%h%C(reset) %aD %C(blue)%an%C(reset) %C(yellow)%s%C(reset)' ; last 10 log items
     cl = log --format='%h %cr %cn %Cgreen%s%Creset' --name-status ; quick log with file list and pager
     flog = log -u ; shows log with file changes inline with pager
     unpushed = !git l @{u}..
