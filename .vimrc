@@ -161,7 +161,7 @@ nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
-nnoremap <leader>a :Ag 
+nnoremap <leader>a :Ag<space>
 nnoremap <leader>w :Goyo<cr>
 
 " copy/paste from system buffer
