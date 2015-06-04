@@ -59,6 +59,7 @@ let g:bufExplorerShowRelativePath=1
 
 let g:lexical#spell_key = '<leader>s'
 let g:lexical#thesaurus_key = '<leader>S'
+set complete+=kspell
 
 augroup writing
     autocmd!
