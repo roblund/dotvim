@@ -29,4 +29,3 @@ if isdirectory($HOME . '\.vim\backup') == 0
 endif
 set backup
 set backupdir=$HOME\.vim\backup,.
-

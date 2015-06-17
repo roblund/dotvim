@@ -1,41 +1,39 @@
 set nocompatible
 filetype off
-let g:vundle_default_git_proto='git'
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " general
-Plugin 'kien/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'CursorLineCurrentWindow'
-Plugin 'csexton/trailertrash.vim'
-Plugin 'bufexplorer.zip'
-Plugin 'ervandew/supertab'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'rking/ag.vim'
-Plugin 'Mouse-Toggle'
+Plug 'kien/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'CursorLineCurrentWindow'
+Plug 'csexton/trailertrash.vim'
+Plug 'bufexplorer.zip'
+Plug 'ervandew/supertab'
+Plug 'haya14busa/incsearch.vim'
+Plug 'rking/ag.vim'
+Plug 'Mouse-Toggle'
+Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'junegunn/vim-peekaboo'
 
 " writing
-Plugin 'junegunn/goyo.vim'
-Plugin 'reedes/vim-pencil'
-Plugin 'reedes/vim-lexical'
-Plugin 'reedes/vim-wordy'
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-lexical'
+Plug 'reedes/vim-wordy'
 
 " tim pope section
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-vinegar'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
 
 " language specific
-Plugin 'othree/yajs.vim'
-Plugin 'vim-ruby/vim-ruby'
+Plug 'othree/yajs.vim'
+Plug 'vim-ruby/vim-ruby'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 syntax on
