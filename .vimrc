@@ -14,7 +14,6 @@ Plug 'ervandew/supertab'
 Plug 'haya14busa/incsearch.vim'
 Plug 'rking/ag.vim'
 Plug 'Mouse-Toggle'
-Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'junegunn/vim-peekaboo'
 
 " writing
@@ -29,6 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
 
 " language specific
 Plug 'othree/yajs.vim'
