@@ -5,7 +5,7 @@ let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
 " general
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'CursorLineCurrentWindow'
 Plug 'csexton/trailertrash.vim'
