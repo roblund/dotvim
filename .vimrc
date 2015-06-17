@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 
+let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
 " general
