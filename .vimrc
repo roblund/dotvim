@@ -1,6 +1,9 @@
+" rob's vimrc - reload with :source %
+
 set nocompatible
 filetype off
 
+" to download vim-plug use: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
@@ -15,6 +18,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'rking/ag.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
+Plug 'jeetsukumaran/vim-filebeagle'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -28,7 +32,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-vinegar'
 
 " language specific
 Plug 'othree/yajs.vim'
@@ -56,9 +59,11 @@ let g:ctrlp_match_window='max:18'
 
 let g:bufExplorerShowRelativePath=1
 
-let g:lexical#spell_key = '<leader>s'
-let g:lexical#thesaurus_key = '<leader>S'
+let g:lexical#spell_key='<leader>s'
+let g:lexical#thesaurus_key='<leader>S'
 set complete+=kspell
+
+let g:pencil#wrapModeDefault='soft'
 
 augroup writing
     autocmd!
@@ -157,7 +162,7 @@ nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
-nnoremap <leader>f :CtrlPFunky<cr>
+nmap <leader>f :CtrlPFunky<cr>
 nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
