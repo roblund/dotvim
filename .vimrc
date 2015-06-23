@@ -59,6 +59,8 @@ let g:ctrlp_match_window='max:18'
 
 let g:bufExplorerShowRelativePath=1
 
+let g:filebeagle_suppress_keymaps = 1
+
 let g:lexical#spell_key='<leader>s'
 let g:lexical#thesaurus_key='<leader>S'
 set complete+=kspell
@@ -154,15 +156,12 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
-nnoremap <silent> <F11> :BufExplorer<CR>
-nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
-nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
-
 nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
-nmap <leader>f :CtrlPFunky<cr>
+nnoremap <silent> - :FileBeagleBufferDir<cr>
+nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
