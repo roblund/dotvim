@@ -149,6 +149,11 @@ set formatoptions=qn1
 nnoremap j gj
 nnoremap k gk
 
+" disable default bufexplorer commands
+nnoremap <silent> <F11> :BufExplorer<CR>
+nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
+nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
+
 " highlight what you just pasted
 nnoremap gV `[v`]
 
