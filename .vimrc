@@ -32,7 +32,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
 
 " language specific
 Plug 'othree/yajs.vim'
@@ -108,7 +107,6 @@ set statusline +=%*%<%f\ %* "full path
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L\ %* "total lines
-set statusline +=%{fugitive#statusline()}\ %* "git branch
 set statusline +=%*%y%* "file type
 
 if exists("+undofile")
