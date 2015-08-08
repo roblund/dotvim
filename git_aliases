@@ -15,6 +15,9 @@
     dc = diff --cached
     ds = !git --no-pager diff --stat=160,120
 
+    fix = "!$EDITOR `git diff --name-only --diff-filter=U`"
+    fadd = "!git add `git diff --name-only --diff-filter=U`"
+
     dh1 = diff HEAD~1
 
     stl = !git --no-pager stash list --format='%C(cyan)%gd%C(reset) %C(yellow)%cr%C(reset) %cn'
