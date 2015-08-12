@@ -181,10 +181,12 @@ vmap <leader>p "+p
 " pbcopy
 vmap <leader>c :w !pbcopy<CR><CR>
 
-" haya incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" haya incsearch, only load in vim 7.3 and higher
+if v:version >= 703
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+endif
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
