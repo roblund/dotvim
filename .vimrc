@@ -86,7 +86,7 @@ set encoding=utf-8
 set scrolloff=3
 set autoindent
 set smartindent
-set mouse=
+set mouse=a
 set ttymouse=xterm2
 set showmode
 set showcmd
