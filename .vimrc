@@ -179,7 +179,15 @@ nmap <leader>p "+p
 vmap <leader>p "+p
 
 " pbcopy
-vmap <leader>c :w !pbcopy<CR><CR>
+vmap <leader>c :<C-u>call PBCopy()<cr><cr>
+
+function! PBCopy()
+    let temp = @s
+    " go to last/current visual selection, and yank it into the "s register
+    norm! gv"sy
+    call system('pbcopy', @s)
+    let @s = temp
+endfunction
 
 " haya incsearch, only load in vim 7.3 and higher
 if v:version >= 703
@@ -196,6 +204,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 function! s:VSetSearch()
     let temp = @s
+    " go to last/current visual selection, and yank it into the "s register
     norm! gv"sy
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = temp
