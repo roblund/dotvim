@@ -161,13 +161,24 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
+if has("gui_macvim")
+    " open file in Marked 2
+    function! MarkedOpen()
+        silent execute '!open -a "Marked 2" ' . bufname('%')
+        redraw!
+    endfunction
+
+    :command! Marked :call MarkedOpen()
+    nnoremap <leader>2 :call MarkedOpen()<cr>
+endif
+
 nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
-nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>a :Ag<space>
