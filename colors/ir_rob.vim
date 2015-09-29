@@ -11,7 +11,8 @@ hi StatusLineNC ctermbg=233 ctermfg=242 guibg=#171717 guifg=#7b7d7b
 
 hi VertSplit ctermbg=0 ctermfg=242 guibg=#000000 guifg=#7b7d7b
 hi LineNr ctermfg=242 guifg=#7b7d7b
-hi clear CursorLine
+hi CursorLine     guifg=NONE        guibg=#1c1c1c     gui=NONE      ctermfg=NONE        ctermbg=234        cterm=BOLD
+hi CursorColumn   guifg=NONE        guibg=#1c1c1c     gui=NONE      ctermfg=NONE        ctermbg=234        cterm=BOLD
 hi Function guifg=#FFD2A7 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=236 cterm=NONE
 
