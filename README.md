@@ -7,14 +7,15 @@ After cloning the repo into your .vim directory, create a softlink from your hom
 ln -s ~/.vim/.vimrc ~/.vimrc
 ```
 
-Install [Vundle](https://github.com/gmarik/vundle)
+Install [Vim-Plug](https://github.com/junegunn/vim-plug)
 ```
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Run Vundle
+Run Vim-Plug
 ```
-vi +PluginInstall +PluginClean! +qa
+vi +PlugInstall +qa
 ```
 
 ## Windows
