@@ -15,7 +15,7 @@ Plug 'csexton/trailertrash.vim'
 Plug 'bufexplorer.zip'
 Plug 'ervandew/supertab'
 Plug 'haya14busa/incsearch.vim'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
@@ -74,7 +74,8 @@ augroup writing
     autocmd User GoyoLeave :NoPencil
 augroup END
 
-let g:agprg="pt --column"
+let g:ackprg="pt --column --ignore='*optimized*'"
+let g:ackhighlight=1
 
 set modelines=0
 set expandtab
@@ -181,7 +182,7 @@ nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>a :Ack<space>
 nnoremap <leader>w :Goyo<cr>
 
 " copy/paste from system buffer
