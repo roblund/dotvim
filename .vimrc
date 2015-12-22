@@ -144,6 +144,9 @@ set matchtime=0
 set incsearch
 set hlsearch
 
+" have vim use the older regex engine for now (problems with cursorline)
+set re=1
+
 set wrap
 set formatoptions=qn1
 " move by display line
