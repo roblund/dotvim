@@ -100,7 +100,7 @@ set splitright
 set hidden
 set nrformats=
 set number
-set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
+" set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
 
 set statusline=
 set statusline +=%*(%n)\ %* " buffer number
@@ -235,6 +235,7 @@ augroup files
     autocmd BufRead,BufNewFile *.md set filetype=markdown
     autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
     autocmd BufRead,BufNewFile *.ejs set filetype=eruby
+    autocmd BufRead,BufNewFile *.js.php set filetype=javascript
 augroup END
 
 let php_baselib=1
