@@ -1,7 +1,7 @@
 [alias]
     st = status
     a = !git add . && git status
-    ci = !git commit --verbose && echo "[[ Git Commit ]]\n\t" $(git rev-parse --show-toplevel --abbrev-ref HEAD)\n$(git --no-pager log -n 1 --date=local --format='%h %s - %aD') | pbcopy
+    ci = !git commit --verbose && echo "[[ Git Commit ]]" $(git rev-parse --show-toplevel --abbrev-ref HEAD) $(git --no-pager log -n 1 --date=local --format='%h %s - %aD') | pbcopy
 
     l = !git --no-pager log -n 10 --format='%C(cyan)%h%C(reset) %ar %C(blue)%an%C(reset) %C(yellow)%s%C(reset)' ; last 10 log items
     lt = !git --no-pager log -n 10 --date=local --format='%C(cyan)%h%C(reset) %aD %C(blue)%an%C(reset) %C(yellow)%s%C(reset)' ; last 10 log items
