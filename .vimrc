@@ -35,7 +35,10 @@ Plug 'tpope/vim-repeat'
 
 " language specific
 Plug 'othree/yajs.vim'
+Plug 'gavocanov/vim-js-indent'
 Plug 'vim-ruby/vim-ruby'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 
@@ -59,13 +62,15 @@ let g:ctrlp_match_window='max:18'
 
 let g:bufExplorerShowRelativePath=1
 
-let g:filebeagle_suppress_keymaps = 1
+let g:filebeagle_suppress_keymaps=1
 
 let g:lexical#spell_key='<leader>s'
 let g:lexical#thesaurus_key='<leader>S'
 set complete+=kspell
 
 let g:pencil#wrapModeDefault='soft'
+
+let g:jsx_ext_required=0
 
 augroup writing
     autocmd!
