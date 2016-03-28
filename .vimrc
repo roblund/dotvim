@@ -74,6 +74,8 @@ let g:pencil#wrapModeDefault='soft'
 
 let g:jsx_ext_required=0
 
+let g:startify_change_to_dir=0
+
 augroup writing
     autocmd!
     autocmd User GoyoEnter call lexical#init()
