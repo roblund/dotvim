@@ -1,6 +1,6 @@
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-set guifont=ProggyCleanTT:h16
+set guifont=ProggyTiny:h11
 set noantialias
 set guioptions-=r
 set guioptions-=L
