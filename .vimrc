@@ -20,7 +20,6 @@ Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'mhinz/vim-startify'
-Plug 'christoomey/vim-tmux-navigator'
 
 " writing
 Plug 'junegunn/goyo.vim'
