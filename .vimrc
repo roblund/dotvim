@@ -19,7 +19,6 @@ Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'mhinz/vim-startify'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -60,7 +59,6 @@ let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
-let g:ctrlp_reuse_window='startify'
 
 let g:bufExplorerShowRelativePath=1
 
@@ -73,8 +71,6 @@ set complete+=kspell
 let g:pencil#wrapModeDefault='soft'
 
 let g:jsx_ext_required=0
-
-let g:startify_change_to_dir=0
 
 augroup writing
     autocmd!
