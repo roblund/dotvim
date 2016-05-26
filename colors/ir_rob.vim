@@ -6,8 +6,10 @@ hi pythonSpaceError ctermbg=red guibg=red
 
 hi Comment ctermfg=242 guifg=#7b7d7b
 
-hi StatusLine cterm=NONE ctermbg=236 ctermfg=120 gui=NONE guibg=#3f3f3f guifg=#00ff77
-hi StatusLineNC ctermbg=233 ctermfg=242 guibg=#171717 guifg=#7b7d7b
+hi StatusLine cterm=NONE ctermbg=240 ctermfg=85 gui=NONE guibg=#585858 guifg=#5fffaf
+hi StatusLineNC ctermbg=236 ctermfg=252 guibg=#303030 guifg=#d0d0d0
+
+hi ColorColumn ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc
 
 hi VertSplit ctermbg=0 ctermfg=242 guibg=#000000 guifg=#7b7d7b
 hi LineNr ctermfg=242 guifg=#7b7d7b
