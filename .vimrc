@@ -253,7 +253,7 @@ set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*D
 set wildmenu
 set wildmode=longest,list
 
-if exists('$TMUX')
+if exists('$TMUX') || !has('gui_running')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
     silent! execute "wincmd " . a:wincmd
