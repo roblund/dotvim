@@ -19,7 +19,6 @@ Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'blueyed/vim-diminactive'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -33,6 +32,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
 
 " language specific
 Plug 'othree/yajs.vim'
@@ -64,8 +64,6 @@ let g:ctrlp_match_window='max:18'
 let g:bufExplorerShowRelativePath=1
 
 let g:filebeagle_suppress_keymaps=1
-
-let g:diminactive_use_syntax=1
 
 let g:lexical#spell_key='<leader>s'
 let g:lexical#thesaurus_key='<leader>S'
