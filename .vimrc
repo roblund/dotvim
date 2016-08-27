@@ -37,6 +37,7 @@ Plug 'tpope/vim-eunuch'
 " language specific
 Plug 'othree/yajs.vim'
 Plug 'gavocanov/vim-js-indent'
+Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
