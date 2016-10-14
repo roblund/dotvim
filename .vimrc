@@ -8,6 +8,8 @@ let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
 " general
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'CursorLineCurrentWindow'
@@ -41,6 +43,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
+Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
 
@@ -246,7 +249,7 @@ augroup END
 let php_baselib=1
 let php_htmlInStrings=1
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*,*/node_modules/*
 set wildmenu
 set wildmode=longest,list
 
