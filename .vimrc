@@ -22,6 +22,7 @@ Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'vimwiki/vimwiki'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -72,6 +73,8 @@ let g:bufExplorerShowRelativePath=1
 
 let g:filebeagle_suppress_keymaps=1
 
+let g:vimwiki_list = [{'path': '~/Dropbox/Notes/vimwiki'}]
+
 let g:lexical#spell_key='<leader>s'
 let g:lexical#thesaurus_key='<leader>S'
 set complete+=kspell
@@ -111,6 +114,7 @@ set splitright
 set hidden
 set nrformats=
 set number
+set cryptmethod=blowfish2
 " set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
 
 set statusline=
@@ -197,7 +201,7 @@ nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>a :Ack<space>
-nnoremap <leader>w :Goyo<cr>
+nnoremap <leader>W :Goyo<cr>
 nnoremap <leader>f :Files<cr>
 
 " copy/paste from system buffer
@@ -248,6 +252,11 @@ augroup files
     autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
     autocmd BufRead,BufNewFile *.ejs set filetype=eruby
     autocmd BufRead,BufNewFile *.js.php set filetype=javascript
+augroup END
+
+augroup journal
+    autocmd!
+    autocmd BufWritePre */vimwiki/diary/* :X
 augroup END
 
 let php_baselib=1
