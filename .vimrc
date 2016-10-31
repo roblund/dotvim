@@ -21,6 +21,7 @@ Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'editorconfig/editorconfig-vim'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -64,6 +65,8 @@ let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
+
+let $FZF_DEFAULT_COMMAND = 'pt -l -g ""'
 
 let g:bufExplorerShowRelativePath=1
 
@@ -195,6 +198,7 @@ nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>w :Goyo<cr>
+nnoremap <leader>f :Files<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
