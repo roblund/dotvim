@@ -22,7 +22,6 @@ Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'vimwiki/vimwiki'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -72,8 +71,6 @@ let $FZF_DEFAULT_COMMAND = 'pt -l -g ""'
 let g:bufExplorerShowRelativePath=1
 
 let g:filebeagle_suppress_keymaps=1
-
-let g:vimwiki_list = [{'path': '~/Dropbox/Notes/vimwiki'}]
 
 let g:lexical#spell_key='<leader>s'
 let g:lexical#thesaurus_key='<leader>S'
@@ -256,7 +253,7 @@ augroup END
 
 augroup journal
     autocmd!
-    autocmd BufWritePre */vimwiki/diary/* :X
+    autocmd BufWritePre */Notes/journal* :X
 augroup END
 
 let php_baselib=1
