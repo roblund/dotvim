@@ -36,6 +36,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
 
 " language specific
 Plug 'othree/yajs.vim'
