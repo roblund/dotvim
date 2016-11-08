@@ -81,10 +81,22 @@ let g:pencil#wrapModeDefault='soft'
 
 augroup writing
     autocmd!
-    autocmd User GoyoEnter call lexical#init()
-        \ | :Pencil
-    autocmd User GoyoLeave :NoPencil
+    autocmd User GoyoEnter call <SID>goyo_enter()
+        " \ | :Pencil
+    autocmd User GoyoLeave call <SID>goyo_leave()
 augroup END
+
+function! s:goyo_enter()
+    " turn on lexical
+    call lexical#init()
+    " turn on pencil
+    Pencil
+endfunction
+
+function! s:goyo_leave()
+    " turn off pencil
+    NoPencil
+endfunction
 
 let g:ackprg="pt --column --ignore='*optimized*'"
 let g:ackhighlight=1
