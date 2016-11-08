@@ -253,7 +253,7 @@ augroup END
 
 augroup journal
     autocmd!
-    autocmd BufWritePre */Notes/journal* :X
+    autocmd BufWritePre */Notes/personal/journal* :X
 augroup END
 
 let php_baselib=1
