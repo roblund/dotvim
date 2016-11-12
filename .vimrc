@@ -215,7 +215,7 @@ nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>a :Ack<space>
-nnoremap <leader>W :Goyo<cr>
+nnoremap <leader>w :Goyo<cr>
 nnoremap <leader>f :Files<cr>
 
 " copy/paste from system buffer
