@@ -6,3 +6,5 @@ bundle
 autoload
 plugged
 .netrwhist
+doc
+plugin
