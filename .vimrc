@@ -21,7 +21,6 @@ Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'editorconfig/editorconfig-vim'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -46,6 +45,11 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
+
+" non-windows plugins
+if has("unix")
+    Plug 'editorconfig/editorconfig-vim'
+endif
 
 call plug#end()
 
