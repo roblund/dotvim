@@ -20,7 +20,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
-Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'scrooloose/nerdtree'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -38,18 +38,12 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
 " language specific
-Plug 'othree/yajs.vim'
-Plug 'gavocanov/vim-js-indent'
 Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
-
-" non-windows plugins
-if has("unix")
-    Plug 'editorconfig/editorconfig-vim'
-endif
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 
 call plug#end()
 
@@ -66,7 +60,7 @@ endif
 colorscheme ir_rob
 set ttimeoutlen=50
 
-let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
+" let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
@@ -75,13 +69,20 @@ let $FZF_DEFAULT_COMMAND = 'pt -l -g ""'
 
 let g:bufExplorerShowRelativePath=1
 
-let g:filebeagle_suppress_keymaps=1
+" let g:filebeagle_suppress_keymaps=1
+
+let NERDTreeQuitOnOpen=1
 
 let g:lexical#spell_key='<leader>s'
 let g:lexical#thesaurus_key='<leader>S'
 set complete+=kspell
 
 let g:pencil#wrapModeDefault='soft'
+
+let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
+let g:EditorConfig_verbose=1
+" let g:EditorConfig_exec_path='/usr/local/bin/editorconfig'
+let g:EditorConfig_core_mode = 'external_command'
 
 augroup writing
     autocmd!
@@ -129,7 +130,7 @@ set hidden
 set nrformats=
 set number
 set cryptmethod=blowfish2
-" set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
+set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
 
 set statusline=
 set statusline +=%*(%n)\ %* " buffer number
@@ -209,7 +210,8 @@ nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
-nnoremap <silent> - :FileBeagleBufferDir<cr>
+" nnoremap <silent> - :FileBeagleBufferDir<cr>
+nnoremap <silent> - :NERDTreeToggle<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>d :w !diff % -<cr>
@@ -272,9 +274,6 @@ augroup journal
     autocmd!
     autocmd BufWritePre */Notes/personal/journal* :X
 augroup END
-
-let php_baselib=1
-let php_htmlInStrings=1
 
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*,*/node_modules/*
 set wildmenu

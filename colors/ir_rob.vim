@@ -2,9 +2,11 @@ runtime colors/ir_black.vim
 
 let g:colors_name = "ir_rob"
 
+hi Normal ctermfg=15 guifg=white
+
 hi pythonSpaceError ctermbg=red guibg=red
 
-hi Comment ctermfg=242 guifg=#7b7d7b
+hi Comment ctermfg=103 guifg=#a8a8a8
 
 hi StatusLine cterm=NONE ctermbg=123 ctermfg=235 gui=NONE guibg=#585858 guifg=#5fffaf
 hi StatusLineNC ctermbg=236 ctermfg=252 guibg=#303030 guifg=#d0d0d0
@@ -37,3 +39,5 @@ hi PmenuSel ctermfg=16 ctermbg=156
 hi TabLineFill guibg=darkgray guifg=#171717 ctermbg=darkgray ctermfg=233
 hi TabLineSel guibg=darkgray guifg=lightgreen ctermbg=236 ctermfg=120
 hi TabLine guibg=black guifg=darkgray gui=NONE ctermbg=black ctermfg=darkgray cterm=NONE
+
+hi EndOfBuffer guifg=#C6C5FE ctermfg=cyan
