@@ -6,7 +6,7 @@ hi Normal ctermfg=15 guifg=white
 
 hi pythonSpaceError ctermbg=red guibg=red
 
-hi Comment ctermfg=103 guifg=#a8a8a8
+hi Comment ctermfg=245 guifg=#8a8a8a
 
 hi StatusLine cterm=NONE ctermbg=123 ctermfg=235 gui=NONE guibg=#585858 guifg=#5fffaf
 hi StatusLineNC ctermbg=236 ctermfg=252 guibg=#303030 guifg=#d0d0d0
