@@ -42,6 +42,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'davidosomething/syntastic-hbstidy'
 Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
@@ -81,7 +82,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_filetype_map = { "handlebars.html": "handlebars" }
+let g:syntastic_filetype_map = { "html.handlebars": "handlebars" }
+let g:syntastic_handlebars_checkers = ["handlebars", "hbstidy"]
 let g:syntastic_javascript_checkers = ['eslint']
 
 augroup writing
