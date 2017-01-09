@@ -20,7 +20,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
-Plug 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
+Plug 'jeetsukumaran/vim-filebeagle'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -41,9 +42,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'davidosomething/syntastic-hbstidy'
 Plug 'elixir-lang/vim-elixir'
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 
 call plug#end()
 
@@ -69,9 +69,8 @@ let $FZF_DEFAULT_COMMAND = 'pt -l -g ""'
 
 let g:bufExplorerShowRelativePath=1
 
-" let g:filebeagle_suppress_keymaps=1
-
-let NERDTreeQuitOnOpen=1
+let g:filebeagle_suppress_keymaps=1
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 let g:lexical#spell_key='<leader>s'
 let g:lexical#thesaurus_key='<leader>S'
@@ -79,15 +78,17 @@ set complete+=kspell
 
 let g:pencil#wrapModeDefault='soft'
 
-let g:EditorConfig_exclude_patterns=['fugitive://.*', 'scp://.*']
-let g:EditorConfig_verbose=1
-" let g:EditorConfig_exec_path='/usr/local/bin/editorconfig'
-let g:EditorConfig_core_mode = 'external_command'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_filetype_map = { "html.handlebars": "handlebars" }
+let g:syntastic_handlebars_checkers = ["handlebars", "hbstidy"]
+let g:syntastic_javascript_checkers = ['eslint']
 
 augroup writing
     autocmd!
     autocmd User GoyoEnter call <SID>goyo_enter()
-        " \ | :Pencil
     autocmd User GoyoLeave call <SID>goyo_leave()
 augroup END
 
@@ -145,9 +146,12 @@ set hidden
 set nrformats=
 set number
 set cryptmethod=blowfish2
-set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
+" set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
 
 set statusline=
+set statusline +=%#warningmsg#
+set statusline +=%{SyntasticStatuslineFlag()}
+set statusline +=%*
 set statusline +=%*(%n)\ %* " buffer number
 set statusline +=%*%<%f\ %* "full path
 set statusline +=%*%m%* "modified flag
@@ -225,8 +229,7 @@ nnoremap <leader><leader> <C-^>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
-" nnoremap <silent> - :FileBeagleBufferDir<cr>
-nnoremap <silent> - :NERDTreeToggle<cr>
+nnoremap <silent> - :FileBeagleBufferDir<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>d :w !diff % -<cr>
@@ -290,7 +293,7 @@ augroup journal
     autocmd BufWritePre */Notes/personal/journal* :X
 augroup END
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*,*/node_modules/*
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map
 set wildmenu
 set wildmode=longest,list
 
