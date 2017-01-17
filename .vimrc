@@ -1,4 +1,3 @@
-" rob's vimrc - reload with :source %
 
 set nocompatible
 filetype off
@@ -22,6 +21,7 @@ Plug 'Mouse-Toggle'
 Plug 'junegunn/vim-peekaboo'
 Plug 'vim-syntastic/syntastic'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'davidoc/taskpaper.vim'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -65,7 +65,7 @@ let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
 
-let $FZF_DEFAULT_COMMAND = 'pt -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'pt -l -g -S ""'
 
 let g:bufExplorerShowRelativePath=1
 
@@ -119,8 +119,9 @@ function! s:goyo_leave()
     endif
 endfunction
 
-let g:ackprg="pt --column --ignore='*optimized*'"
+let g:ackprg="pt -S --column --ignore='*optimized*'"
 let g:ackhighlight=1
+let g:ack_autofold_results=1
 
 set modelines=0
 set expandtab
@@ -226,7 +227,10 @@ if has("gui_macvim")
 endif
 
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>t :tabnew<cr>
+nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/Tasks.txt <bar> resize 20<cr>
+nnoremap <leader>sn :SearchNotes<space>
+nnoremap <leader>nt :tabnew<cr>
+nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
 nnoremap <silent> - :FileBeagleBufferDir<cr>
@@ -275,6 +279,8 @@ function! s:VSetSearch()
     let @s = temp
 endfunction
 
+:command! -narg=1 SearchNotes Ack <f-args> ~/Dropbox/Notes/
+
 " identify the syntax highlighting group
 :command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -283,14 +289,10 @@ endfunction
 augroup files
     autocmd!
     autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile Tasks.txt set filetype=taskpaper
     autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
     autocmd BufRead,BufNewFile *.ejs set filetype=eruby
     autocmd BufRead,BufNewFile *.js.php set filetype=javascript
-augroup END
-
-augroup journal
-    autocmd!
-    autocmd BufWritePre */Notes/personal/journal* :X
 augroup END
 
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map

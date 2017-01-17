@@ -8,6 +8,8 @@ hi pythonSpaceError ctermbg=red guibg=red
 
 hi Comment ctermfg=245 guifg=#8a8a8a
 
+hi taskpaperDone ctermfg=245 guifg=#8a8a8a
+
 hi StatusLine cterm=NONE ctermbg=123 ctermfg=235 gui=NONE guibg=#585858 guifg=#5fffaf
 hi StatusLineNC ctermbg=236 ctermfg=252 guibg=#303030 guifg=#d0d0d0
 
@@ -20,6 +22,7 @@ hi CursorColumn   guifg=NONE        guibg=#1c1c1c     gui=NONE      ctermfg=NONE
 hi Function guifg=#FFD2A7 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=236 cterm=NONE
 
+hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=NONE
 hi Error guifg=NONE guibg=NONE gui=undercurl ctermfg=45 ctermbg=19 cterm=NONE term=NONE guisp=#FF6C60
 hi ErrorMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NONE
 hi htmlError guifg=red gui=BOLD ctermfg=9 cterm=NONE
