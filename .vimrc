@@ -7,8 +7,6 @@ let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
 " general
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'CursorLineCurrentWindow'
@@ -22,6 +20,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'vim-syntastic/syntastic'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'davidoc/taskpaper.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -64,8 +63,6 @@ set ttimeoutlen=50
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
-
-let $FZF_DEFAULT_COMMAND = 'pt -l -g -S ""'
 
 let g:bufExplorerShowRelativePath=1
 
@@ -227,7 +224,7 @@ if has("gui_macvim")
 endif
 
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/Tasks.txt <bar> resize 20<cr>
+nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/tasks.txt <bar> resize 20<cr>
 nnoremap <leader>sn :SearchNotes<space>
 nnoremap <leader>nt :tabnew<cr>
 nnoremap <leader>cq :cclose<cr>
@@ -240,7 +237,6 @@ nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>w :Goyo<cr>
-nnoremap <leader>f :Files<cr>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
@@ -289,7 +285,7 @@ endfunction
 augroup files
     autocmd!
     autocmd BufRead,BufNewFile *.md set filetype=markdown
-    autocmd BufRead,BufNewFile Tasks.txt set filetype=taskpaper
+    autocmd BufRead,BufNewFile tasks.txt set filetype=taskpaper
     autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
     autocmd BufRead,BufNewFile *.ejs set filetype=eruby
     autocmd BufRead,BufNewFile *.js.php set filetype=javascript
@@ -299,27 +295,27 @@ set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*D
 set wildmenu
 set wildmode=longest,list
 
-if exists('$TMUX') || !has('gui_running')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    silent! execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      call system("tmux select-pane -" . a:tmuxdir)
-      redraw!
-    endif
-  endfunction
+" if exists('$TMUX') || !has('gui_running')
+"   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+"     let previous_winnr = winnr()
+"     silent! execute "wincmd " . a:wincmd
+"     if previous_winnr == winnr()
+"       call system("tmux select-pane -" . a:tmuxdir)
+"       redraw!
+"     endif
+"   endfunction
 
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+"   let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+"   let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+"   let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
 
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
-endif
+"   nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+"   nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+"   nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+"   nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+" else
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
+" endif
