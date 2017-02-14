@@ -15,12 +15,12 @@ hi StatusLineNC ctermbg=236 ctermfg=252 guibg=#303030 guifg=#d0d0d0
 
 hi ColorColumn ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc
 
-hi VertSplit ctermbg=0 ctermfg=242 guibg=#000000 guifg=#7b7d7b
+hi VertSplit ctermbg=NONE ctermfg=242 guibg=NONE guifg=#7b7d7b
 hi LineNr ctermfg=242 guifg=#7b7d7b
 hi CursorLine     guifg=NONE        guibg=#1c1c1c     gui=NONE      ctermfg=NONE        ctermbg=234        cterm=NONE
 hi CursorColumn   guifg=NONE        guibg=#1c1c1c     gui=NONE      ctermfg=NONE        ctermbg=234        cterm=NONE
 hi Function guifg=#FFD2A7 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
-hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=236 cterm=NONE
+hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE
 
 hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=NONE
 hi Error guifg=NONE guibg=NONE gui=undercurl ctermfg=45 ctermbg=19 cterm=NONE term=NONE guisp=#FF6C60
