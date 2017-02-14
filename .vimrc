@@ -1,3 +1,4 @@
+" rob's vimrc - reload with :source %
 
 set nocompatible
 filetype off
