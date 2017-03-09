@@ -13,7 +13,7 @@
     unstage = reset HEAD
     uncommit = reset --soft HEAD^
     di = !git diff --color | diff-so-fancy | less
-    dc = diff --cached
+    dc = !git diff --cached --color | diff-so-fancy | less
     ds = !git --no-pager diff --stat=160,120
 
     fix = "!$EDITOR `git diff --name-only --diff-filter=U`"
