@@ -80,8 +80,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_filetype_map = { "html.handlebars": "handlebars" }
-let g:syntastic_handlebars_checkers = ["handlebars", "hbstidy"]
+let g:syntastic_handlebars_checkers = ["handlebars", ""]
 let g:syntastic_javascript_checkers = ['eslint']
+" ignore empty fontawesome i tags
+let g:syntastic_html_tidy_quiet_messages = { 'regex': '\.*empty <i>'}
 
 augroup writing
     autocmd!
@@ -118,7 +120,6 @@ endfunction
 
 let g:ackprg="pt -S --column --ignore='*optimized*'"
 let g:ackhighlight=1
-let g:ack_autofold_results=1
 
 set modelines=0
 set expandtab
@@ -224,7 +225,7 @@ if has("gui_macvim")
 endif
 
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/tasks.txt <bar> resize 20<cr>
+nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/tasks.txt <bar> resize 25<cr>
 nnoremap <leader>sn :SearchNotes<space>
 nnoremap <leader>nt :tabnew<cr>
 nnoremap <leader>cq :cclose<cr>
@@ -294,28 +295,3 @@ augroup END
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map
 set wildmenu
 set wildmode=longest,list
-
-" if exists('$TMUX') || !has('gui_running')
-"   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-"     let previous_winnr = winnr()
-"     silent! execute "wincmd " . a:wincmd
-"     if previous_winnr == winnr()
-"       call system("tmux select-pane -" . a:tmuxdir)
-"       redraw!
-"     endif
-"   endfunction
-
-"   let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-"   let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-"   let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
-
-"   nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-"   nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-"   nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-"   nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-" else
-" map <C-h> <C-w>h
-" map <C-j> <C-w>j
-" map <C-k> <C-w>k
-" map <C-l> <C-w>l
-" endif

@@ -12,7 +12,7 @@
 
     unstage = reset HEAD
     uncommit = reset --soft HEAD^
-    di = diff
+    di = !git diff --color | diff-so-fancy | less
     dc = diff --cached
     ds = !git --no-pager diff --stat=160,120
 
