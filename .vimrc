@@ -84,7 +84,7 @@ let g:syntastic_filetype_map = { "html.handlebars": "handlebars" }
 let g:syntastic_handlebars_checkers = ["handlebars", ""]
 let g:syntastic_javascript_checkers = ['eslint']
 " ignore empty fontawesome i tags
-let g:syntastic_html_tidy_quiet_messages = { 'regex': '\.*empty <i>'}
+let g:syntastic_html_tidy_quiet_messages = { 'regex': ['empty <i>', 'empty <button>'] }
 
 augroup writing
     autocmd!
@@ -226,7 +226,7 @@ if has("gui_macvim")
 endif
 
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/tasks.txt <bar> resize 25<cr>
+nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/tasks.taskpaper <bar> resize 25<cr>
 nnoremap <leader>sn :SearchNotes<space>
 nnoremap <leader>nt :tabnew<cr>
 nnoremap <leader>cq :cclose<cr>
@@ -287,7 +287,6 @@ endfunction
 augroup files
     autocmd!
     autocmd BufRead,BufNewFile *.md set filetype=markdown
-    autocmd BufRead,BufNewFile tasks.txt set filetype=taskpaper
     autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
     autocmd BufRead,BufNewFile *.ejs set filetype=eruby
     autocmd BufRead,BufNewFile *.js.php set filetype=javascript
