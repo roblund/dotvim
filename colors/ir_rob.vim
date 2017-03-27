@@ -31,6 +31,7 @@ hi WarningMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=16 ctermbg=red cterm=NO
 hi SpellBad guifg=#FF6C60 guibg=black gui=underline ctermfg=160 ctermbg=0 cterm=underline
 hi Search guifg=#000000 guibg=#87ff5f gui=BOLD ctermfg=16 ctermbg=119 cterm=NONE
 hi Operator guifg=#6699CC guibg=#1D1E2C gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
+hi Ignore guifg=gray guibg=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE
 
 hi DiffAdd term=reverse cterm=bold ctermbg=lightgreen ctermfg=16
 hi DiffChange term=reverse cterm=bold ctermbg=lightblue ctermfg=16
