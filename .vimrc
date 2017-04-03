@@ -20,7 +20,6 @@ Plug 'Mouse-Toggle'
 Plug 'vim-syntastic/syntastic'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'davidoc/taskpaper.vim'
-Plug 'christoomey/vim-tmux-navigator'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -201,6 +200,10 @@ set formatoptions=qn1
 nnoremap j gj
 nnoremap k gk
 
+" remap beginning and end of line
+nnoremap <S-B> ^
+nnoremap <S-E> $
+
 " disable default bufexplorer commands
 nnoremap <silent> <F11> :BufExplorer<CR>
 nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
@@ -227,7 +230,7 @@ endif
 nnoremap <leader><leader> <C-^>
 nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/tasks.taskpaper <bar> resize 25<cr>
 nnoremap <leader>sn :SearchNotes<space>
-nnoremap <leader>nt :tabnew<cr>
+nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>j :CtrlPMRU<cr>
@@ -238,6 +241,11 @@ nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>w :Goyo<cr>
+
+nnoremap <C-S-J> <C-W><C-J>
+nnoremap <C-S-K> <C-W><C-K>
+nnoremap <C-S-L> <C-W><C-L>
+nnoremap <C-S-H> <C-W><C-H>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
