@@ -17,7 +17,6 @@ Plug 'ervandew/supertab'
 Plug 'haya14busa/incsearch.vim'
 Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
-Plug 'vim-syntastic/syntastic'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'davidoc/taskpaper.vim'
 
@@ -40,7 +39,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'davidosomething/syntastic-hbstidy'
 Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
@@ -59,6 +57,17 @@ colorscheme ir_rob
 set ttimeoutlen=50
 
 " let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:18'
@@ -73,16 +82,6 @@ let g:lexical#thesaurus_key='<leader>S'
 set complete+=kspell
 
 let g:pencil#wrapModeDefault='soft'
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_filetype_map = { "html.handlebars": "handlebars" }
-let g:syntastic_handlebars_checkers = ["handlebars", ""]
-let g:syntastic_javascript_checkers = ['eslint']
-" ignore empty fontawesome i tags
-let g:syntastic_html_tidy_quiet_messages = { 'regex': ['empty <i>', 'empty <button>'] }
 
 augroup writing
     autocmd!
@@ -148,7 +147,6 @@ set cryptmethod=blowfish2
 
 set statusline=
 set statusline +=%#warningmsg#
-set statusline +=%{SyntasticStatuslineFlag()}
 set statusline +=%*
 set statusline +=%*(%n)\ %* " buffer number
 set statusline +=%*%<%f\ %* "full path
