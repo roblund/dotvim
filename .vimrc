@@ -57,7 +57,6 @@ colorscheme ir_rob
 set ttimeoutlen=50
 
 " let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
 if executable('ag')
     " Use ag over grep
     set grepprg=ag\ --nogroup\ --nocolor
