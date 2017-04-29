@@ -10,15 +10,15 @@ hi Comment ctermfg=245 guifg=#8a8a8a
 
 hi taskpaperDone ctermfg=245 guifg=#8a8a8a
 
-hi StatusLine cterm=NONE ctermbg=123 ctermfg=235 gui=NONE guibg=#585858 guifg=#5fffaf
-hi StatusLineNC ctermbg=236 ctermfg=252 guibg=#303030 guifg=#d0d0d0
+hi StatusLine cterm=NONE ctermbg=87 ctermfg=235 gui=NONE guibg=#5fffff guifg=#5fffaf
+hi StatusLineNC ctermbg=238 ctermfg=250 guibg=#5f87ff guifg=#bcbcbc
 
 hi ColorColumn ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc
 
 hi VertSplit ctermbg=NONE ctermfg=242 guibg=NONE guifg=#7b7d7b
 hi LineNr ctermfg=242 guifg=#7b7d7b
-hi CursorLine     guifg=NONE        guibg=#1c1c1c     gui=NONE      ctermfg=NONE        ctermbg=234        cterm=NONE
-hi CursorColumn   guifg=NONE        guibg=#1c1c1c     gui=NONE      ctermfg=NONE        ctermbg=234        cterm=NONE
+hi CursorLine guifg=NONE guibg=#3a3a3a gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE
+hi CursorColumn guifg=NONE guibg=#3a3a3a gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE
 hi Function guifg=#FFD2A7 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE
 
@@ -32,6 +32,7 @@ hi SpellBad guifg=#FF6C60 guibg=black gui=underline ctermfg=160 ctermbg=0 cterm=
 hi Search guifg=#000000 guibg=#87ff5f gui=BOLD ctermfg=16 ctermbg=119 cterm=NONE
 hi Operator guifg=#6699CC guibg=#1D1E2C gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
 hi Ignore guifg=gray guibg=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE
+hi qfLineNR guifg=#96CBFE guibg=NONE gui=NONE ctermfg=blue ctermbg=NONE cterm=NONE
 
 hi DiffAdd term=reverse cterm=bold ctermbg=lightgreen ctermfg=16
 hi DiffChange term=reverse cterm=bold ctermbg=lightblue ctermfg=16

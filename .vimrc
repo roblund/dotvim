@@ -10,27 +10,21 @@ call plug#begin('~/.vim/plugged')
 " general
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'CursorLineCurrentWindow'
 Plug 'csexton/trailertrash.vim'
 Plug 'bufexplorer.zip'
 Plug 'ervandew/supertab'
-Plug 'haya14busa/incsearch.vim'
-Plug 'mileszs/ack.vim'
 Plug 'Mouse-Toggle'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'davidoc/taskpaper.vim'
+Plug 'easymotion/vim-easymotion'
 
 " writing
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-lexical'
-Plug 'reedes/vim-wordy'
 
 " tim pope section
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -40,6 +34,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
+Plug 'davidoc/taskpaper.vim'
 
 call plug#end()
 
@@ -56,28 +51,26 @@ endif
 colorscheme ir_rob
 set ttimeoutlen=50
 
-" let g:ctrlp_clear_cache_on_exit=0 " keep cache files across multiple sessions - f5 to refresh
 if executable('ag')
     " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
+    set grepprg=ag\ --vimgrep\ --hidden\ --smart-case
+    set grepformat=%f:%l:%m
 
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
 endif
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
-let g:ctrlp_match_window='max:18'
+let g:ctrlp_match_window='max:25'
 
 let g:bufExplorerShowRelativePath=1
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
-let g:lexical#spell_key='<leader>s'
-let g:lexical#thesaurus_key='<leader>S'
 set complete+=kspell
 
 let g:pencil#wrapModeDefault='soft'
@@ -89,8 +82,6 @@ augroup writing
 augroup END
 
 function! s:goyo_enter()
-    " turn on lexical
-    call lexical#init()
     " turn on pencil
     Pencil
 
@@ -114,9 +105,6 @@ function! s:goyo_leave()
         endif
     endif
 endfunction
-
-let g:ackprg="pt -S --column --ignore='*optimized*'"
-let g:ackhighlight=1
 
 set modelines=0
 set expandtab
@@ -142,12 +130,10 @@ set hidden
 set nrformats=
 set number
 set cryptmethod=blowfish2
-" set cursorline " colors are cleared out in ir_rob, but I like the line number highlight
 
 set statusline=
 set statusline +=%#warningmsg#
 set statusline +=%*
-set statusline +=%*(%n)\ %* " buffer number
 set statusline +=%*%<%f\ %* "full path
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
@@ -186,13 +172,14 @@ set gdefault
 set showmatch
 set matchtime=0
 set incsearch
-set hlsearch
+set nohlsearch
 
 " have vim use the older regex engine for now (problems with cursorline)
 set re=1
 
 set wrap
 set formatoptions=qn1
+
 " move by display line
 nnoremap j gj
 nnoremap k gk
@@ -206,7 +193,18 @@ nnoremap <silent> <F11> :BufExplorer<CR>
 nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
 nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 
+" map \ to grep/ag now that space is my leader key
+"   command mapping breakdown: num args - one or more, completion - file mode, followed my more
+"   commands separated by a |, 'FindInFiles' maps to silent grep, afterward open quickfix list in
+"   the far bottom right 25 lines tall, force a redraw
+command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|botright copen 25|redraw!
+nnoremap \ :FindInFiles<space>
+
+" change K to grep/ag for the word under the cursor
+nnoremap K :FindInFiles "<C-R><C-W>"<cr>
+
 " highlight what you just pasted
+" note: '] moves to a mark at the end of your paste
 nnoremap gV `[v`]
 
 set pastetoggle=<F3>
@@ -224,25 +222,19 @@ if has("gui_macvim")
     nnoremap <leader>2 :call MarkedOpen()<cr>
 endif
 
-nnoremap <leader><leader> <C-^>
-nnoremap <leader>ot :split ~/Dropbox/Notes/taskpaper/tasks.taskpaper <bar> resize 25<cr>
-nnoremap <leader>sn :SearchNotes<space>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>b :BufExplorer<cr>
-nnoremap <leader>j :CtrlPMRU<cr>
-nnoremap <silent> - :FileBeagleBufferDir<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
-nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>d :w !diff % -<cr>
-nnoremap <leader>h :nohl<cr>
-nnoremap <leader>a :Ack<space>
 nnoremap <leader>w :Goyo<cr>
 
-nnoremap <C-S-J> <C-W><C-J>
-nnoremap <C-S-K> <C-W><C-K>
-nnoremap <C-S-L> <C-W><C-L>
-nnoremap <C-S-H> <C-W><C-H>
+nnoremap <silent> - :FileBeagleBufferDir<cr>
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
@@ -260,13 +252,6 @@ function! PBCopy()
     let @s = temp
 endfunction
 
-" haya incsearch, only load in vim 7.3 and higher
-if v:version >= 703
-    map /  <Plug>(incsearch-forward)
-    map ?  <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
-endif
-
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
@@ -281,8 +266,6 @@ function! s:VSetSearch()
     let @s = temp
 endfunction
 
-:command! -narg=1 SearchNotes Ack <f-args> ~/Dropbox/Notes/
-
 " identify the syntax highlighting group
 :command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -293,9 +276,13 @@ augroup files
     autocmd BufRead,BufNewFile *.md set filetype=markdown
     autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
     autocmd BufRead,BufNewFile *.ejs set filetype=eruby
-    autocmd BufRead,BufNewFile *.js.php set filetype=javascript
 augroup END
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/cp/versions/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map
+augroup windowTypes
+    autocmd!
+    autocmd filetype qf wincmd J
+augroup END
+
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map
 set wildmenu
 set wildmode=longest,list
