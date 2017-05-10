@@ -14,8 +14,8 @@ Plug 'csexton/trailertrash.vim'
 Plug 'bufexplorer.zip'
 Plug 'ervandew/supertab'
 Plug 'Mouse-Toggle'
+Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'easymotion/vim-easymotion'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -172,7 +172,7 @@ set gdefault
 set showmatch
 set matchtime=0
 set incsearch
-set nohlsearch
+set hlsearch
 
 " have vim use the older regex engine for now (problems with cursorline)
 set re=1
@@ -227,6 +227,7 @@ nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
+nnoremap <leader>h :nohl<cr>
 nnoremap <leader>w :Goyo<cr>
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
@@ -251,6 +252,13 @@ function! PBCopy()
     call system('pbcopy', @s)
     let @s = temp
 endfunction
+
+" haya incsearch, only load in vim 7.3 and higher
+if v:version >= 703
+	map /  <Plug>(incsearch-forward)
+	map ?  <Plug>(incsearch-backward)
+	map g/ <Plug>(incsearch-stay)
+endif
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
