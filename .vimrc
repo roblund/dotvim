@@ -16,6 +16,7 @@ Plug 'ervandew/supertab'
 Plug 'Mouse-Toggle'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'w0rp/ale'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -70,6 +71,11 @@ let g:bufExplorerShowRelativePath=1
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+let g:ale_linters = {
+\   'html': [],
+\   'handlebars': []
+\}
 
 set complete+=kspell
 
@@ -135,10 +141,24 @@ set statusline=
 set statusline +=%#warningmsg#
 set statusline +=%*
 set statusline +=%*%<%f\ %* "full path
+set statusline +=%{LinterStatus()}%*
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L\ %* "total lines
 set statusline +=%*%y%* "file type
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? '' : printf(
+    \   '[%dW %dE] ',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
 
 if exists("+undofile")
     " save undofiles in a less annoying spot

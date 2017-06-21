@@ -14,6 +14,7 @@ hi StatusLine cterm=NONE ctermbg=87 ctermfg=235 gui=NONE guibg=#5fffff guifg=#5f
 hi StatusLineNC ctermbg=238 ctermfg=250 guibg=#5f87ff guifg=#bcbcbc
 
 hi ColorColumn ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc
+hi SignColumn ctermbg=NONE ctermfg=250 guibg=NONE guifg=#bcbcbc
 
 hi VertSplit ctermbg=NONE ctermfg=242 guibg=NONE guifg=#7b7d7b
 hi LineNr ctermfg=242 guifg=#7b7d7b
@@ -33,6 +34,9 @@ hi Search guifg=#000000 guibg=#87ff5f gui=BOLD ctermfg=16 ctermbg=119 cterm=NONE
 hi Operator guifg=#6699CC guibg=#1D1E2C gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
 hi Ignore guifg=gray guibg=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE
 hi qfLineNR guifg=#96CBFE guibg=NONE gui=NONE ctermfg=blue ctermbg=NONE cterm=NONE
+
+hi ALEErrorSign guibg=NONE guifg=cyan ctermbg=NONE ctermfg=cyan
+hi ALEWarningSign guibg=NONE guifg=lightgray ctermbg=NONE ctermfg=lightgray
 
 hi DiffAdd term=reverse cterm=bold ctermbg=lightgreen ctermfg=16
 hi DiffChange term=reverse cterm=bold ctermbg=lightblue ctermfg=16
