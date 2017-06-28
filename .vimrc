@@ -10,13 +10,13 @@ call plug#begin('~/.vim/plugged')
 " general
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'csexton/trailertrash.vim'
 Plug 'bufexplorer.zip'
 Plug 'ervandew/supertab'
 Plug 'Mouse-Toggle'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'w0rp/ale'
+Plug 'ntpeters/vim-better-whitespace'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -113,6 +113,10 @@ function! s:goyo_leave()
         endif
     endif
 endfunction
+
+augroup whitespace
+    autocmd BufEnter * EnableStripWhitespaceOnSave
+augroup END
 
 set modelines=0
 set expandtab
@@ -219,7 +223,7 @@ nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 "   command mapping breakdown: num args - one or more, completion - file mode, followed my more
 "   commands separated by a |, 'FindInFiles' maps to silent grep, afterward open quickfix list in
 "   the far bottom right 30 lines tall, force a redraw
-command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|botright copen 30|redraw!
+command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <q-args>|botright copen 30|redraw!
 nnoremap \ :FindInFiles<space>
 
 " highlight what you just pasted
@@ -243,6 +247,7 @@ endif
 
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>cq :cclose<cr>
+nnoremap <leader>co :copen 30<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
