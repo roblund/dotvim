@@ -52,17 +52,18 @@ endif
 colorscheme ir_rob
 set ttimeoutlen=50
 
-if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --vimgrep\ --hidden\ --smart-case
+if executable('rg')
+    " Use rg over grep
+    set grepprg=rg\ --vimgrep\ --smart-case
     set grepformat=%f:%l:%m
 
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+    " Use ripgrep in CtrlP for listing files
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
 endif
+
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:25'
@@ -72,6 +73,7 @@ let g:bufExplorerShowRelativePath=1
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
+let g:ale_sign_column_always = 1
 let g:ale_linters = {
 \   'html': [],
 \   'handlebars': []
@@ -213,15 +215,12 @@ nnoremap <silent> <F11> :BufExplorer<CR>
 nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
 nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 
-" map \ to grep/ag now that space is my leader key
+" map \ to grep/rg now that space is my leader key
 "   command mapping breakdown: num args - one or more, completion - file mode, followed my more
 "   commands separated by a |, 'FindInFiles' maps to silent grep, afterward open quickfix list in
-"   the far bottom right 25 lines tall, force a redraw
-command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|botright copen 25|redraw!
+"   the far bottom right 30 lines tall, force a redraw
+command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|botright copen 30|redraw!
 nnoremap \ :FindInFiles<space>
-
-" change K to grep/ag for the word under the cursor
-nnoremap K :FindInFiles "<C-R><C-W>"<cr>
 
 " highlight what you just pasted
 " note: '] moves to a mark at the end of your paste
