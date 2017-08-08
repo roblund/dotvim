@@ -67,6 +67,7 @@ if executable('ag')
 endif
 
 let g:ack_qhandler = "botright copen 25"
+let g:ackhighlight = 1
 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
@@ -228,7 +229,7 @@ nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 "   commands separated by a |, 'FindInFiles' maps to silent grep, afterward open quickfix list in
 "   the far bottom right 30 lines tall, force a redraw
 " command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <q-args>|botright copen 30|redraw!
-nnoremap \ :Ack<space>
+nnoremap \ :Ack!<space>
 nnoremap \| :AckFromSearch<cr>
 
 " highlight what you just pasted
