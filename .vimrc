@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'bufexplorer.zip'
+Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
 Plug 'Mouse-Toggle'
 Plug 'haya14busa/incsearch.vim'
@@ -52,17 +53,20 @@ endif
 colorscheme ir_rob
 set ttimeoutlen=50
 
-if executable('rg')
-    " Use rg over grep
-    set grepprg=rg\ --vimgrep\ --smart-case
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --vimgrep\ --hidden\ --smart-case
     set grepformat=%f:%l:%m
+    let g:ackprg = 'ag --vimgrep --hidden --smart-case'
 
-    " Use ripgrep in CtrlP for listing files
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    " Use ag in CtrlP for listing files
+    let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
 endif
+
+let g:ack_qhandler = "botright copen 25"
 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
@@ -219,12 +223,13 @@ nnoremap <silent> <F11> :BufExplorer<CR>
 nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
 nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 
-" map \ to grep/rg now that space is my leader key
+" map \ to grep now that space is my leader key
 "   command mapping breakdown: num args - one or more, completion - file mode, followed my more
 "   commands separated by a |, 'FindInFiles' maps to silent grep, afterward open quickfix list in
 "   the far bottom right 30 lines tall, force a redraw
-command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <q-args>|botright copen 30|redraw!
-nnoremap \ :FindInFiles<space>
+" command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <q-args>|botright copen 30|redraw!
+nnoremap \ :Ack<space>
+nnoremap \| :AckFromSearch<cr>
 
 " highlight what you just pasted
 " note: '] moves to a mark at the end of your paste
@@ -253,6 +258,8 @@ nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>w :Goyo<cr>
+nnoremap <leader>ma :!mocha-all<cr>
+nnoremap <leader>ms :!mocha-single %<cr>
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
