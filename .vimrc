@@ -259,8 +259,8 @@ nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>w :Goyo<cr>
-nnoremap <leader>ma :!mocha-all<cr>
-nnoremap <leader>ms :!mocha-single %<cr>
+nnoremap <leader>9 :!mocha-all<cr>
+nnoremap <leader>0 :!mocha-single %<cr>
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
