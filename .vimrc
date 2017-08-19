@@ -16,6 +16,7 @@ Plug 'ervandew/supertab'
 Plug 'Mouse-Toggle'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'justinmk/vim-sneak'
 Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -77,6 +78,8 @@ let g:bufExplorerShowRelativePath=1
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+let g:sneak#label = 1
 
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
