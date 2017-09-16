@@ -333,3 +333,12 @@ augroup END
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map
 set wildmenu
 set wildmode=longest,list
+
+" lastly load in any system specific vim configs
+if filereadable(".sys_vim_settings")
+    source .sys_vim_settings
+else
+    if filereadable("../.sys_vim_settings")
+        source .sys_vim_settings
+    endif
+endif
