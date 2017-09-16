@@ -29,3 +29,5 @@ if isdirectory($HOME . '\.vim\backup') == 0
 endif
 set backup
 set backupdir=$HOME\.vim\backup,.
+
+nnoremap <leader>T :e $HOME\Drobox\Notes\taskpaper\tasks.taskpaper<cr>

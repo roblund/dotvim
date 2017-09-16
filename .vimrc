@@ -67,7 +67,7 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 
-let g:ack_qhandler = "botright copen 25"
+let g:ack_qhandler = "botright copen 15"
 let g:ackhighlight = 1
 
 let g:ctrlp_working_path_mode=0 " don't manage working path
@@ -227,6 +227,8 @@ nnoremap <silent> <F11> :BufExplorer<CR>
 nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
 nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 
+nnoremap cnt :tabnew<CR>
+
 " map \ to grep now that space is my leader key
 "   command mapping breakdown: num args - one or more, completion - file mode, followed my more
 "   commands separated by a |, 'FindInFiles' maps to silent grep, afterward open quickfix list in
@@ -252,9 +254,11 @@ if has("gui_macvim")
 
     :command! Marked :call MarkedOpen()
     nnoremap <leader>2 :call MarkedOpen()<cr>
+
+    " map tasks file on the mac
+    nnoremap <leader>T :e ~/Dropbox/Notes/taskpaper/tasks.taskpaper<cr>
 endif
 
-nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>co :copen 30<cr>
 nnoremap <leader>b :BufExplorer<cr>
