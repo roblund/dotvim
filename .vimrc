@@ -19,6 +19,8 @@ Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'justinmk/vim-sneak'
 Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -124,6 +126,15 @@ endfunction
 
 augroup whitespace
     autocmd BufEnter * EnableStripWhitespaceOnSave
+augroup END
+
+augroup todofile
+    if @% == "todo.md"
+        set autoread
+        autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+        autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+    endif
 augroup END
 
 set modelines=0
@@ -333,12 +344,3 @@ augroup END
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map
 set wildmenu
 set wildmode=longest,list
-
-" lastly load in any system specific vim configs
-if filereadable(".sys_vim_settings")
-    source .sys_vim_settings
-else
-    if filereadable("../.sys_vim_settings")
-        source .sys_vim_settings
-    endif
-endif
