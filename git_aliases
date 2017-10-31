@@ -16,6 +16,7 @@
     dc = !git diff --cached --color | diff-so-fancy | less
     ds = !git --no-pager diff --stat=160,120
     dt = difftool
+    mt = mergetool
 
     fix = "!$EDITOR `git diff --name-only --diff-filter=U`"
     fadd = "!git add `git diff --name-only --diff-filter=U`"
