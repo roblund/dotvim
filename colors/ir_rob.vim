@@ -10,8 +10,8 @@ hi Comment ctermfg=245 guifg=#8a8a8a
 
 hi taskpaperDone ctermfg=245 guifg=#8a8a8a
 
-hi StatusLine cterm=NONE ctermbg=87 ctermfg=235 gui=NONE guibg=#5fffff guifg=#5fffaf
-hi StatusLineNC ctermbg=238 ctermfg=250 guibg=#5f87ff guifg=#bcbcbc
+hi StatusLine cterm=NONE ctermbg=87 ctermfg=235 gui=NONE guibg=#5fffff guifg=#262626
+hi StatusLineNC ctermbg=238 ctermfg=250 guibg=#444444 guifg=#bcbcbc
 
 hi ColorColumn ctermbg=235 ctermfg=250 guibg=#262626 guifg=#bcbcbc
 hi SignColumn ctermbg=NONE ctermfg=250 guibg=NONE guifg=#bcbcbc

@@ -10,6 +10,8 @@ call plug#begin('~/.vim/plugged')
 " general
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'bufexplorer.zip'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
@@ -165,7 +167,7 @@ set cryptmethod=blowfish2
 set statusline=
 set statusline +=%#warningmsg#
 set statusline +=%*
-set statusline +=%*%<%f\ %* "full path
+set statusline +=%*\ %<%f\ %* "full path
 set statusline +=%{LinterStatus()}%*
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
@@ -279,6 +281,7 @@ nnoremap <leader>h :nohl<cr>
 nnoremap <leader>w :Goyo<cr>
 nnoremap <leader>9 :!mocha-all<cr>
 nnoremap <leader>0 :!mocha-single %<cr>
+nnoremap <leader>p :Files<cr>
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
