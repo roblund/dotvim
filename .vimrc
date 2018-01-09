@@ -133,9 +133,11 @@ augroup END
 augroup todofile
     if @% == "todo.md"
         set autoread
-        autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+        set updatetime=500
+        autocmd CursorHold,CursorHoldI * checktime
+        autocmd FocusGained,BufEnter * :silent! !
         autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+          \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
     endif
 augroup END
 
@@ -281,7 +283,8 @@ nnoremap <leader>h :nohl<cr>
 nnoremap <leader>w :Goyo<cr>
 nnoremap <leader>9 :!mocha-all<cr>
 nnoremap <leader>0 :!mocha-single %<cr>
-nnoremap <leader>p :Files<cr>
+nnoremap <leader>e :ALENext<cr>
+nnoremap <leader>E :ALEPrevious<cr>
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
@@ -289,6 +292,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" internal vim terminal mappings
+tnoremap <C-J> <C-W><C-J>
+tnoremap <C-K> <C-W><C-K>
+tnoremap <C-L> <C-W><C-L>
+tnoremap <C-H> <C-W><C-H>
 
 " copy/paste from system buffer
 vmap <leader>y "+y
