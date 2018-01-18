@@ -23,6 +23,7 @@ Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'mhinz/vim-startify'
 
 " writing
 Plug 'junegunn/goyo.vim'
