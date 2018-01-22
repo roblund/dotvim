@@ -12,10 +12,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'bufexplorer.zip'
+Plug 'jlanzarotta/bufexplorer'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
-Plug 'Mouse-Toggle'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'justinmk/vim-sneak'
@@ -286,6 +285,7 @@ nnoremap <leader>9 :!mocha-all<cr>
 nnoremap <leader>0 :!mocha-single %<cr>
 nnoremap <leader>e :ALENext<cr>
 nnoremap <leader>E :ALEPrevious<cr>
+nnoremap <leader>m :call ToggleMouse()<cr>
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
@@ -335,6 +335,19 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = temp
 endfunction
+
+function! ToggleMouse()
+    " check if mouse is enabled
+    if &mouse == 'a'
+        " disable mouse
+        set mouse=
+        echo "Mouse Off"
+    else
+        " enable mouse everywhere
+        set mouse=a
+        echo "Mouse On"
+    endif
+endfunc
 
 " identify the syntax highlighting group
 :command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
