@@ -2,11 +2,21 @@ runtime colors/ir_black.vim
 
 let g:colors_name = "ir_rob"
 
-hi Normal ctermfg=15 guifg=white
+" doing all of this so fast switching with unimpaired works better
+let s:is_dark=(&background == 'dark')
+if s:is_dark
+    let s:norm_gui_color = "#ffffff"
+    let s:norm_term_color = "15"
+else
+    let s:norm_gui_color = "#000000"
+    let s:norm_term_color = "0"
+endif
+
+exec "hi! Normal guifg=" . s:norm_gui_color . " ctermfg=" . s:norm_term_color . "guibg=NONE gui=NONE ctermbg=NONE cterm=NONE"
 
 hi pythonSpaceError ctermbg=red guibg=red
 
-hi Comment ctermfg=245 guifg=#8a8a8a
+hi Comment ctermfg=249 guifg=#b2b2b2
 
 hi taskpaperDone ctermfg=245 guifg=#8a8a8a
 
