@@ -10,9 +10,10 @@ function ssh_connection() {
 }
 
 function return_status() {
-    echo " %(?:%{$fg_bold[green]%}$ :%{$fg_bold[red]%}$ %s)%{$reset_color%}"
+    echo "%(?:%{$fg_bold[green]%}> :%{$fg_bold[red]%}> %s)%{$reset_color%}"
 }
 
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 
-PROMPT="$(ssh_connection)%5~${git_branch}$(return_status)"
+NEWLINE=$'\n'
+PROMPT="$(ssh_connection)[%5~]${git_branch}${NEWLINE}$(return_status)"

@@ -79,6 +79,7 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:25'
 
 let g:bufExplorerShowRelativePath=1
+let g:bufExplorerDisableDefaultKeyMapping=1
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
@@ -274,9 +275,11 @@ if has("gui_macvim")
     nnoremap <leader>T :e ~/Dropbox/Notes/taskpaper/tasks.taskpaper<cr>
 endif
 
+" unmap BufExplorer's default toggle
+nnoremap <leader>b :BufExplorer<cr>
+" unmap! <leader>bt
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>co :copen 30<cr>
-nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
@@ -293,6 +296,14 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+if v:version >= 800
+    " internal vim terminal mappings
+    tnoremap <C-J> <C-W><C-J>
+    tnoremap <C-K> <C-W><C-K>
+    tnoremap <C-L> <C-W><C-L>
+    tnoremap <C-H> <C-W><C-H>
+endif
 
 " copy/paste from system buffer
 vmap <leader>y "+y
