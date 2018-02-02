@@ -10,19 +10,15 @@ call plug#begin('~/.vim/plugged')
 " general
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'justinmk/vim-sneak'
 Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'mhinz/vim-startify'
 Plug 'yssl/QFEnter'
 
 " writing
@@ -86,8 +82,6 @@ let g:bufExplorerDisableDefaultKeyMapping=1
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-
-let g:sneak#label = 1
 
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
