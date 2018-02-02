@@ -23,6 +23,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'mhinz/vim-startify'
+Plug 'yssl/QFEnter'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -73,6 +74,8 @@ endif
 
 let g:ack_qhandler = "botright copen 15"
 let g:ackhighlight = 1
+let g:ack_apply_qmappings = 0
+let g:ack_apply_lmappings = 0
 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
