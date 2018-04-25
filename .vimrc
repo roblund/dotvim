@@ -20,6 +20,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'yssl/QFEnter'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -82,6 +84,15 @@ let g:bufExplorerDisableDefaultKeyMapping=1
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+let g:vimwiki_list = [{
+    \'path': '~/Dropbox/Notes/vimwiki',
+    \'ext': '.md',
+    \'diary_rel_path': 'log/',
+    \'diary_index': 'index',
+    \'diary_header': 'Log'
+    \}]
+let g:vimwiki_hl_headers = 1
 
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
@@ -280,7 +291,7 @@ nnoremap <leader>co :copen 30<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
-nnoremap <leader>w :Goyo<cr>
+nnoremap <leader>W :Goyo<cr>
 nnoremap <leader>9 :!mocha-all<cr>
 nnoremap <leader>0 :!mocha-single %<cr>
 nnoremap <leader>e :ALENext<cr>
