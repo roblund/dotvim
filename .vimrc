@@ -10,19 +10,18 @@ call plug#begin('~/.vim/plugged')
 " general
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'justinmk/vim-sneak'
 Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'mhinz/vim-startify'
+Plug 'yssl/QFEnter'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -73,17 +72,27 @@ endif
 
 let g:ack_qhandler = "botright copen 15"
 let g:ackhighlight = 1
+let g:ack_apply_qmappings = 0
+let g:ack_apply_lmappings = 0
 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
 let g:ctrlp_match_window='max:25'
 
 let g:bufExplorerShowRelativePath=1
+let g:bufExplorerDisableDefaultKeyMapping=1
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
-let g:sneak#label = 1
+let g:vimwiki_list = [{
+    \'path': '~/Dropbox/Notes/vimwiki',
+    \'ext': '.md',
+    \'diary_rel_path': 'log/',
+    \'diary_index': 'index',
+    \'diary_header': 'Log'
+    \}]
+let g:vimwiki_hl_headers = 1
 
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
@@ -274,13 +283,15 @@ if has("gui_macvim")
     nnoremap <leader>T :e ~/Dropbox/Notes/taskpaper/tasks.taskpaper<cr>
 endif
 
+" unmap BufExplorer's default toggle
+nnoremap <leader>b :BufExplorer<cr>
+" unmap! <leader>bt
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>co :copen 30<cr>
-nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
-nnoremap <leader>w :Goyo<cr>
+nnoremap <leader>W :Goyo<cr>
 nnoremap <leader>9 :!mocha-all<cr>
 nnoremap <leader>0 :!mocha-single %<cr>
 nnoremap <leader>e :ALENext<cr>
@@ -293,6 +304,14 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+if v:version >= 800
+    " internal vim terminal mappings
+    tnoremap <C-J> <C-W><C-J>
+    tnoremap <C-K> <C-W><C-K>
+    tnoremap <C-L> <C-W><C-L>
+    tnoremap <C-H> <C-W><C-H>
+endif
 
 " copy/paste from system buffer
 vmap <leader>y "+y
