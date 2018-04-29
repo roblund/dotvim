@@ -1,7 +1,8 @@
 set vb t_vb=
 set guifont=ProggyClean:h8
+set linespace=0
 set lines=70 columns=150
-set guioptions-=m  "remove menu bar
+" set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
@@ -29,5 +30,3 @@ if isdirectory($HOME . '\.vim\backup') == 0
 endif
 set backup
 set backupdir=$HOME\.vim\backup,.
-
-nnoremap <leader>T :e $HOME\Drobox\Notes\taskpaper\tasks.taskpaper<cr>
