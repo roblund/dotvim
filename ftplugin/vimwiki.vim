@@ -1,3 +1,12 @@
-nmap <silent><buffer> <Leader>w] <Plug>VimwikiAddHeaderLevel
-nmap <silent><buffer> <Leader>w[ <Plug>VimwikiRemoveHeaderLevel
+augroup vimwiki
+    set autoread
+    set updatetime=500
+    autocmd CursorHold,CursorHoldI * checktime
+    autocmd FocusGained,BufEnter * :silent! !
+    autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+augroup END
+
+map <silent><buffer> ]h <Plug>VimwikiAddHeaderLevel
+map <silent><buffer> [h <Plug>VimwikiRemoveHeaderLevel
 map <silent><buffer> <Leader>tt <Plug>VimwikiToggleListItem

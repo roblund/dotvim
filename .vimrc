@@ -139,17 +139,6 @@ augroup whitespace
     autocmd BufEnter * EnableStripWhitespaceOnSave
 augroup END
 
-augroup todofile
-    if @% == "todo.md"
-        set autoread
-        set updatetime=500
-        autocmd CursorHold,CursorHoldI * checktime
-        autocmd FocusGained,BufEnter * :silent! !
-        autocmd FileChangedShellPost *
-          \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-    endif
-augroup END
-
 set modelines=0
 set expandtab
 set tabstop=4
