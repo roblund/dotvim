@@ -267,14 +267,10 @@ if has("gui_macvim")
 
     :command! Marked :call MarkedOpen()
     nnoremap <leader>2 :call MarkedOpen()<cr>
-
-    " map tasks file on the mac
-    nnoremap <leader>T :e ~/Dropbox/Notes/taskpaper/tasks.taskpaper<cr>
 endif
 
 " unmap BufExplorer's default toggle
 nnoremap <leader>b :BufExplorer<cr>
-" unmap! <leader>bt
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>co :copen 30<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
@@ -302,8 +298,7 @@ if v:version >= 800
     tnoremap <C-H> <C-W><C-H>
 endif
 
-" copy/paste from system buffer
-vmap <leader>y "+y
+" paste from system buffer
 nmap <leader>p "+p
 vmap <leader>p "+p
 
