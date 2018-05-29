@@ -20,8 +20,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'yssl/QFEnter'
-Plug 'vimwiki/vimwiki'
-Plug 'mattn/calendar-vim'
 
 " writing
 Plug 'junegunn/goyo.vim'
