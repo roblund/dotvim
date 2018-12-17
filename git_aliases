@@ -12,8 +12,8 @@
 
     unstage = reset HEAD
     uncommit = reset --soft HEAD^
-    di = !git diff --color | diff-so-fancy | less
-    dc = !git diff --cached --color | diff-so-fancy | less
+    di = !git diff --color | diff-so-fancy | less --tabs=4 -R
+    dc = !git diff --cached --color | diff-so-fancy | less --tabs=4 -R
     ds = !git --no-pager diff --stat=160,120
     dt = difftool
     mt = mergetool

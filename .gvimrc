@@ -1,6 +1,8 @@
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-set guifont=Anonymous\ Pro:h12
+set guifont=Menlo:h12
 set guioptions-=r
 set guioptions-=L
+
+cd ~/Documents/dev

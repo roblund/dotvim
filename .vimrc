@@ -3,7 +3,6 @@
 set nocompatible
 filetype off
 
-" to download vim-plug use: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
@@ -39,7 +38,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
-Plug 'davidoc/taskpaper.vim'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -172,7 +171,8 @@ set statusline +=%*\ %<%f\ %* "full path
 set statusline +=%{LinterStatus()}%*
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
-set statusline +=%*/%L\ %* "total lines
+set statusline +=%*/%L\%* "total lines
+set statusline +=%*:%c\ %* "total lines
 set statusline +=%*%y%* "file type
 
 function! LinterStatus() abort
@@ -244,10 +244,6 @@ nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 nnoremap cnt :tabnew<CR>
 
 " map \ to grep now that space is my leader key
-"   command mapping breakdown: num args - one or more, completion - file mode, followed my more
-"   commands separated by a |, 'FindInFiles' maps to silent grep, afterward open quickfix list in
-"   the far bottom right 30 lines tall, force a redraw
-" command! -nargs=+ -complete=file -bar FindInFiles silent! grep! <q-args>|botright copen 30|redraw!
 nnoremap \ :Ack!<space>
 nnoremap \| :AckFromSearch<cr>
 
