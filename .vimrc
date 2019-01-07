@@ -40,6 +40,8 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
 Plug 'posva/vim-vue'
 Plug 'mxw/vim-jsx'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'hail2u/vim-css3-syntax'
 
 call plug#end()
 
