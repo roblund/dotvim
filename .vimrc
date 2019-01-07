@@ -39,6 +39,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
 Plug 'posva/vim-vue'
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 
@@ -162,6 +163,7 @@ set splitright
 set hidden
 set nrformats=
 set number
+set colorcolumn=100
 set cryptmethod=blowfish2
 
 set statusline=
