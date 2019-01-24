@@ -20,6 +20,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'yssl/QFEnter'
+Plug 'janko-m/vim-test'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -32,6 +33,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
 
 " language specific
 Plug 'kchmck/vim-coffee-script'
@@ -102,6 +104,9 @@ let g:ale_linters = {
 \   'html': [],
 \   'handlebars': []
 \}
+
+let test#strategy = 'dispatch'
+let test#javascript#mocha#options = '--webpack-config webpack.config-test.babel.js --reporter spec'
 
 set complete+=kspell
 
