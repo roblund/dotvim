@@ -34,6 +34,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-obsession'
 
 " language specific
 Plug 'kchmck/vim-coffee-script'
@@ -44,6 +45,7 @@ Plug 'posva/vim-vue'
 Plug 'mxw/vim-jsx'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'hail2u/vim-css3-syntax'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 call plug#end()
 
@@ -116,6 +118,11 @@ augroup writing
     autocmd!
     autocmd User GoyoEnter call <SID>goyo_enter()
     autocmd User GoyoLeave call <SID>goyo_leave()
+augroup END
+
+augroup format
+    let g:prettier#autoformat = 0
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 augroup END
 
 function! s:goyo_enter()
