@@ -95,7 +95,7 @@ let g:sneak#label = 1
 
 let g:vimwiki_list = [{
     \'path': '~/Dropbox/Notes/vimwiki',
-    \'ext': '.wiki',
+    \'ext': '.mkd',
     \'diary_rel_path': 'log/',
     \'diary_index': 'index',
     \'diary_header': 'Log'
@@ -112,17 +112,6 @@ let test#strategy = 'dispatch'
 let test#javascript#mocha#options = '--webpack-config webpack.config-test.babel.js --reporter spec'
 
 set complete+=kspell
-
-augroup todofile
-    if @% == "todo.wiki"
-        set autoread
-        set updatetime=500
-        autocmd CursorHold,CursorHoldI * checktime
-        autocmd FocusGained,BufEnter * :silent! !
-        autocmd FileChangedShellPost *
-            \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-    endif
-augroup END
 
 let g:pencil#wrapModeDefault='soft'
 
