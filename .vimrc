@@ -91,6 +91,10 @@ let g:bufExplorerDisableDefaultKeyMapping=1
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+
 let g:sneak#label = 1
 
 let g:vimwiki_list = [{
@@ -150,10 +154,6 @@ function! s:goyo_leave()
         endif
     endif
 endfunction
-
-augroup whitespace
-    autocmd BufEnter * EnableStripWhitespaceOnSave
-augroup END
 
 set modelines=0
 set expandtab
