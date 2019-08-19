@@ -22,6 +22,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'yssl/QFEnter'
 Plug 'janko-m/vim-test'
 Plug 'vimwiki/vimwiki'
+Plug 'mkitt/tabline.vim'
 
 " writing
 Plug 'junegunn/goyo.vim'

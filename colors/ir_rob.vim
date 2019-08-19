@@ -53,10 +53,16 @@ hi DiffChange term=reverse cterm=bold ctermbg=lightblue ctermfg=16
 hi DiffText term=reverse cterm=bold ctermbg=lightgray ctermfg=16
 hi DiffDelete term=reverse cterm=bold ctermbg=lightred ctermfg=16
 
+hi VimwikiLink gui=NONE guifg=#00afff cterm=NONE ctermfg=39
+hi VimwikiListTodo gui=NONE guifg=#00d787 cterm=NONE ctermfg=42
+
 hi PmenuSel ctermfg=16 ctermbg=156
 
-hi TabLineFill guibg=darkgray guifg=#171717 ctermbg=darkgray ctermfg=233
+" active tab
 hi TabLineSel guibg=darkgray guifg=lightgreen ctermbg=236 ctermfg=120
-hi TabLine guibg=black guifg=darkgray gui=NONE ctermbg=black ctermfg=darkgray cterm=NONE
+" inactive tab
+hi TabLine guibg=black guifg=darkgray gui=NONE ctermbg=234 ctermfg=29 cterm=NONE
+" remainder of tab line
+hi TabLineFill guibg=darkgray guifg=#171717 ctermbg=236 ctermfg=233
 
 hi EndOfBuffer guifg=#C6C5FE ctermfg=cyan
