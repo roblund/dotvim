@@ -379,6 +379,6 @@ augroup windowTypes
     autocmd filetype qf wincmd J
 augroup END
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/node_modules/*,*.map
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/node_modules/*,*/coverage-reports/*,*.map
 set wildmenu
 set wildmode=longest,list
