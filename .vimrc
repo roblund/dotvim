@@ -12,10 +12,9 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
-Plug 'haya14busa/incsearch.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'justinmk/vim-sneak'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -23,6 +22,7 @@ Plug 'yssl/QFEnter'
 Plug 'janko-m/vim-test'
 Plug 'vimwiki/vimwiki'
 Plug 'mkitt/tabline.vim'
+Plug 'tomtom/tcomment_vim'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -31,7 +31,6 @@ Plug 'reedes/vim-pencil'
 " tim pope section
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -43,8 +42,9 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
-Plug 'mxw/vim-jsx'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
@@ -64,17 +64,12 @@ endif
 colorscheme ir_rob
 set ttimeoutlen=50
 
-if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --vimgrep\ --hidden\ --smart-case
-    set grepformat=%f:%l:%m
-    let g:ackprg = 'ag --vimgrep --hidden --smart-case'
-
-    " Use ag in CtrlP for listing files
-    let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
+if executable('rg')
+  set grepprg=rg\ --color=never
+  set grepformat=%f:%l:%m
+  let g:ackprg = 'rg --hidden --vimgrep --no-heading'
+  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
 endif
 
 let g:ack_qhandler = "botright copen 15"
@@ -84,7 +79,7 @@ let g:ack_apply_lmappings = 0
 
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
-let g:ctrlp_match_window='max:25'
+let g:ctrlp_match_window='max:15,min:15'
 
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerDisableDefaultKeyMapping=1
@@ -110,7 +105,8 @@ let g:vimwiki_hl_headers = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
 \   'html': [],
-\   'handlebars': []
+\   'handlebars': [],
+\   'vue': ['prettier']
 \}
 
 let test#strategy = 'dispatch'
@@ -156,6 +152,11 @@ function! s:goyo_leave()
     endif
 endfunction
 
+if !has('nvim')
+    set ttymouse=xterm2
+    set cryptmethod=blowfish2
+endif
+
 set modelines=0
 set expandtab
 set tabstop=4
@@ -167,7 +168,6 @@ set scrolloff=3
 set autoindent
 set smartindent
 set mouse=a
-set ttymouse=xterm2
 set showmode
 set showcmd
 set ttyfast
@@ -180,7 +180,7 @@ set hidden
 set nrformats=
 set number
 set colorcolumn=100
-set cryptmethod=blowfish2
+set guicursor=
 
 set statusline=
 set statusline +=%#warningmsg#
@@ -192,6 +192,7 @@ set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L\%* "total lines
 set statusline +=%*:%c\ %* "total lines
 set statusline +=%*%y%* "file type
+set statusline +=%{ObsessionStatus()}%*
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -259,11 +260,8 @@ nnoremap <silent> <F11> :BufExplorer<CR>
 nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
 nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 
-nnoremap cnt :tabnew<CR>
-
 " map \ to grep now that space is my leader key
 nnoremap \ :Ack!<space>
-nnoremap \| :AckFromSearch<cr>
 
 " highlight what you just pasted
 " note: '] moves to a mark at the end of your paste
@@ -287,16 +285,18 @@ endif
 " unmap BufExplorer's default toggle
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>cq :cclose<cr>
-nnoremap <leader>co :copen 30<cr>
+nnoremap <leader>co :copen 15<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>W :Goyo<cr>
 nnoremap <leader>9 :!mocha-all<cr>
 nnoremap <leader>0 :!mocha-single %<cr>
-nnoremap <leader>e :ALENext<cr>
-nnoremap <leader>E :ALEPrevious<cr>
+nnoremap <leader>e :ALENextWrap<cr>
+nnoremap <leader>E :ALEPreviousWrap<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
+nnoremap <leader>a :AckFromSearch!<cr>
+nnoremap <leader>t :tabnew
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
@@ -327,13 +327,6 @@ function! PBCopy()
     call system('pbcopy', @s)
     let @s = temp
 endfunction
-
-" haya incsearch, only load in vim 7.3 and higher
-if v:version >= 703
-	map /  <Plug>(incsearch-forward)
-	map ?  <Plug>(incsearch-backward)
-	map g/ <Plug>(incsearch-stay)
-endif
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
@@ -372,6 +365,7 @@ augroup files
     autocmd BufRead,BufNewFile *.md set filetype=markdown
     autocmd BufRead,BufNewFile *.ino,*.pde set filetype=cpp
     autocmd BufRead,BufNewFile *.ejs set filetype=eruby
+    autocmd BufRead,BufNewFile *.love set filetype=lua
 augroup END
 
 augroup windowTypes

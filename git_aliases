@@ -9,6 +9,7 @@
     flog = log -u ; shows log with file changes inline with pager
     unpushed = !git l @{u}..
     branchdiff = !git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    bdi = !git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative develop..HEAD
 
     unstage = reset HEAD
     uncommit = reset --soft HEAD^
