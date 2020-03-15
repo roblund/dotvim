@@ -42,7 +42,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
-Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
