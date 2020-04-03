@@ -38,7 +38,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-obsession'
 
 " language specific
-Plug 'kchmck/vim-coffee-script'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
@@ -106,7 +105,7 @@ let g:ale_sign_column_always = 1
 let g:ale_linters = {
 \   'html': [],
 \   'handlebars': [],
-\   'vue': ['prettier']
+\   'vue': ['prettier', 'eslint']
 \}
 
 let test#strategy = 'dispatch'
@@ -123,6 +122,7 @@ augroup writing
 augroup END
 
 augroup format
+    let g:prettier#exec_cmd_async = 1
     let g:prettier#autoformat = 0
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 augroup END
