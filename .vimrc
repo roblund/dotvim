@@ -7,12 +7,11 @@ let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
 " general
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'mileszs/ack.vim'
-Plug 'ervandew/supertab'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'ervandew/supertab'
 Plug 'justinmk/vim-sneak'
 Plug 'dense-analysis/ale'
 Plug 'ntpeters/vim-better-whitespace'
@@ -24,27 +23,19 @@ Plug 'vimwiki/vimwiki'
 Plug 'mkitt/tabline.vim'
 Plug 'tomtom/tcomment_vim'
 
-" writing
-Plug 'junegunn/goyo.vim'
-Plug 'reedes/vim-pencil'
-
 " tim pope section
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-fugitive'
 
 " language specific
 Plug 'vim-ruby/vim-ruby'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
@@ -66,19 +57,7 @@ set ttimeoutlen=50
 if executable('rg')
   set grepprg=rg\ --color=never
   set grepformat=%f:%l:%m
-  let g:ackprg = 'rg --hidden --vimgrep --no-heading'
-  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
-  let g:ctrlp_use_caching = 0
 endif
-
-let g:ack_qhandler = "botright copen 15"
-let g:ackhighlight = 1
-let g:ack_apply_qmappings = 0
-let g:ack_apply_lmappings = 0
-
-let g:ctrlp_working_path_mode=0 " don't manage working path
-let g:ctrlp_max_files=100000
-let g:ctrlp_match_window='max:15,min:15'
 
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerDisableDefaultKeyMapping=1
@@ -101,60 +80,32 @@ let g:vimwiki_list = [{
     \}]
 let g:vimwiki_hl_headers = 1
 
-let g:ale_sign_column_always = 1
+"\   'html': [],
 let g:ale_linters = {
-\   'html': [],
 \   'handlebars': [],
-\   'vue': ['prettier', 'eslint']
+\   'javascript': ['eslint'],
+\   'vue': ['eslint']
 \}
+
+" let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+" \   'javascript': ['prettier'],
+" \   'vue': ['prettier'],
+" \   'css': ['prettier'],
+" \}
 
 let test#strategy = 'dispatch'
 let test#javascript#mocha#options = '--webpack-config webpack.config-test.babel.js --reporter spec'
 
 set complete+=kspell
 
-let g:pencil#wrapModeDefault='soft'
-
-augroup writing
-    autocmd!
-    autocmd User GoyoEnter call <SID>goyo_enter()
-    autocmd User GoyoLeave call <SID>goyo_leave()
-augroup END
-
 augroup format
     let g:prettier#exec_cmd_async = 1
-    let g:prettier#autoformat = 0
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 augroup END
 
-function! s:goyo_enter()
-    " turn on pencil
-    Pencil
-
-    " setup goyo so :q will completely quit vim
-    let b:quitting = 0
-    let b:quitting_bang = 0
-    autocmd QuitPre <buffer> let b:quitting = 1
-    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-
-function! s:goyo_leave()
-    " turn off pencil
-    NoPencil
-
-    " quit Vim if this is the only remaining buffer
-    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-        if b:quitting_bang
-            qa!
-        else
-            qa
-        endif
-    endif
-endfunction
-
 if !has('nvim')
     set ttymouse=xterm2
-    set cryptmethod=blowfish2
 endif
 
 set modelines=0
@@ -186,26 +137,11 @@ set statusline=
 set statusline +=%#warningmsg#
 set statusline +=%*
 set statusline +=%*\ %<%f\ %* "full path
-set statusline +=%{LinterStatus()}%*
 set statusline +=%*%m%* "modified flag
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L\%* "total lines
 set statusline +=%*:%c\ %* "total lines
 set statusline +=%*%y%* "file type
-set statusline +=%{ObsessionStatus()}%*
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? '' : printf(
-    \   '[%dW %dE] ',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
 
 if exists("+undofile")
     " save undofiles in a less annoying spot
@@ -241,9 +177,6 @@ set matchtime=0
 set incsearch
 set hlsearch
 
-" have vim use the older regex engine for now (problems with cursorline)
-set re=1
-
 set wrap
 set formatoptions=qn1
 
@@ -260,8 +193,8 @@ nnoremap <silent> <F11> :BufExplorer<CR>
 nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
 nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 
-" map \ to grep now that space is my leader key
-nnoremap \ :Ack!<space>
+nnoremap <silent> - :FileBeagleBufferDir<cr>
+
 
 " highlight what you just pasted
 " note: '] moves to a mark at the end of your paste
@@ -271,47 +204,36 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
-if has("gui_macvim")
-    " open file in Marked 2
-    function! MarkedOpen()
-        silent execute '!open -a "Marked 2" ' . bufname('%')
-        redraw!
-    endfunction
+" map \ to 'find-in-files' now that space is my leader key
+nnoremap \ :Rg<space>
 
-    :command! Marked :call MarkedOpen()
-    nnoremap <leader>2 :call MarkedOpen()<cr>
-endif
+nnoremap <C-P> :Files<cr>
 
-" unmap BufExplorer's default toggle
+nnoremap <leader>j :BLines<cr>
 nnoremap <leader>b :BufExplorer<cr>
+nnoremap <leader>a :Rg<cr>
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>co :copen 15<cr>
-nnoremap <leader>f :CtrlPFunky<cr>
+nnoremap <leader>lq :lclose<cr>
+nnoremap <leader>lo :lopen 15<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
-nnoremap <leader>W :Goyo<cr>
-nnoremap <leader>9 :!mocha-all<cr>
 nnoremap <leader>0 :!mocha-single %<cr>
 nnoremap <leader>e :ALENextWrap<cr>
 nnoremap <leader>E :ALEPreviousWrap<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
-nnoremap <leader>a :AckFromSearch!<cr>
-nnoremap <leader>t :tabnew
-
-nnoremap <silent> - :FileBeagleBufferDir<cr>
+nnoremap <leader>t :tabnew<cr>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-if v:version >= 800
-    " internal vim terminal mappings
-    tnoremap <C-J> <C-W><C-J>
-    tnoremap <C-K> <C-W><C-K>
-    tnoremap <C-L> <C-W><C-L>
-    tnoremap <C-H> <C-W><C-H>
-endif
+" internal vim terminal mappings
+tnoremap <C-J> <C-W><C-J>
+tnoremap <C-K> <C-W><C-K>
+tnoremap <C-L> <C-W><C-L>
+tnoremap <C-H> <C-W><C-H>
 
 " paste from system buffer
 nmap <leader>p "+p
@@ -355,7 +277,7 @@ function! ToggleMouse()
     endif
 endfunc
 
-" identify the syntax highlighting group
+" identify the Vim syntax highlighting group
 :command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"

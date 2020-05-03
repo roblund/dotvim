@@ -52,6 +52,8 @@ hi DiffAdd term=reverse cterm=bold ctermbg=lightgreen ctermfg=16
 hi DiffChange term=reverse cterm=bold ctermbg=lightblue ctermfg=16
 hi DiffText term=reverse cterm=bold ctermbg=lightgray ctermfg=16
 hi DiffDelete term=reverse cterm=bold ctermbg=lightred ctermfg=16
+hi diffRemoved ctermfg=red
+hi diffAdded ctermfg=green
 
 hi VimwikiLink gui=NONE guifg=#00afff cterm=NONE ctermfg=39
 hi VimwikiListTodo gui=NONE guifg=#00d787 cterm=NONE ctermfg=42
