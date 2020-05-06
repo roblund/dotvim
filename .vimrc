@@ -94,8 +94,8 @@ let g:ale_linters = {
 " \   'css': ['prettier'],
 " \}
 
-let test#strategy = 'dispatch'
-let test#javascript#mocha#options = '--webpack-config webpack.config-test.babel.js --reporter spec'
+let test#strategy = 'vimterminal'
+let g:test#javascript#mocha#executable = 'npm run single-test --silent'
 
 set complete+=kspell
 
@@ -205,20 +205,20 @@ set pastetoggle=<F3>
 let mapleader="\<Space>"
 
 " map \ to 'find-in-files' now that space is my leader key
-nnoremap \ :Rg<space>
+nnoremap \ :Rg<cr>
 
 nnoremap <C-P> :Files<cr>
 
 nnoremap <leader>j :BLines<cr>
 nnoremap <leader>b :BufExplorer<cr>
-nnoremap <leader>a :Rg<cr>
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>co :copen 15<cr>
 nnoremap <leader>lq :lclose<cr>
 nnoremap <leader>lo :lopen 15<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
-nnoremap <leader>0 :!mocha-single %<cr>
+nnoremap <leader>0 :TestFile<cr>
+nnoremap <leader>9 :TestLast<cr>
 nnoremap <leader>e :ALENextWrap<cr>
 nnoremap <leader>E :ALEPreviousWrap<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
