@@ -12,16 +12,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'ervandew/supertab'
-Plug 'justinmk/vim-sneak'
 Plug 'dense-analysis/ale'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'yssl/QFEnter'
 Plug 'janko-m/vim-test'
 Plug 'vimwiki/vimwiki'
 Plug 'mkitt/tabline.vim'
 Plug 'tomtom/tcomment_vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'sheerun/vim-polyglot'
 
 " tim pope section
 Plug 'tpope/vim-unimpaired'
@@ -29,15 +28,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
-
-" language specific
-Plug 'vim-ruby/vim-ruby'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'posva/vim-vue'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 call plug#end()
 
@@ -87,12 +77,15 @@ let g:ale_linters = {
 \   'vue': ['eslint']
 \}
 
-" let g:ale_fix_on_save = 1
-" let g:ale_fixers = {
-" \   'javascript': ['prettier'],
-" \   'vue': ['prettier'],
-" \   'css': ['prettier'],
-" \}
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'vue': ['prettier'],
+\   'css': ['prettier'],
+\   'scss': ['prettier'],
+\   'json': ['prettier'],
+\   'html': ['prettier'],
+\}
 
 let test#strategy = 'vimterminal'
 let g:test#javascript#mocha#executable = 'npm run single-test --silent'
@@ -100,12 +93,15 @@ let g:test#javascript#mocha#executable = 'npm run single-test --silent'
 set complete+=kspell
 
 augroup format
-    let g:prettier#exec_cmd_async = 1
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+    " let g:prettier#exec_cmd_async = 1
+    " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 augroup END
 
 if !has('nvim')
     set ttymouse=xterm2
+endif
+if has('mouse_sgr')
+    set ttymouse=sgr
 endif
 
 set modelines=0
@@ -166,7 +162,7 @@ endif
 set backup
 set backupdir=~/.vim/backup//,.
 
-set tags=tags
+" set tags=tags
 
 set ignorecase
 set infercase
@@ -209,7 +205,7 @@ nnoremap \ :Rg<cr>
 
 nnoremap <C-P> :Files<cr>
 
-nnoremap <leader>j :BLines<cr>
+nnoremap <leader>j :BTags<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>cq :cclose<cr>
 nnoremap <leader>co :copen 15<cr>
