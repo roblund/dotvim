@@ -59,7 +59,7 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-let g:sneak#label = 1
+let g:gutentags_cache_dir= '~/.tags'
 
 let g:vimwiki_list = [{
     \'path': '~/Dropbox/Notes/vimwiki',
@@ -191,7 +191,6 @@ nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
 
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
-
 " highlight what you just pasted
 " note: '] moves to a mark at the end of your paste
 nnoremap gV `[v`]
@@ -291,6 +290,6 @@ augroup windowTypes
     autocmd filetype qf wincmd J
 augroup END
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/node_modules/*,*/coverage-reports/*,*.map
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/src/public/*,*/node_modules/*,*/coverage-reports/*,*.map
 set wildmenu
 set wildmode=longest,list
