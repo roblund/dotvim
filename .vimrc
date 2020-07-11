@@ -9,6 +9,8 @@ call plug#begin('~/.vim/plugged')
 " general
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'ervandew/supertab'
@@ -70,7 +72,22 @@ let g:vimwiki_list = [{
     \}]
 let g:vimwiki_hl_headers = 1
 
-"\   'html': [],
+if executable('rg')
+  set grepprg=rg\ --color=never
+  set grepprg=rg\ --color=never
+  set grepformat=%f:%l:%m
+  set grepformat=%f:%l:%m
+  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+let g:ctrlp_map = ''
+let g:ctrlp_working_path_mode=0 " don't manage working path
+let g:ctrlp_max_files=100000
+let g:ctrlp_match_window='max:25,min:15'
+
+let g:vue_pre_processors = ['scss']
+
 let g:ale_linters = {
 \   'handlebars': [],
 \   'javascript': ['eslint'],
@@ -91,11 +108,6 @@ let test#strategy = 'vimterminal'
 let g:test#javascript#mocha#executable = 'npm run single-test --silent'
 
 set complete+=kspell
-
-augroup format
-    " let g:prettier#exec_cmd_async = 1
-    " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-augroup END
 
 if !has('nvim')
     set ttymouse=xterm2
@@ -128,6 +140,7 @@ set nrformats=
 set number
 set colorcolumn=100
 set guicursor=
+set redrawtime=10000
 
 set statusline=
 set statusline +=%#warningmsg#
@@ -204,6 +217,7 @@ nnoremap \ :Rg<cr>
 
 nnoremap <C-P> :Files<cr>
 
+nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>j :BTags<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>cq :cclose<cr>
@@ -218,6 +232,7 @@ nnoremap <leader>e :ALENextWrap<cr>
 nnoremap <leader>E :ALEPreviousWrap<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>t :tabnew<cr>
+nnoremap <leader>r :syntax sync fromstart<cr>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
