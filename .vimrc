@@ -101,7 +101,8 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'scss': ['prettier'],
 \   'json': ['prettier'],
-\   'html': ['prettier'],
+\   'html': [],
+\   'handlebars': []
 \}
 
 let test#strategy = 'vimterminal'
