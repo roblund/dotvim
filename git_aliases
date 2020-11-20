@@ -10,6 +10,7 @@
     unpushed = !git l @{u}..
     branchdiff = !git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     bdi = !git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative develop..HEAD
+    twoweeks = log --since=2.weeks --author='Rob Lund' --oneline
 
     unstage = reset HEAD
     uncommit = reset --soft HEAD^
@@ -18,6 +19,7 @@
     ds = !git --no-pager diff --stat=160,120
     dt = difftool
     mt = mergetool
+    rpo = remote prune origin
 
     fix = "!$EDITOR `git diff --name-only --diff-filter=U`"
     fadd = "!git add `git diff --name-only --diff-filter=U`"
