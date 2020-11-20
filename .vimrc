@@ -213,10 +213,8 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
-" map \ to 'find-in-files' now that space is my leader key
-nnoremap \ :Rg<cr>
-
 nnoremap <C-P> :Files<cr>
+nnoremap \ :Rg<cr>
 
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>j :BTags<cr>
