@@ -46,11 +46,6 @@ endif
 colorscheme ir_rob
 set ttimeoutlen=50
 
-if executable('rg')
-  set grepprg=rg\ --color=never
-  set grepformat=%f:%l:%m
-endif
-
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerDisableDefaultKeyMapping=1
 
@@ -74,10 +69,8 @@ let g:vimwiki_hl_headers = 1
 
 if executable('rg')
   set grepprg=rg\ --color=never
-  set grepprg=rg\ --color=never
   set grepformat=%f:%l:%m
-  set grepformat=%f:%l:%m
-  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
+  let g:ctrlp_user_command = "rg '%s' --files --hidden --color=never --glob ''"
   let g:ctrlp_use_caching = 0
 endif
 
@@ -101,6 +94,7 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'scss': ['prettier'],
 \   'json': ['prettier'],
+\   'markdown': ['prettier'],
 \   'html': [],
 \   'handlebars': []
 \}
@@ -219,10 +213,7 @@ nnoremap \ :Rg<cr>
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>j :BTags<cr>
 nnoremap <leader>b :BufExplorer<cr>
-nnoremap <leader>cq :cclose<cr>
-nnoremap <leader>co :copen 15<cr>
-nnoremap <leader>lq :lclose<cr>
-nnoremap <leader>lo :lopen 15<cr>
+nnoremap <leader>q :close<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>0 :TestFile<cr>
@@ -232,17 +223,10 @@ nnoremap <leader>E :ALEPreviousWrap<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>r :syntax sync fromstart<cr>
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" internal vim terminal mappings
-tnoremap <C-J> <C-W><C-J>
-tnoremap <C-K> <C-W><C-K>
-tnoremap <C-L> <C-W><C-L>
-tnoremap <C-H> <C-W><C-H>
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gf :diffget //3<cr>
+nnoremap <leader>gj :diffget //2<cr>
+nnoremap <leader>gd :Gdiffsplit!<cr>
 
 " paste from system buffer
 nmap <leader>p "+p
@@ -258,6 +242,18 @@ function! PBCopy()
     call system('pbcopy', @s)
     let @s = temp
 endfunction
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" internal vim terminal mappings
+tnoremap <C-J> <C-W><C-J>
+tnoremap <C-K> <C-W><C-K>
+tnoremap <C-L> <C-W><C-L>
+tnoremap <C-H> <C-W><C-H>
+
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
