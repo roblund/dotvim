@@ -23,6 +23,7 @@ Plug 'mkitt/tabline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
+Plug 'mileszs/ack.vim'
 
 " tim pope section
 Plug 'tpope/vim-unimpaired'
@@ -70,10 +71,12 @@ let g:vimwiki_hl_headers = 1
 if executable('rg')
   set grepprg=rg\ --color=never
   set grepformat=%f:%l:%m
+  let g:ackprg = 'rg --vimgrep --smart-case'
   let g:ctrlp_user_command = "rg '%s' --files --hidden --color=never --glob ''"
   let g:ctrlp_use_caching = 0
 endif
 
+" TODO might be able to get rid of this since CtrlP is only used for funky
 let g:ctrlp_map = ''
 let g:ctrlp_working_path_mode=0 " don't manage working path
 let g:ctrlp_max_files=100000
@@ -171,8 +174,6 @@ endif
 set backup
 set backupdir=~/.vim/backup//,.
 
-" set tags=tags
-
 set ignorecase
 set infercase
 set smartcase
@@ -209,12 +210,12 @@ set pastetoggle=<F3>
 let mapleader="\<Space>"
 
 nnoremap <C-P> :Files<cr>
-nnoremap \ :Rg<cr>
 
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>j :BTags<cr>
 nnoremap <leader>b :BufExplorer<cr>
 nnoremap <leader>q :close<cr>
+nnoremap <leader>C :copen<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>0 :TestFile<cr>
@@ -249,12 +250,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" internal vim terminal mappings
-tnoremap <C-J> <C-W><C-J>
-tnoremap <C-K> <C-W><C-K>
-tnoremap <C-L> <C-W><C-L>
-tnoremap <C-H> <C-W><C-H>
-
+nnoremap \ :Ack!<space>
+nnoremap <leader>\ :Ack!<space><C-R>/
+" don't immediately jump
+cnoreabbrev Ack Ack!
+" any empty ack search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+let g:ackhighlight = 1
 
 " setup visual */# search
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
