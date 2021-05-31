@@ -136,7 +136,7 @@ set splitright
 set hidden
 set nrformats=
 set number
-set colorcolumn=100
+set colorcolumn=80
 set guicursor=
 set redrawtime=10000
 
@@ -177,15 +177,14 @@ set backupdir=~/.vim/backup//,.
 set ignorecase
 set infercase
 set smartcase
-set gdefault
 set showmatch
 set matchtime=0
 set incsearch
 set hlsearch
 
-set wrap
 set formatoptions=qn1
 
+set wrap
 " move by display line
 nnoremap j gj
 nnoremap k gk

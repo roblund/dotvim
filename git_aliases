@@ -8,6 +8,7 @@
     cl = log --format='%h %cr %cn %Cgreen%s%Creset' --name-status ; quick log with file list and pager
     flog = log -u ; shows log with file changes inline with pager
     unpushed = !git l @{u}..
+    b = !git checkout $(git branch | fzf)
     branchdiff = !git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     bdi = !git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative develop..HEAD
     twoweeks = log --since=2.weeks --author='Rob Lund' --oneline
