@@ -145,7 +145,6 @@ set statusline +=%#warningmsg#
 set statusline +=%*
 set statusline +=%*\ %<%f\ %* "full path
 set statusline +=%*%m%* "modified flag
-set statusline +=%*%=%{fugitive#statusline()} "git branch
 set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L\%* "total lines
 set statusline +=%*:%c\ %* "column in line
