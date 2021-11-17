@@ -24,6 +24,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot'
 Plug 'mileszs/ack.vim'
+Plug 'justinmk/vim-sneak'
 
 " tim pope section
 Plug 'tpope/vim-unimpaired'
@@ -56,6 +57,8 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+
+let g:sneak#label = 1
 
 let g:gutentags_cache_dir= '~/.tags'
 
