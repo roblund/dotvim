@@ -17,7 +17,7 @@ Plug 'ervandew/supertab'
 Plug 'dense-analysis/ale'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'yssl/QFEnter'
-Plug 'janko-m/vim-test'
+Plug 'vim-test/vim-test'
 Plug 'vimwiki/vimwiki'
 Plug 'mkitt/tabline.vim'
 Plug 'tomtom/tcomment_vim'
@@ -104,8 +104,7 @@ let g:ale_fixers = {
 \   'handlebars': []
 \}
 
-let test#strategy = 'vimterminal'
-let g:test#javascript#mocha#executable = 'npm run single-test --silent'
+let test#strategy = 'neovim'
 
 set complete+=kspell
 
@@ -218,8 +217,8 @@ nnoremap <leader>q :close<cr>
 nnoremap <leader>C :copen<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
-nnoremap <leader>0 :TestFile<cr>
-nnoremap <leader>9 :TestLast<cr>
+nnoremap <leader>0 :TestNearest<cr>
+nnoremap <leader>9 :TestFile<cr>
 nnoremap <leader>e :ALENextWrap<cr>
 nnoremap <leader>E :ALEPreviousWrap<cr>
 nnoremap <leader>m :call ToggleMouse()<cr>
