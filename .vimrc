@@ -251,6 +251,7 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap \ :Ack!<space>
 nnoremap <leader>\ :Ack!<space><C-R>/
+nnoremap <leader>8 :Ack!<cr>
 " don't immediately jump
 cnoreabbrev Ack Ack!
 " any empty ack search will search for the work the cursor is on
