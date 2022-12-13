@@ -25,6 +25,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'mileszs/ack.vim'
 Plug 'justinmk/vim-sneak'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
+
 " tim pope section
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
@@ -137,6 +140,7 @@ set splitright
 set hidden
 set nrformats=
 set number
+set relativenumber
 set colorcolumn=80
 set guicursor=
 set redrawtime=10000
@@ -189,6 +193,10 @@ set wrap
 nnoremap j gj
 nnoremap k gk
 
+" when using ctrl-u/d re-center
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 " remap beginning and end of line
 nnoremap <S-B> ^
 nnoremap <S-E> $
@@ -210,6 +218,14 @@ let mapleader="\<Space>"
 
 nnoremap <C-P> :Files<cr>
 
+" harpoon
+nnoremap <leader>m :lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>M :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <M-h> :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <M-j> :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <M-k> :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <M-l> :lua require("harpoon.ui").nav_file(4)<cr>
+
 nnoremap <leader>f :CtrlPFunky<cr>
 nnoremap <leader>j :BTags<cr>
 nnoremap <leader>b :BufExplorer<cr>
@@ -221,7 +237,6 @@ nnoremap <leader>0 :TestNearest<cr>
 nnoremap <leader>9 :TestFile<cr>
 nnoremap <leader>e :ALENextWrap<cr>
 nnoremap <leader>E :ALEPreviousWrap<cr>
-nnoremap <leader>m :call ToggleMouse()<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>r :syntax sync fromstart<cr>
 nnoremap <leader>gs :G<CR>
