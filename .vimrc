@@ -9,17 +9,13 @@ call plug#begin('~/.vim/plugged')
 " general
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'ervandew/supertab'
 Plug 'dense-analysis/ale'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'yssl/QFEnter'
+" Plug 'ervandew/supertab'
+" Plug 'yssl/QFEnter'
+" Plug 'mkitt/tabline.vim'
 Plug 'vim-test/vim-test'
-Plug 'vimwiki/vimwiki'
-Plug 'mkitt/tabline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'mileszs/ack.vim'
@@ -32,7 +28,6 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
@@ -50,9 +45,6 @@ endif
 colorscheme ir_rob
 set ttimeoutlen=50
 
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerDisableDefaultKeyMapping=1
-
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
@@ -61,31 +53,6 @@ let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
 let g:sneak#label = 1
-
-let g:gutentags_cache_dir= '~/.tags'
-
-let g:vimwiki_list = [{
-    \'path': '~/Dropbox/Notes/vimwiki',
-    \'ext': '.mkd',
-    \'diary_rel_path': 'log/',
-    \'diary_index': 'index',
-    \'diary_header': 'Log'
-    \}]
-let g:vimwiki_hl_headers = 1
-
-if executable('rg')
-  set grepprg=rg\ --color=never
-  set grepformat=%f:%l:%m
-  let g:ackprg = 'rg --vimgrep --smart-case'
-  let g:ctrlp_user_command = "rg '%s' --files --hidden --color=never --glob ''"
-  let g:ctrlp_use_caching = 0
-endif
-
-" TODO might be able to get rid of this since CtrlP is only used for funky
-let g:ctrlp_map = ''
-let g:ctrlp_working_path_mode=0 " don't manage working path
-let g:ctrlp_max_files=100000
-let g:ctrlp_match_window='max:25,min:15'
 
 let g:vue_pre_processors = ['scss']
 
@@ -140,10 +107,10 @@ set splitright
 set hidden
 set nrformats=
 set number
-set relativenumber
 set colorcolumn=80
 set guicursor=
 set redrawtime=10000
+set tags=tags
 
 set statusline=
 set statusline +=%#warningmsg#
@@ -201,11 +168,6 @@ nnoremap <C-d> <C-d>zz
 nnoremap <S-B> ^
 nnoremap <S-E> $
 
-" disable default bufexplorer commands
-nnoremap <silent> <F11> :BufExplorer<CR>
-nnoremap <silent> <m-F11> :BufExplorerHorizontalSplit<CR>
-nnoremap <silent> <c-F11> :BufExplorerVerticalSplit<CR>
-
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
 " highlight what you just pasted
@@ -216,19 +178,17 @@ set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
-nnoremap <C-P> :Files<cr>
-
 " harpoon
-nnoremap <leader>m :lua require("harpoon.mark").add_file()<cr>
-nnoremap <leader>M :lua require("harpoon.ui").toggle_quick_menu()<cr>
-nnoremap <M-h> :lua require("harpoon.ui").nav_file(1)<cr>
-nnoremap <M-j> :lua require("harpoon.ui").nav_file(2)<cr>
-nnoremap <M-k> :lua require("harpoon.ui").nav_file(3)<cr>
-nnoremap <M-l> :lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <leader>ja :lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>jl :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <leader>j1 :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <leader>j2 :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <leader>j3 :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <leader>j4 :lua require("harpoon.ui").nav_file(4)<cr>
 
-nnoremap <leader>f :CtrlPFunky<cr>
-nnoremap <leader>j :BTags<cr>
-nnoremap <leader>b :BufExplorer<cr>
+nnoremap <C-P> :Files<cr>
+nnoremap <leader>f :BLines<cr>
+nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>q :close<cr>
 nnoremap <leader>C :copen<cr>
 nnoremap <leader>d :w !diff % -<cr>
@@ -269,7 +229,7 @@ nnoremap <leader>\ :Ack!<space><C-R>/
 nnoremap <leader>8 :Ack!<cr>
 " don't immediately jump
 cnoreabbrev Ack Ack!
-" any empty ack search will search for the work the cursor is on
+" an empty ack search will search for the word the cursor is on
 let g:ack_use_cword_for_empty_search = 1
 let g:ackhighlight = 1
 
@@ -286,19 +246,6 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
     let @s = temp
 endfunction
-
-function! ToggleMouse()
-    " check if mouse is enabled
-    if &mouse == 'a'
-        " disable mouse
-        set mouse=
-        echo "Mouse Off"
-    else
-        " enable mouse everywhere
-        set mouse=a
-        echo "Mouse On"
-    endif
-endfunc
 
 " identify the Vim syntax highlighting group
 :command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

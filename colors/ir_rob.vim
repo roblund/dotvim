@@ -68,3 +68,5 @@ hi TabLine guibg=black guifg=darkgray gui=NONE ctermbg=234 ctermfg=29 cterm=NONE
 hi TabLineFill guibg=darkgray guifg=#171717 ctermbg=236 ctermfg=233
 
 hi EndOfBuffer guifg=#C6C5FE ctermfg=cyan
+
+hi ALEWarning guifg=#00005f guibg=#00d7ff ctermfg=17 ctermbg=45
