@@ -6,7 +6,6 @@ filetype off
 let g:plug_url_format='git@github.com:%s.git'
 call plug#begin('~/.vim/plugged')
 
-" general
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
@@ -24,7 +23,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 
-" tim pope section
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -38,12 +36,7 @@ syntax on
 let $MYVIMRC='~/.vim/.vimrc'
 
 set background=dark
-set t_Co=256
-if &term =~ '256color'
-    set t_ut=
-endif
 colorscheme ir_rob
-set ttimeoutlen=50
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
@@ -53,8 +46,6 @@ let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
 let g:sneak#label = 1
-
-let g:vue_pre_processors = ['scss']
 
 let g:ale_linters = {
 \   'handlebars': [],
@@ -76,41 +67,28 @@ let g:ale_fixers = {
 
 let test#strategy = 'neovim'
 
-set complete+=kspell
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6, 'border': 'sharp'} }
+let g:fzf_preview_window = ['right,70%', 'ctrl-/']
+let $FZF_DEFAULT_OPTS = '--reverse'
 
-if !has('nvim')
-    set ttymouse=xterm2
-endif
-if has('mouse_sgr')
-    set ttymouse=sgr
-endif
+" TODO set modelines=0
 
-set modelines=0
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set smarttab
-set encoding=utf-8
 set scrolloff=3
-set autoindent
 set smartindent
-set mouse=a
-set showmode
-set showcmd
-set ttyfast
-set ruler
-set backspace=indent,eol,start
-set laststatus=2
-set history=1000
 set splitright
-set hidden
-set nrformats=
 set number
 set colorcolumn=80
 set guicursor=
-set redrawtime=10000
-set tags=tags
+set ignorecase
+set infercase
+set smartcase
+set complete=.,b,kspell
+set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/src/public/*,*/node_modules/*,*/coverage-reports/*,*.map
+set wildmode=longest,list
 
 set statusline=
 set statusline +=%#warningmsg#
@@ -145,16 +123,7 @@ endif
 set backup
 set backupdir=~/.vim/backup//,.
 
-set ignorecase
-set infercase
-set smartcase
-set showmatch
-set matchtime=0
-set incsearch
-set hlsearch
-
 set formatoptions=qn1
-
 set wrap
 " move by display line
 nnoremap j gj
@@ -265,6 +234,3 @@ augroup windowTypes
     autocmd filetype qf wincmd J
 augroup END
 
-set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/src/public/*,*/node_modules/*,*/coverage-reports/*,*.map
-set wildmenu
-set wildmode=longest,list
