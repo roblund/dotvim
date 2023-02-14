@@ -10,10 +10,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'dense-analysis/ale'
-Plug 'ntpeters/vim-better-whitespace'
-" Plug 'ervandew/supertab'
-" Plug 'yssl/QFEnter'
-" Plug 'mkitt/tabline.vim'
 Plug 'vim-test/vim-test'
 Plug 'tomtom/tcomment_vim'
 Plug 'sheerun/vim-polyglot'
@@ -41,10 +37,6 @@ colorscheme ir_rob
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-let g:strip_whitespace_confirm=0
-
 let g:sneak#label = 1
 
 let g:ale_linters = {
@@ -55,23 +47,24 @@ let g:ale_linters = {
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier'],
 \   'vue': ['prettier'],
 \   'css': ['prettier'],
 \   'scss': ['prettier'],
 \   'json': ['prettier'],
 \   'markdown': ['prettier'],
+\   'yaml': ['prettier'],
+\   'xml': ['xmllint'],
 \   'html': [],
 \   'handlebars': []
 \}
 
 let test#strategy = 'neovim'
 
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6, 'border': 'sharp'} }
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5, 'border': 'sharp'} }
 let g:fzf_preview_window = ['right,70%', 'ctrl-/']
 let $FZF_DEFAULT_OPTS = '--reverse'
-
-" TODO set modelines=0
 
 set expandtab
 set tabstop=4
@@ -133,17 +126,9 @@ nnoremap k gk
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
-" remap beginning and end of line
-nnoremap <S-B> ^
-nnoremap <S-E> $
-
-nnoremap <silent> - :FileBeagleBufferDir<cr>
-
 " highlight what you just pasted
-" note: '] moves to a mark at the end of your paste
+" note: [ ] mark the beginning and end of your paste, < > mark your selection
 nnoremap gV `[v`]
-
-set pastetoggle=<F3>
 
 let mapleader="\<Space>"
 
@@ -156,18 +141,18 @@ nnoremap <leader>j3 :lua require("harpoon.ui").nav_file(3)<cr>
 nnoremap <leader>j4 :lua require("harpoon.ui").nav_file(4)<cr>
 
 nnoremap <C-P> :Files<cr>
+nnoremap \ :Rg<cr>
+" nnoremap <leader>8 :<C-u>call RgLastSelection()<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>q :close<cr>
-nnoremap <leader>C :copen<cr>
 nnoremap <leader>d :w !diff % -<cr>
 nnoremap <leader>h :nohl<cr>
 nnoremap <leader>0 :TestNearest<cr>
 nnoremap <leader>9 :TestFile<cr>
 nnoremap <leader>e :ALENextWrap<cr>
-nnoremap <leader>E :ALEPreviousWrap<cr>
 nnoremap <leader>t :tabnew<cr>
-nnoremap <leader>r :syntax sync fromstart<cr>
+nnoremap <leader>R :syntax sync fromstart<cr>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gf :diffget //3<cr>
 nnoremap <leader>gj :diffget //2<cr>
@@ -187,34 +172,23 @@ function! PBCopy()
     call system('pbcopy', @s)
     let @s = temp
 endfunction
+"
+" function! RgLastSelection()
+"     let temp = @s
+"     " go to last/current visual selection, and yank it into the "s register
+"     norm! gv"sy
+"     norm Rg @s
+"     let @s = temp
+" endfunction
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap \ :Ack!<space>
-nnoremap <leader>\ :Ack!<space><C-R>/
-nnoremap <leader>8 :Ack!<cr>
-" don't immediately jump
-cnoreabbrev Ack Ack!
-" an empty ack search will search for the word the cursor is on
-let g:ack_use_cword_for_empty_search = 1
-let g:ackhighlight = 1
-
-" setup visual */# search
-xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
-
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-function! s:VSetSearch()
-    let temp = @s
-    " go to last/current visual selection, and yank it into the "s register
-    norm! gv"sy
-    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-    let @s = temp
-endfunction
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+" open the quick fix list after a quick fix command, eg. :grep
+autocmd QuickFixCmdPost *grep* cwindow
 
 " identify the Vim syntax highlighting group
 :command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -233,4 +207,3 @@ augroup windowTypes
     autocmd!
     autocmd filetype qf wincmd J
 augroup END
-
