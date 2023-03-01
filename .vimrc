@@ -157,6 +157,7 @@ nnoremap <leader>gs :G<CR>
 nnoremap <leader>gf :diffget //3<cr>
 nnoremap <leader>gj :diffget //2<cr>
 nnoremap <leader>gd :Gdiffsplit!<cr>
+nnoremap <silent> - :FileBeagleBufferDir<cr>
 
 " paste from system buffer
 nmap <leader>p "+p
