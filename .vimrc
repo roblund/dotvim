@@ -62,8 +62,8 @@ let g:ale_fixers = {
 
 let test#strategy = 'neovim'
 
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5, 'border': 'sharp'} }
-let g:fzf_preview_window = ['right,70%', 'ctrl-/']
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.5, 'border': 'sharp'} }
+let g:fzf_preview_window = ['right,40%', 'ctrl-/']
 let $FZF_DEFAULT_OPTS = '--reverse'
 
 set expandtab
