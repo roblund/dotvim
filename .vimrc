@@ -83,6 +83,7 @@ set complete=.,b,kspell
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/src/public/*,*/node_modules/*,*/coverage-reports/*,*.map
 set wildmode=longest,list
 
+
 set statusline=
 set statusline +=%#warningmsg#
 set statusline +=%*
@@ -125,6 +126,10 @@ nnoremap k gk
 " when using ctrl-u/d re-center
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
+
+" pop up menu mappings
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 
 " highlight what you just pasted
 " note: [ ] mark the beginning and end of your paste, < > mark your selection
