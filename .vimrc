@@ -15,6 +15,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'mileszs/ack.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'mbbill/undotree'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
@@ -79,10 +80,10 @@ set guicursor=
 set ignorecase
 set infercase
 set smartcase
+set noswapfile
 set complete=.,b,kspell
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/src/public/*,*/node_modules/*,*/coverage-reports/*,*.map
 set wildmode=longest,list
-
 
 set statusline=
 set statusline +=%#warningmsg#
@@ -93,29 +94,6 @@ set statusline +=%*%=%5l%* "current line
 set statusline +=%*/%L\%* "total lines
 set statusline +=%*:%c\ %* "column in line
 set statusline +=%*%y%* "file type
-
-if exists("+undofile")
-    " save undofiles in a less annoying spot
-    if isdirectory($HOME . '/.vim/undo') == 0
-        :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-    endif
-    set undofile
-    set undolevels=1000
-    set undodir=~/.vim/undo//,.
-endif
-
-" save swapfiles in a less annoying spot
-if isdirectory($HOME . '/.vim/swap') == 0
-    :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
-endif
-set directory=~/.vim/swap//,.
-
-" save backups in a less annoying spot
-if isdirectory($HOME . '/.vim/backup') == 0
-    :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
-endif
-set backup
-set backupdir=~/.vim/backup//,.
 
 set formatoptions=qn1
 set wrap
