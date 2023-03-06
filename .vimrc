@@ -125,7 +125,6 @@ nnoremap <leader>j4 :lua require("harpoon.ui").nav_file(4)<cr>
 
 nnoremap <C-P> :Files<cr>
 nnoremap \ :Rg<cr>
-" nnoremap <leader>8 :<C-u>call RgLastSelection()<cr>
 nnoremap <leader>f :BLines<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>q :close<cr>
@@ -134,6 +133,7 @@ nnoremap <leader>h :nohl<cr>
 nnoremap <leader>0 :TestNearest<cr>
 nnoremap <leader>9 :TestFile<cr>
 nnoremap <leader>e :ALENextWrap<cr>
+nnoremap <leader>u :UndotreeToggle<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>R :syntax sync fromstart<cr>
 nnoremap <leader>gs :G<CR>
@@ -156,14 +156,6 @@ function! PBCopy()
     call system('pbcopy', @s)
     let @s = temp
 endfunction
-"
-" function! RgLastSelection()
-"     let temp = @s
-"     " go to last/current visual selection, and yank it into the "s register
-"     norm! gv"sy
-"     norm Rg @s
-"     let @s = temp
-" endfunction
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
