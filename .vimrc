@@ -38,6 +38,8 @@ colorscheme ir_rob
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
+let g:undotree_WindowLayout = 2
+
 let g:sneak#label = 1
 
 let g:ale_linters = {
@@ -134,8 +136,10 @@ nnoremap <leader>0 :TestNearest<cr>
 nnoremap <leader>9 :TestFile<cr>
 nnoremap <leader>e :ALENextWrap<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap <leader>U :UndotreeFocus<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>R :syntax sync fromstart<cr>
+nnoremap <leader>/ :Helptags<cr>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gf :diffget //3<cr>
 nnoremap <leader>gj :diffget //2<cr>
@@ -170,6 +174,11 @@ autocmd QuickFixCmdPost *grep* cwindow
 :command! SynGroup echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
     \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
+
+if has("persistent_undo")
+    set undodir=$HOME/.vim/undo
+    set undofile
+endif
 
 augroup files
     autocmd!
