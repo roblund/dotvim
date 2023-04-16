@@ -84,6 +84,7 @@ set ignorecase
 set infercase
 set smartcase
 set noswapfile
+set mouse=nv
 set complete=.,b,kspell
 set wildignore+=*/tmp/*,*/generated/*,*/optimized/*,*/_site/*,*DS_Store*,*/src/public/*,*/node_modules/*,*/coverage-reports/*,*.map
 set wildmode=longest,list
