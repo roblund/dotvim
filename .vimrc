@@ -145,7 +145,6 @@ nnoremap <leader>/ :Helptags<cr>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gf :diffget //3<cr>
 nnoremap <leader>gj :diffget //2<cr>
-nnoremap <leader>gd :Gdiffsplit!<cr>
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
 " paste from system buffer
@@ -178,7 +177,7 @@ autocmd QuickFixCmdPost *grep* cwindow
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
 
 if has("persistent_undo")
-    set undodir=$HOME/.vim/undo
+    set undodir=$HOME/.undodir
     set undofile
 endif
 
