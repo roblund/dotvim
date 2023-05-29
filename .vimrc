@@ -13,9 +13,10 @@ Plug 'dense-analysis/ale'
 Plug 'vim-test/vim-test'
 Plug 'tomtom/tcomment_vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'mileszs/ack.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'mbbill/undotree'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
@@ -38,8 +39,6 @@ colorscheme ir_rob
 
 let g:filebeagle_suppress_keymaps=1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-
-let g:undotree_WindowLayout = 2
 
 let g:sneak#label = 1
 
@@ -137,14 +136,13 @@ nnoremap <leader>h :nohl<cr>
 nnoremap <leader>0 :TestNearest<cr>
 nnoremap <leader>9 :TestFile<cr>
 nnoremap <leader>e :ALENextWrap<cr>
-nnoremap <leader>u :UndotreeToggle<cr>
-nnoremap <leader>U :UndotreeFocus<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>R :syntax sync fromstart<cr>
 nnoremap <leader>/ :Helptags<cr>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gf :diffget //3<cr>
 nnoremap <leader>gj :diffget //2<cr>
+nnoremap <leader>gb :GBrowse<cr>
 nnoremap <silent> - :FileBeagleBufferDir<cr>
 
 " paste from system buffer
