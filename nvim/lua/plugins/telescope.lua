@@ -10,11 +10,13 @@ return {
         -- vim.keymap.set('n', '<leader>ps', function()
         --     builtin.grep_string({ search = vim.fn.input("Grep > ") });
         -- end)
-        vim.keymap.set('n', "<leader>b", builtin.buffers)
-        vim.keymap.set('n', "<leader>ht", builtin.help_tags)
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, {})
-        vim.keymap.set('n', '<leader>ff', builtin.treesitter, {})
+        vim.keymap.set('n', "<leader>b", builtin.buffers, { desc = "Current buffers" })
+        vim.keymap.set('n', "<leader>ht", builtin.help_tags, { desc = "Help tags" })
+        vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Find in project (grep)" })
+        vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, { desc = "Find in current buffer" })
+        vim.keymap.set('n', '<leader>ff', builtin.treesitter, { desc = "Find function in current buffer" })
+        vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = "Find references for item under cursor" })
+        vim.keymap.set("n", "<leader>km", builtin.keymaps, { desc = "Key maps" })
 
         require('telescope').setup({
             defaults = {
