@@ -5,7 +5,7 @@ return {
             require("Comment").setup()
         end,
     },
-    { "wellle/context.vim" },
+    -- { "wellle/context.vim" },
     { "tpope/vim-unimpaired" },
     { "tpope/vim-surround" },
     { "tpope/vim-repeat" },

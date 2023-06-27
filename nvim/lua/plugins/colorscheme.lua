@@ -28,10 +28,6 @@ return {
 
             vim.opt.termguicolors = true
             vim.cmd.colorscheme('tokyonight')
-
-            --highlight overrides
-            -- vim.api.nvim_set_hl(0, 'LineNr', { ctermfg=242 })
-            -- vim.api.nvim_set_hl(0, 'StatusLine', { ctermbg=87,  ctermfg=235 })
         end
     },
 }
