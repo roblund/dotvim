@@ -12,7 +12,7 @@ return {
                 if client.server_capabilities.documentFormattingProvider then
                     -- format on save
                     vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-                    vim.api.nvim_create_autocmd("BufWritePost", {
+                    vim.api.nvim_create_autocmd("BufWritePre", {
                             buffer = bufnr,
                             group = group,
                             callback = function()
