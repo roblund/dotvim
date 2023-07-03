@@ -6,7 +6,9 @@ return {
         opts = {},
         config = function()
             require("tokyonight").setup({
+                style = "night",
                 on_colors = function(c)
+                    c.bg = "#000000"
                     c.comment = "#6F90C2"
                 end,
                 on_highlights = function(hl, c)
@@ -26,8 +28,7 @@ return {
                 end
             })
 
-            vim.opt.termguicolors = true
-            vim.cmd.colorscheme('tokyonight')
+            vim.cmd([[colorscheme tokyonight-night]])
         end
     },
 }
