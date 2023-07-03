@@ -1,6 +1,5 @@
 return {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
         local builtin = require('telescope.builtin')
@@ -24,7 +23,12 @@ return {
                     prompt_position = "top",
                 },
                 sorting_strategy = "ascending",
-            }
+            },
+            pickers = {
+                current_buffer_fuzzy_find = {
+                    theme = "ivy",
+                }
+            },
         })
     end
 }
