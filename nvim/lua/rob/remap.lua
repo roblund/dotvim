@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>h", vim.cmd.nohl)
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.goto_next, { desc = "goto the next error in the file" })
 vim.keymap.set('n', '<leader>E', vim.diagnostic.goto_prev, { desc = "goto the previous error in the file" })
+vim.keymap.set("n", "<leader>d", "<cmd>w !diff % -<cr>", { desc = "Diff the current unsaved changes" })
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "yank to the system copy-paste buffer" })
 
