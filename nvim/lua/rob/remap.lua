@@ -8,8 +8,6 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>q", vim.cmd.close)
 vim.keymap.set("n", "<leader>h", vim.cmd.nohl)
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.goto_next, { desc = "goto the next error in the file" })
-vim.keymap.set('n', '<leader>E', vim.diagnostic.goto_prev, { desc = "goto the previous error in the file" })
 vim.keymap.set("n", "<leader>d", "<cmd>w !diff % -<cr>", { desc = "Diff the current unsaved changes" })
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "yank to the system copy-paste buffer" })
@@ -24,7 +22,3 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
-
-vim.keymap.set('i', '<CR>', function()
-    return vim.fn.pumvisible() == 1 and '<C-y>' or '<CR>'
-end, { expr = true })
