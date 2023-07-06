@@ -22,6 +22,9 @@ return {
                 sorting_strategy = "ascending",
             },
             pickers = {
+                lsp_references = {
+                    show_line = false,
+                },
                 buffers = {
                     theme = "ivy",
                 },

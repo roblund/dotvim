@@ -18,6 +18,9 @@ return {
                 running = ">",
                 skipped = "#",
             },
+            quickfix = {
+              open = false
+            },
         })
         vim.keymap.set("n", "<leader>0", function()
             require("neotest").run.run()
@@ -26,7 +29,7 @@ return {
             require("neotest").run.run(vim.fn.expand("%"))
         end, { desc = "Test this file" })
         vim.keymap.set("n", "<leader>8", function ()
-            require("neotest").output.open({ enter = true })
+            require("neotest").output.open({ enter = false })
         end, { desc = "Open the test output" })
     end
 }
