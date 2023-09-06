@@ -18,6 +18,8 @@ vim.keymap.set("v", ">", ">gv", { desc = "indent and keep visual selection" })
 vim.keymap.set("n", "gV", "`[v`]", { desc = "select the thing you just pasted" })
 vim.keymap.set("v", "y", "ygv<ESC>", { desc = "ygv<ESC> - yank but don't move cursor back to start of selection" })
 
+vim.keymap.set("n", "<leader>dq", vim.diagnostic.setqflist, { desc = "send diagnostic messages to the quickfix list" })
+
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")

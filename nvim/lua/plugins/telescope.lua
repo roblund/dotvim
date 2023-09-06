@@ -23,12 +23,16 @@ return {
             },
             pickers = {
                 lsp_references = {
+                    theme = "ivy",
                     show_line = false,
                 },
                 buffers = {
                     theme = "ivy",
                 },
                 current_buffer_fuzzy_find = {
+                    theme = "ivy",
+                },
+                treesitter = {
                     theme = "ivy",
                 },
                 cache_picker = {
