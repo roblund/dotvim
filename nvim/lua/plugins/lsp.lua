@@ -38,5 +38,10 @@ return {
                 keyword_length = 2
             },
         })
+
+        vim.keymap.set("n", "<leader>v", function()
+            vim.cmd('vsplit')
+            vim.lsp.buf.definition()
+        end, { desc = "Goto definition in new vertical split" })
     end
 }
