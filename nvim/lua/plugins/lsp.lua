@@ -27,6 +27,23 @@ return {
 
         require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
+        require 'lspconfig'.tsserver.setup {
+            init_options = {
+                plugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+                        languages = { "javascript", "typescript", "vue" },
+                    },
+                },
+            },
+            filetypes = {
+                "javascript",
+                "typescript",
+                "vue",
+            },
+        }
+
         lsp.setup()
 
         local cmp = require('cmp')
