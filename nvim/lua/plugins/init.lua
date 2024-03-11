@@ -5,7 +5,7 @@ return {
             require("Comment").setup()
         end,
     },
-    { "sheerun/vim-polyglot" },
+    { "leafOfTree/vim-vue-plugin" },
     { "tpope/vim-unimpaired" },
     { "tpope/vim-surround" },
     { "tpope/vim-repeat" },
