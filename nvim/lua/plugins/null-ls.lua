@@ -18,9 +18,9 @@ return {
                         callback = function()
                             vim.lsp.buf.format({
                                 async = false,
-                                filter = function (cl)
-                                   return cl.name ~= "tsserver"
-                                   and cl.name ~= "volar"
+                                filter = function(cl)
+                                    return cl.name ~= "ts_ls"
+                                        and cl.name ~= "volar"
                                 end
                             })
                         end,

@@ -30,7 +30,7 @@ return {
 
         require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-        require 'lspconfig'.tsserver.setup {
+        require 'lspconfig'.ts_ls.setup {
             init_options = {
                 plugins = {
                     {
