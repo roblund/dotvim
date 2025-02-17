@@ -5,10 +5,10 @@ vim.keymap.set("n", "k", "gk", { desc = "move up by display line, including wrap
 vim.keymap.set("n", "-", vim.cmd.Ex, { desc = "open netrw file browser" })
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>q", vim.cmd.close)
 vim.keymap.set("n", "<leader>h", vim.cmd.nohl)
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set("n", "<leader>d", "<cmd>w !diff % -<cr>", { desc = "Diff the current unsaved changes" })
+vim.keymap.set("n", "<leader><leader>", "<C-^>")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "yank to the system copy-paste buffer" })
 
