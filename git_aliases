@@ -30,4 +30,4 @@
 
     stl = !git --no-pager stash list --format='%C(cyan)%gd%C(reset) %C(yellow)%cr%C(reset) %cn'
     stt = !git --no-pager stash show stash@{0}
-    std = stash show -p stash@{0}
+    std = stash show -p
