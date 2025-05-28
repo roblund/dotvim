@@ -14,23 +14,23 @@ return {
         { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
         -- Autocompletion
-        { "hrsh7th/nvim-cmp" },     -- Required
+        { "hrsh7th/nvim-cmp" }, -- Required
         { "hrsh7th/cmp-nvim-lsp" }, -- Required
-        { "L3MON4D3/LuaSnip" },     -- Required
+        { "L3MON4D3/LuaSnip" }, -- Required
         { "hrsh7th/cmp-buffer" },
         { "hrsh7th/cmp-nvim-lua" },
         { "hrsh7th/cmp-nvim-lsp-signature-help" },
     },
     config = function()
-        local lsp = require('lsp-zero').preset({})
+        local lsp = require("lsp-zero").preset({})
 
         lsp.on_attach(function(client, bufnr)
             lsp.default_keymaps({ buffer = bufnr })
         end)
 
-        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+        require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
-        require 'lspconfig'.ts_ls.setup {
+        require("lspconfig").ts_ls.setup({
             init_options = {
                 plugins = {
                     {
@@ -45,17 +45,17 @@ return {
                 "typescript",
                 "vue",
             },
-        }
+        })
 
         lsp.setup()
 
-        local cmp = require('cmp')
+        local cmp = require("cmp")
         cmp.setup({
             mapping = {
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ["<CR>"] = cmp.mapping.confirm({ select = true }),
             },
             completion = {
-                keyword_length = 2
+                keyword_length = 2,
             },
             sources = {
                 { name = "nvim_lsp" },
@@ -81,8 +81,8 @@ return {
         })
 
         vim.keymap.set("n", "<leader>v", function()
-            vim.cmd('vsplit')
+            vim.cmd("vsplit")
             vim.lsp.buf.definition()
         end, { desc = "Goto definition in new vertical split" })
-    end
+    end,
 }
