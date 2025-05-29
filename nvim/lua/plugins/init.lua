@@ -37,6 +37,15 @@ return {
 	{ "tpope/vim-repeat" },
 	{ "tpope/vim-rhubarb" },
 	{
+		"karb94/neoscroll.nvim",
+		opts = {},
+		config = function()
+			require("neoscroll").setup({
+				duration_multiplier = 0.5,
+			})
+		end,
+	},
+	{
 		"stevearc/oil.nvim",
 		---@module 'oil'
 		---@type oil.SetupOpts
