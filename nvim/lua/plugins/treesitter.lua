@@ -14,6 +14,8 @@ return {
 					"vue",
 					"markdown",
 					"markdown_inline",
+					"css",
+					"scss",
 				},
 
 				sync_install = false,
