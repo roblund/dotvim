@@ -29,9 +29,9 @@ return {
 			lsp.default_keymaps({ buffer = bufnr })
 		end)
 
-		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+		vim.lsp.config("lua_ls").setup(lsp.nvim_lua_ls())
 
-		require("lspconfig").ts_ls.setup({
+		vim.lsp.config("ts_ls").setup({
 			init_options = {
 				plugins = {
 					{
