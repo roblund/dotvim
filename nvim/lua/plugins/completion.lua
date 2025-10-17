@@ -14,6 +14,9 @@ return {
 				completion = {
 					keyword_length = 2,
 				},
+				mapping = {
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
+				},
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
