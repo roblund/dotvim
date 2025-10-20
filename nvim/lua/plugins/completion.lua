@@ -15,8 +15,12 @@ return {
 					keyword_length = 2,
 				},
 				mapping = {
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					["<CR>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+						select = true, -- Automatically select the first item
+					}),
 				},
+				preselect = cmp.PreselectMode.Item,
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
