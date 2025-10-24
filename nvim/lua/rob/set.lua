@@ -8,6 +8,7 @@ vim.opt.scrolloff = 3
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.splitright = true
+vim.opt.signcolumn = "yes"
 
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true

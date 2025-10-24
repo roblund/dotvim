@@ -19,6 +19,8 @@ return {
 						behavior = cmp.ConfirmBehavior.Replace,
 						select = true, -- Automatically select the first item
 					}),
+					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 				},
 				preselect = cmp.PreselectMode.Item,
 				sources = {
