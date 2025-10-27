@@ -1,5 +1,7 @@
 vim.opt.number = true
 
+vim.g.editorconfig = true
+
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
