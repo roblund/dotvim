@@ -28,6 +28,6 @@
 
     dh1 = diff HEAD~1
 
-    stl = !git --no-pager stash list --format='%C(cyan)%gd%C(reset) %C(yellow)%cr%C(reset) %cn'
+    stl = !git --no-pager stash list --format='%C(cyan)%gd%C(reset) %C(yellow)%cr%C(reset) %s'
     stt = !git --no-pager stash show stash@{0}
     std = stash show -p

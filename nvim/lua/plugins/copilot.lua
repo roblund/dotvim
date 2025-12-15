@@ -5,4 +5,13 @@ return {
 	config = function()
 		require("copilot").setup({})
 	end,
+	opts = {
+        server_opts_overrides = {
+            settings = {
+                telemetry = {
+                    telemetryLevel = "off",
+                },
+            },
+		},
+	},
 }
