@@ -23,7 +23,6 @@ end
 
 vim.lsp.config("*", {
 	root_markers = { "package.json", ".git" },
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
 local vue_language_server_path = vim.fn.expand("$MASON/packages")
