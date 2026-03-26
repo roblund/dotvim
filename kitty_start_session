@@ -1,0 +1,19 @@
+layout fat
+cd ~/Code/webmap/code/webmap/src
+launch zsh
+launch zsh
+launch zsh
+
+new_tab
+layout fat
+cd ~/Code/markups-web/
+launch zsh
+launch zsh
+launch zsh
+
+new_tab
+layout fat
+cd ~/Code/content-collections-web/
+launch zsh
+launch zsh
+launch zsh
